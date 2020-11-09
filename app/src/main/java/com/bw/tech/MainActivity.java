@@ -16,33 +16,7 @@ public class MainActivity  extends AppCompatActivity{
 
         initTab();
 
-        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
-            //选择
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()){
-                    case 0:
 
-                        break;
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                }
-            }
-            //取消选择
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-            //重新选择
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
     }
 
     private void initTab() {
