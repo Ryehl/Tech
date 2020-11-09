@@ -1,4 +1,4 @@
-package com.bw.mylibrary.utils;
+package com.bw.mylibrary.bean;
 
 /**
  * <p>项目名称:维度商城</p>

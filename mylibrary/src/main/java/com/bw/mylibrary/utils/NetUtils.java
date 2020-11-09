@@ -2,9 +2,10 @@ package com.bw.mylibrary.utils;
 
 import android.util.Log;
 
+import com.bw.mylibrary.bean.Constant;
+import com.bw.mylibrary.bean.ConstantMMkv;
 import com.bw.mylibrary.interfaces.IApi;
-import com.xaoyv.small.bean.Constant;
-import com.xaoyv.small.bean.ConstantMMkv;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * <p>项目名称:维度商城</p>
+ * <p>项目名称:维度科技</p>
  * <p>简述:网络工具类</p>   Model
  *
  * @author Xaoyv

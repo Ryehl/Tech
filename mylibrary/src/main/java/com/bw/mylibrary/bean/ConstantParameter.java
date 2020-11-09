@@ -1,4 +1,4 @@
-package com.xaoyv.small.bean;
+package com.bw.mylibrary.bean;
 
 /**
  * <p>项目名称:维度商城</p>
