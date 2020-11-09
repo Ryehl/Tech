@@ -1,4 +1,4 @@
-package com.bw.mylibrary;
+package com.bw.mylibrary.bean;
 
 public class Urls {
     //内网

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bw.tech.IBaseView;
+import com.bw.mylibrary.Model.IBaseView;
 
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView {
     public P presenter;

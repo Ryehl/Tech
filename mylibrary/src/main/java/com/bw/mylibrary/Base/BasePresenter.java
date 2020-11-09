@@ -1,6 +1,6 @@
 package com.bw.mylibrary.Base;
 
-import com.bw.mylibrary.IBaseView;
+import com.bw.mylibrary.Model.IBaseView;
 
 public class BasePresenter <V extends IBaseView>{
     public V mView;

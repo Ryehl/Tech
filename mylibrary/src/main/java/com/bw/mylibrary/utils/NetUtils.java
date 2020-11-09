@@ -1,10 +1,11 @@
-package com.bw.mylibrary.Model;
+package com.bw.mylibrary.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.bw.tech.Urls;
+import com.bw.mylibrary.Model.Api;
+import com.bw.mylibrary.bean.Urls;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
