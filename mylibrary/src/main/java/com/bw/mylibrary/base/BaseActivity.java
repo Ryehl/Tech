@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bw.mylibrary.interfaces.IView;
-import com.xaoyv.small.interfaces.IView;
 
 /**
  * <p>项目名称:维度商城</p>
