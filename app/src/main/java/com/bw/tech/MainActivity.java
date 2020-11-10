@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BaseActivity;
-import com.bw.tech.Fragments.MyCommunityFrag;
+import com.bw.tech.Fragments.MainCommunityFrag;
 import com.bw.tech.Fragments.MyInfomationFrag;
 import com.bw.tech.Fragments.MyNewsFrag;
 import com.google.android.material.navigation.NavigationView;
@@ -52,7 +52,7 @@ public class MainActivity  extends BaseActivity {
                         tab.setIcon(R.mipmap.common_tab_message_s);
                         break;
                     case 2:
-                        temp.replace(R.id.main_frame_show,new MyCommunityFrag());
+                        temp.replace(R.id.main_frame_show,new MainCommunityFrag());
                         tab.setIcon(R.mipmap.common_tab_community_s);
                         break;
                 }
