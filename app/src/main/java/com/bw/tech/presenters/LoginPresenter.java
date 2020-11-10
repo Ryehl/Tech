@@ -1,5 +1,6 @@
 package com.bw.tech.presenters;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BasePresenter;
@@ -7,6 +8,7 @@ import com.bw.mylibrary.utils.InternetUtil;
 import com.bw.mylibrary.utils.NetUtils;
 import com.bw.tech.Activities.LoginActivity;
 import com.bw.tech.Beans.LoginBean;
+import com.bw.tech.MainActivity;
 import com.bw.tech.MyApp;
 import com.bw.tech.Urls;
 import com.google.gson.Gson;
@@ -39,8 +41,10 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                     LoginBean loginBean=new Gson().fromJson(json,LoginBean.class);
                     if(loginBean!=null){
                         if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
-                            if(loginBean.getStatus().equals("0000")){
+                                if(loginBean.getStatus().equals("0000")){
                                 Toast.makeText(MyApp.context, "登陆成功！", Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(iView, MainActivity.class);
+                                iView.startActivity(intent);
                             }else{
                                 Toast.makeText(iView, "登陆失败！", Toast.LENGTH_SHORT).show();
                             }

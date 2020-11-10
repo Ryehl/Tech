@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="100dp"
+            android:background="@mipmap/icon"
+            fresco:roundAsCircle="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="110dp"
+            android:text="GGBond"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="110dp"
+                android:background="@mipmap/my_icon_sign_n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="98dp"
+                android:layout_marginTop="2dp"
+                android:text="签到"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--  一 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_collect_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="我的收藏"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+    <!--  二 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_attention_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="我的关注"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="117dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+    <!-- 三 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_card_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="我的帖子"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+    <!--  四 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_notice_s" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="我的通知"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+    <!--  五 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_notice_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="我的积分"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+    <!--  六 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_task_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="我的任务"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+    <!--  七 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/my_icon_setting_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="设置"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="157dp"
+            android:layout_marginTop="12dp"
+            android:background="@mipmap/my_icon_next_n" />
+    </LinearLayout>
+
+</LinearLayout>

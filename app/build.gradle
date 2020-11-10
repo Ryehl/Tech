@@ -51,6 +51,6 @@ dependencies {
     implementation 'com.android.support:design:30.0.0'
     implementation project(path: ':mylibrary')
     compile project(path: ':mylibrary')//tablayou 依赖
-
+    implementation 'com.tencent:mmkv-static:1.0.23'
 
 }
