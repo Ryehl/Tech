@@ -37,15 +37,18 @@ public class NetUtils {
     private Retrofit retrofit;
 
     private NetUtils() {
+        //拦截器
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
+        //okHttp
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .connectTimeout(3, TimeUnit.SECONDS)
                 .readTimeout(3, TimeUnit.SECONDS)
                 .build();
 
+        //retrofit
         retrofit = new Retrofit.Builder()
                 .baseUrl(Constant.BASE_URL)
                 .client(client)
@@ -53,14 +56,21 @@ public class NetUtils {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        //接口
         mIApi = retrofit.create(IApi.class);
     }
 
     public static NetUtils getNetUtils() {
-        //单例模式
+        //静态单例模式
         return netUtils == null ? netUtils = new NetUtils() : netUtils;
     }
 
+    /**
+     * 设置头参
+     *
+     * @param sessionId sessionId
+     * @param userId    userId
+     */
     public void setHeader(String sessionId, String userId) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -89,6 +99,9 @@ public class NetUtils {
         Log.d(Constant.TAG, "setHeader: success");
     }
 
+    /**
+     * 接口回调
+     */
     public interface GetJsonListener {
         void success(String json);
 
@@ -129,13 +142,12 @@ public class NetUtils {
 
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }
 
     /**
-     * get info with map
+     * post info with map
      *
      * @param url      url
      * @param map      para
@@ -168,7 +180,6 @@ public class NetUtils {
 
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }
@@ -177,7 +188,7 @@ public class NetUtils {
      * post info with body
      *
      * @param url      url
-     * @param body      body
+     * @param body     body
      * @param listener 接口回调
      */
     public void postInfoWithBody(String url, RequestBody body, GetJsonListener listener) {
@@ -212,14 +223,128 @@ public class NetUtils {
     }
 
     /**
-     * post info with body
+     * put info with map
      *
      * @param url      url
-     * @param map      参数
+     * @param map      参数parameters
      * @param listener 接口回调
      */
     public void putInfo(String url, HashMap<String, Object> map, GetJsonListener listener) {
         mIApi.putInfo(url, map)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            String json = responseBody.string();
+                            listener.success(json);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                        listener.error();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
+    }
+
+    /**
+     * put info with body
+     *
+     * @param url      url
+     * @param body     参数parameters
+     * @param listener 接口回调
+     */
+    public void putInfo(String url, RequestBody body, GetJsonListener listener) {
+        mIApi.putInfoWithBody(url, body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            String json = responseBody.string();
+                            listener.success(json);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                        listener.error();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
+    }
+
+    /**
+     * delete info with map
+     *
+     * @param url      url
+     * @param map      para
+     * @param listener 接口回调
+     */
+    public void deleteInfo(String url, HashMap<String, Object> map, GetJsonListener listener) {
+        mIApi.deleteInfo(url, map)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            String json = responseBody.string();
+                            listener.success(json);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                        listener.error();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
+    }
+
+    /**
+     * delete info with body
+     *
+     * @param url      url
+     * @param body     body
+     * @param listener 接口回调
+     */
+    public void deleteInfoWithBody(String url, RequestBody body, GetJsonListener listener) {
+        mIApi.deleteInfoWithBody(url, body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
