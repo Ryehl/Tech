@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Fragments.LoginActivity"></activity>
+        <activity android:name=".Activities.LoginActivity"></activity>
         <activity android:name=".MainActivity" />
 
-        <activity android:name=".Fragments.WelcomeActivity">
+        <activity android:name=".Activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

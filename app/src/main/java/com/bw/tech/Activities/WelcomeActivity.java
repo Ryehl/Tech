@@ -1,15 +1,8 @@
-package com.bw.tech.Fragments;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.bw.tech.Activities;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 import com.bw.mylibrary.base.BaseActivity;
-import com.bw.tech.MainActivity;
 import com.bw.tech.R;
 
 public class WelcomeActivity extends BaseActivity {

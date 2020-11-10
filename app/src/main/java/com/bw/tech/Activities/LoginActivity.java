@@ -1,4 +1,4 @@
-package com.bw.tech.Fragments;
+package com.bw.tech.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
