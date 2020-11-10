@@ -104,7 +104,8 @@ public class MainActivity  extends BaseActivity {
                 //获取屏幕的宽高
                 WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
                 Display display = manager.getDefaultDisplay();
-                //设置右面的布局位置 根据左面菜单的right作为右面布局的left 左面的right+屏幕的宽度（或者right的宽度这里是相等的）为右面布局的right
+                //设置右面的布局位置 根据左面菜单的right作为右面布局的left
+                // 左面的right+屏幕的宽度（或者right的宽度这里是相等的）为右面布局的right
                 center.layout(left.getRight(), 0, left.getRight() + display.getWidth(), display.getHeight());
             }
             @Override

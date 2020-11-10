@@ -31,7 +31,7 @@
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
-<!--    中间的-->
+<!--    中间的(右侧的)-->
     <LinearLayout
         android:id="@+id/main_center"
         android:orientation="vertical"
@@ -48,6 +48,8 @@
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabRippleColor="@android:color/transparent"
             android:id="@+id/tab"
             />
     </LinearLayout>
