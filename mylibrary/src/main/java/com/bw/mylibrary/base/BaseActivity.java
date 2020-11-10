@@ -45,4 +45,5 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             pre.detachView();
         pre = null;
     }
+
 }

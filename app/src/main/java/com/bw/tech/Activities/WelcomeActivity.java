@@ -1,6 +1,9 @@
 package com.bw.tech.Activities;
 
+import android.Manifest;
 import android.content.Intent;
+
+import androidx.core.app.ActivityCompat;
 
 import com.bw.mylibrary.base.BaseActivity;
 import com.bw.tech.R;
@@ -17,6 +20,17 @@ public class WelcomeActivity extends BaseActivity {
     public void initData() {
         Intent intent=new Intent(WelcomeActivity.this, LoginActivity.class);
         startActivity(intent);
+
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.INTERNET,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA,
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        }, 0);
     }
 
     @Override

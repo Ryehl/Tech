@@ -10,5 +10,5 @@ package com.bw.mylibrary.bean;
 public class Constant {
     public static final String TAG = "TAG";
     public static final String RequestBodyMediaType = "application/json;charset=UTF-8";
-    public static final String BASE_URL = "http://mobile.bwstudent.com/small/";
+    public static final String BASE_URL = "https://mobile.bwstudent.com/techApi/";
 }

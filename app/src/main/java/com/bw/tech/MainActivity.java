@@ -6,11 +6,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.bw.mylibrary.base.BaseActivity;
 import com.bw.tech.Fragments.MyCommunityFrag;
@@ -117,6 +119,8 @@ public class MainActivity  extends BaseActivity {
             @Override
             public void onDrawerStateChanged(int newState) {}
         });
+
+
     }
 
     @Override
@@ -127,5 +131,23 @@ public class MainActivity  extends BaseActivity {
     @Override
     public Object initPresenter() {
         return null;
+    }
+
+    private long exitTime=0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //劫持返回键 -- 返回键需要按两次
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+                return true;
+            } else {
+                //finish();
+                //System.exit(0);
+                return super.onKeyDown(keyCode, event);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
