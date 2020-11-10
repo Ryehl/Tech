@@ -2,15 +2,18 @@ package com.bw.tech.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BaseActivity;
 import com.bw.mylibrary.bean.ConstantParameter;
 import com.bw.mylibrary.utils.NetUtils;
+import com.bw.mylibrary.utils.encrypt.RsaCoder;
 import com.bw.tech.Beans.LoginBean;
 import com.bw.tech.R;
 import com.bw.tech.Urls;
@@ -26,6 +29,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
     private EditText login_phone,login_pwd;
     private Button login_but;
     private List<LoginBean> loginBeans=new ArrayList<>();
+    private TextView go_register;
     @Override
     public void initView() {
 
@@ -33,12 +37,21 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
         login_phone=findViewById(R.id.login_phone);
         login_pwd=findViewById(R.id.login_pwd);
         login_but=findViewById(R.id.login_but);
-
+        go_register=findViewById(R.id.go_register);
 
     }
 
     @Override
     public void initData() {
+
+        //点击跳转到注册页面
+        go_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         login_but.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +64,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
                     Toast.makeText(LoginActivity.this, "请输入账号密码", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                pre.LoginInfo(phone,pwd);
+                try {
+                    String encrypt_pwd= RsaCoder.encryptByPublicKey(pwd);
+                    pre.LoginInfo(phone,encrypt_pwd);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

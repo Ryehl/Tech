@@ -8,11 +8,55 @@
     android:layout_height="match_parent"
     tools:context=".Activities.RegisterActivity">
 
-
+    <LinearLayout
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/logo"
+            />
+    </LinearLayout>
     <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/register_icon_name_n"
+            />
+        <EditText
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="昵称"
+            android:background="@null"
+            android:textColor="#fff"
+            android:id="@+id/register_nickName"
+            android:textColorHint="#fff"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="#fff"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -29,10 +73,11 @@
             android:background="@null"
             android:inputType="number"
             android:textColor="#fff"
-            android:id="@+id/login_phone"
+            android:id="@+id/register_phone"
             android:textColorHint="#fff"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_marginTop="10dp"
         android:gravity="center"
@@ -59,8 +104,8 @@
             android:layout_marginTop="2dp"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:hint="登录密码"
-            android:id="@+id/login_pwd"
+            android:hint="注册密码"
+            android:id="@+id/register_pwd"
             android:layout_marginLeft="5dp"
             android:background="@null"
             android:inputType="textPassword"
@@ -73,13 +118,13 @@
             android:background="@mipmap/login_icon_eye_n"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-
             android:layout_width="320dp"
             android:layout_height="1dp"
             android:background="#fff"
@@ -93,14 +138,15 @@
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="快速注册"
+            android:text="已有账号！去登陆"
+            android:id="@+id/go_login"
             android:textColor="#fff"
             android:textSize="12dp"
             android:layout_marginRight="40dp"
             />
     </RelativeLayout>
     <LinearLayout
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -108,10 +154,10 @@
             android:layout_width="300dp"
             android:layout_height="35dp"
             android:background="#23AAE7"
-            android:text="登陆"
+            android:text="注册"
             android:textColor="#fff"
             android:textSize="18sp"
-            android:id="@+id/login_but"
+            android:id="@+id/register_but"
             />
     </LinearLayout>
 

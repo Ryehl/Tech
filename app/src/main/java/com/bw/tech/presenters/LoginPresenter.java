@@ -3,6 +3,7 @@ package com.bw.tech.presenters;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BasePresenter;
+import com.bw.mylibrary.utils.InternetUtil;
 import com.bw.mylibrary.utils.NetUtils;
 import com.bw.tech.Activities.LoginActivity;
 import com.bw.tech.Beans.LoginBean;
@@ -19,15 +20,15 @@ import okhttp3.RequestBody;
 
 public class LoginPresenter extends BasePresenter<LoginActivity> {
 
-    public void LoginInfo(String phone,String pwd){
+    public void LoginInfo(String phone,String encrypt_pwd){
         try {
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("phone",phone);
-            jsonObject.put("pwd",pwd);
+            jsonObject.put("pwd",encrypt_pwd);
             //入参
             HashMap<String,Object> map=new HashMap<>();
             map.put("phone",phone);
-            map.put("pwd","MSK5wv27ZHqwZXzrumnYn2SJDEJv19+58VpKyPwrbRXylzHP8NXScXpYKOmErCBN+YB8mJ5Q64nr7XCA+RMxKRKqdUfHX7mfFAlZu48WQrAtjiCK3MS3PeZc2mnRlvkER8kKGsY8a4RUsXw1M+gezRhuPR1jEbLLm4rxmmCoaKs=");
+            map.put("pwd",encrypt_pwd);
             RequestBody requestBody=RequestBody.create(MediaType.parse("application/json;charset=utf-8"),jsonObject.toString());
             //网络请求
             NetUtils.getNetUtils().postInfo(Urls.Login_Ulr, map, new NetUtils.GetJsonListener() {
@@ -36,10 +37,16 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                     //设置适配器
 //                    iView.setLoginAdapter(json);
                     LoginBean loginBean=new Gson().fromJson(json,LoginBean.class);
-                    if(loginBean.getStatus().equals("0000")){
-                        Toast.makeText(MyApp.context, "登陆成功！", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(iView, "登陆失败！", Toast.LENGTH_SHORT).show();
+                    if(loginBean!=null){
+                        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
+                            if(loginBean.getStatus().equals("0000")){
+                                Toast.makeText(MyApp.context, "登陆成功！", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(iView, "登陆失败！", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(MyApp.context, "没网！玩您妈呢？", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
                 @Override
