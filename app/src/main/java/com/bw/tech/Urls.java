@@ -10,5 +10,11 @@ public class Urls {
     //加密
     public static final String Encrypt_Url="tool/v1/encrypt";
 
+    //轮播图XBunner
+    public static final String XBanner_Url="information/v1/bannerShow";
+
+    //资讯消息列表
+    public static final String Information_Url="information/v1/infoRecommendList";
+
 
 }

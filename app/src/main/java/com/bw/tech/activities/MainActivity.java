@@ -15,15 +15,18 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BaseActivity;
+import com.bw.mylibrary.bean.ConstantMMkv;
 import com.bw.tech.fragments.DrawerLoginFrag;
 
 
+import com.bw.tech.fragments.DrawerUnLogin;
 import com.bw.tech.fragments.MainCommunityFrag;
 import com.bw.tech.fragments.MyInfomationFrag;
 import com.bw.tech.fragments.MyNewsFrag;
 import com.bw.tech.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.tencent.mmkv.MMKV;
 
 
 public class MainActivity  extends BaseActivity {
@@ -126,13 +129,15 @@ public class MainActivity  extends BaseActivity {
 
         //根据不同的登陆状态 显示login的还是unlogin的
         FragmentTransaction ft = fm.beginTransaction();
-//        MMKV kv = MMKV.defaultMMKV();
-//        kv.putBoolean("", true);
-       // kv.decode
-        //if (kv.decodeBool("isLogin")){
-
-        //}else {
+        MMKV mmkv=MMKV.defaultMMKV();
+        if(mmkv.decodeBool(ConstantMMkv.Key_IsLogin)){
+            //已经登录显示的页面
             ft.replace(R.id.main_left, new DrawerLoginFrag());
+        }else{
+            //未登录显示的页面
+            ft.replace(R.id.main_left,new DrawerUnLogin());
+        }
+
         //}
         ft.commit();
     }

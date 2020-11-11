@@ -8,7 +8,7 @@ package com.bw.mylibrary.bean;
  * date 2020/10/27 11:25
  */
 public class ConstantMMkv {
-    public static final String Key_IsLogin = "isLogin";
+    public static final String Key_IsLogin = "isLogin";// true
 
     public static final String Key_Phone = "phone";
     public static final String Key_Pwd = "pwd";

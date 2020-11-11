@@ -48,6 +48,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
         login_but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                startActivity(intent);
                 //拿到输入框的账号跟密码
                 String phone=login_phone.getText().toString();
                 String pwd=login_pwd.getText().toString();

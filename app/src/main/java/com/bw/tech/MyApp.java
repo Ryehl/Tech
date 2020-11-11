@@ -3,6 +3,7 @@ package com.bw.tech;
 import android.app.Application;
 import android.content.Context;
 
+import com.bumptech.glide.request.target.ViewTarget;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.mmkv.MMKV;
 
@@ -20,6 +21,7 @@ public class MyApp extends Application {
 
         // You can enable debug mode in developing state. You should close debug mode when release.
         JMessageClient.setDebugMode(true);
-        JMessageClient.init(this, true);
+        JMessageClient.init(this);
+        ViewTarget.setTagId(R.id.glide_tag);
     }
 }
