@@ -20,6 +20,6 @@ public class MyApp extends Application {
 
         // You can enable debug mode in developing state. You should close debug mode when release.
         JMessageClient.setDebugMode(true);
-        JMessageClient.init(this);
+        JMessageClient.init(this, true);
     }
 }
