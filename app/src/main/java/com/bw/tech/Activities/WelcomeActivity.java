@@ -29,7 +29,14 @@ public class WelcomeActivity extends BaseActivity {
                 Manifest.permission.CAMERA,
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.WAKE_LOCK,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.VIBRATE,
+                Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+                Manifest.permission.WRITE_SETTINGS,
+                Manifest.permission.ACCESS_WIFI_STATE,
+                "com.bw.tech.permission.JPUSH_MESSAGE"
         }, 0);
     }
 
