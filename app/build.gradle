@@ -71,7 +71,8 @@ dependencies {
     implementation project(path: ':mylibrary')
     compile project(path: ':mylibrary')//tablayou 依赖
     implementation 'com.tencent:mmkv-static:1.0.23'
-
+    //XBanner
+    implementation 'com.github.xiaohaibin:XBanner:1.7.3'
     //极光IM消息
     compile 'cn.jiguang.sdk:jmessage:2.9.2'  // 此处以JMessage 2.9.2 版本为例。
     compile 'cn.jiguang.sdk:jcore:2.3.0'  // 此处以JCore 2.3.0 版本为例。

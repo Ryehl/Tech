@@ -1,4 +1,4 @@
-package com.bw.tech.Fragments;
+package com.bw.tech.fragments;
 
 import android.view.View;
 

@@ -1,4 +1,4 @@
-package com.bw.tech;
+package com.bw.tech.activities;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
@@ -15,15 +15,16 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BaseActivity;
-import com.bw.tech.Fragments.DrawerLoginFrag;
+import com.bw.tech.fragments.DrawerLoginFrag;
 
 
-import com.bw.tech.Fragments.MainCommunityFrag;
-import com.bw.tech.Fragments.MyInfomationFrag;
-import com.bw.tech.Fragments.MyNewsFrag;
+import com.bw.tech.fragments.MainCommunityFrag;
+import com.bw.tech.fragments.MyInfomationFrag;
+import com.bw.tech.fragments.MyNewsFrag;
+import com.bw.tech.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.tencent.mmkv.MMKV;
+
 
 public class MainActivity  extends BaseActivity {
 
@@ -84,7 +85,6 @@ public class MainActivity  extends BaseActivity {
 
             }
         });
-        //默认选择第一个
 
         tab.addTab(tab.newTab().setIcon(R.mipmap.common_tab_information_n).setText("咨询"));
         tab.addTab(tab.newTab().setIcon(R.mipmap.common_tab_message_n).setText("消息"));
@@ -126,8 +126,8 @@ public class MainActivity  extends BaseActivity {
 
         //根据不同的登陆状态 显示login的还是unlogin的
         FragmentTransaction ft = fm.beginTransaction();
-        MMKV kv = MMKV.defaultMMKV();
-        kv.putBoolean("", true);
+//        MMKV kv = MMKV.defaultMMKV();
+//        kv.putBoolean("", true);
        // kv.decode
         //if (kv.decodeBool("isLogin")){
 

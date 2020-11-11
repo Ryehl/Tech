@@ -1,4 +1,4 @@
-package com.bw.tech.Activities;
+package com.bw.tech.activities;
 
 import android.Manifest;
 import android.content.Intent;

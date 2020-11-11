@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Fragments.MyInfomationFrag">
+    tools:context=".fragments.MyInfomationFrag">
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -20,7 +20,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="咨讯息"
+            android:text="咨讯"
+
             android:gravity="center"
             android:textSize="23sp"
             />
@@ -33,6 +34,13 @@
             android:background="@mipmap/home_nav_btn_menu_n"
             />
     </RelativeLayout>
+
+    <com.stx.xhb.xbanner.XBanner
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/info_xbanner"
+        />
+
 
 
 </LinearLayout>

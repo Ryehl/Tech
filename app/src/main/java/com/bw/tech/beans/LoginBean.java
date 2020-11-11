@@ -1,6 +1,6 @@
-package com.bw.tech.Beans;
+package com.bw.tech.beans;
 
-public class RegisterBean {
+public class LoginBean {
 
     /**
      * message : 注册成功

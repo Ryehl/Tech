@@ -1,7 +1,7 @@
 package com.bw.tech.presenters;
 
 import com.bw.mylibrary.base.BasePresenter;
-import com.bw.tech.Fragments.MainCommunityFrag;
+import com.bw.tech.fragments.MainCommunityFrag;
 
 /**
  * <p>Project's name:Tech</p>

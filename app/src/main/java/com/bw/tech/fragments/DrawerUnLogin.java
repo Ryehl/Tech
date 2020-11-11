@@ -1,4 +1,4 @@
-package com.bw.tech.Fragments;
+package com.bw.tech.fragments;
 
 import com.bw.mylibrary.base.BaseFragment;
 import com.bw.tech.R;

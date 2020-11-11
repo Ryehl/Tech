@@ -34,10 +34,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.RegisterActivity"/>
-        <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Activities.WelcomeActivity">
+        <activity android:name=".activities.RegisterActivity"/>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
