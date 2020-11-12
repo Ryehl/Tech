@@ -1,15 +1,19 @@
 package com.bw.tech.fragments;
 
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bw.mylibrary.base.BaseFragment;
 import com.bw.tech.MyApp;
 import com.bw.tech.R;
+import com.bw.tech.adapters.InformationAdapter;
 import com.bw.tech.beans.InformationBean;
 import com.bw.tech.beans.XBannerBean;
 import com.bw.tech.presenters.XBannerPresenter;
@@ -27,18 +31,20 @@ public class MyInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XBanner xBanner;
     private List<String> list_img=new ArrayList<>();//图片数据源
     private List<String> list_title=new ArrayList<>();//标题数据源
-
+    private RecyclerView information_recyclerView;
+    private InformationAdapter informationAdapter;
     private List<InformationBean.ResultBean> list_information=new ArrayList<>();//咨讯列表数据源
     @Override
     public void initView() {
         View view=getView();
         xBanner=view.findViewById(R.id.info_xbanner);
-
+        information_recyclerView=view.findViewById(R.id.information_recycle);
     }
 
     @Override
     public void initData() {
          pre.getXBannerData();
+         pre.InformationData();
     }
 
     /*
@@ -81,8 +87,13 @@ public class MyInfomationFrag extends BaseFragment<XBannerPresenter> {
     public void InformationData(String json){
         //解析
         InformationBean informationBean=new Gson().fromJson(json,InformationBean.class);
+        Log.i("TAG",informationBean.toString());
         list_information.addAll(informationBean.getResult());
-
+        //适配器
+        informationAdapter=new InformationAdapter(list_information);
+        //设置适配器
+        information_recyclerView.setAdapter(informationAdapter);
+        information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
     }
 
 

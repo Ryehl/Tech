@@ -129,6 +129,7 @@ public class MainActivity  extends BaseActivity {
 
         //根据不同的登陆状态 显示login的还是unlogin的
         FragmentTransaction ft = fm.beginTransaction();
+
         MMKV mmkv=MMKV.defaultMMKV();
         if(mmkv.decodeBool(ConstantMMkv.Key_IsLogin)){
             //已经登录显示的页面
