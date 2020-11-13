@@ -31,7 +31,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
 
     @Override
     public int getLayout() {
-        return 0;
+        return R.layout.fragment_my_communtity;
     }
 
     @Override
