@@ -56,11 +56,11 @@ public class MainActivity  extends BaseActivity {
                        // ViewUtils.setViewTransparent(MainActivity.this);  沉浸式
                         break;
                     case 1:
-                        temp.replace(R.id.main_frame_show,new MyNewsFrag());
+                        temp.replace(R.id.main_frame_show,new MainCommunityFrag());
                         tab.setIcon(R.mipmap.common_tab_message_s);
                         break;
                     case 2:
-                        temp.replace(R.id.main_frame_show,new MainCommunityFrag());
+                        temp.replace(R.id.main_frame_show,new MyNewsFrag());
                         tab.setIcon(R.mipmap.common_tab_community_s);
                         break;
                 }

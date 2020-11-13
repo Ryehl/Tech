@@ -29,4 +29,20 @@ public class TypeConversionUtils {
         String stringOfDate = sdf.format(date);
         return stringOfDate;
     }
+
+    /**
+     * long to String 1hour ago
+     *
+     * @param l long
+     * @return string
+     */
+    public static String long2StringAgo(long l) {
+        //long to date
+        Date date = new Date(l);
+        //use simpleDataFormat class
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        //string info of date
+        String stringOfDate = sdf.format(date);
+        return stringOfDate;
+    }
 }

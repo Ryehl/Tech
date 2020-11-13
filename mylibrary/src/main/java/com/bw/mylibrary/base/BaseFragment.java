@@ -40,12 +40,6 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        initData();
-    }
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
         if (pre!=null)
