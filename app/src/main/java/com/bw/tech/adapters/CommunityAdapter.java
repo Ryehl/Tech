@@ -47,12 +47,12 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         holder.community_img.setImageURI(uri1);
 
         //判断评论长度
-        if(list.get(position).getComment()==0){
-
-        }else if(list.get(position).getComment()>0&&list.get(position).getComment()<=3){
-            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
-            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
-        }
+//        if(list.get(position).getComment()==0){
+//
+//        }else if(list.get(position).getComment()>0&&list.get(position).getComment()<=3){
+//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
+//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
+//        }
 //        else{
 //            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
 //            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
