@@ -18,6 +18,7 @@ import com.bw.tech.beans.InformationBean;
 import com.bw.tech.beans.XBannerBean;
 import com.bw.tech.presenters.XBannerPresenter;
 import com.google.gson.Gson;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.stx.xhb.xbanner.XBanner;
 import com.stx.xhb.xbanner.transformers.Transformer;
 
@@ -31,7 +32,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XBanner xBanner;
     private List<String> list_img = new ArrayList<>();//图片数据源
     private List<String> list_title = new ArrayList<>();//标题数据源
-    private RecyclerView information_recyclerView;
+    private XRecyclerView information_recyclerView;
     private InformationAdapter informationAdapter;
     private List<InformationBean.ResultBean> list_information = new ArrayList<>();//咨讯列表数据源
 
@@ -76,6 +77,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         //时间
         xBanner.setPageChangeDuration(2000);
 
+
     }
 
     /*
@@ -91,6 +93,8 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         //设置适配器
         information_recyclerView.setAdapter(informationAdapter);
         information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
+        //头部
+      //  information_recyclerView.addHeaderView(xBanner);
     }
 
 

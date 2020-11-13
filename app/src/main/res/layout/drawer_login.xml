@@ -11,6 +11,7 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="50dp"
+            android:id="@+id/listed_head_img"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="100dp"
@@ -23,6 +24,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="110dp"
             android:text="GGBond"
+            android:id="@+id/listed_nickName"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -49,6 +51,7 @@
     </LinearLayout>
     <!--  一 -->
     <LinearLayout
+        android:id="@+id/listed_collect"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#fff">
@@ -78,6 +81,7 @@
 
     <!--  二 -->
     <LinearLayout
+        android:id="@+id/listed_attention"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#fff">
@@ -107,6 +111,7 @@
 
     <!-- 三 -->
     <LinearLayout
+        android:id="@+id/listed_card"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#fff">
@@ -136,6 +141,7 @@
 
     <!--  四 -->
     <LinearLayout
+        android:id="@+id/listed_notice"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#fff">
@@ -165,6 +171,7 @@
 
     <!--  五 -->
     <LinearLayout
+        android:id="@+id/listed_integral"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#fff">
@@ -194,6 +201,7 @@
 
     <!--  六 -->
     <LinearLayout
+        android:id="@+id/listed_task"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#fff">
@@ -223,6 +231,7 @@
 
     <!--  七 -->
     <LinearLayout
+        android:id="@+id/listed_setting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff">

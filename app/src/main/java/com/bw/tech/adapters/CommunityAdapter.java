@@ -37,14 +37,27 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         holder.community_time.setText(time);//时间
         holder.community_signature.setText(list.get(position).getSignature());//签名
         holder.community_content.setText(list.get(position).getContent());//评论内容
-        holder.community_comment_num.setText(list.get(position).getComment());//评论数
-        holder.community_praise_num.setText(list.get(position).getPraise());//点赞数
+        holder.community_comment_num.setText(list.get(position).getComment()+"");//评论数
+        holder.community_praise_num.setText(list.get(position).getPraise()+"");//点赞数
         String head=list.get(position).getHeadPic();//头像
         Uri uri=Uri.parse(head);
         holder.community_head_img.setImageURI(uri);
         String i=list.get(position).getFile();
         Uri uri1=Uri.parse(i);
         holder.community_img.setImageURI(uri1);
+
+        //判断评论长度
+        if(list.get(position).getComment()==0){
+
+        }else if(list.get(position).getComment()>0&&list.get(position).getComment()<=3){
+            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
+            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
+        }
+//        else{
+//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
+//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
+//        }
+
     }
 
     @Override
@@ -55,7 +68,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView community_nickName,community_time,community_praise_num,community_comment_num,community_content,community_signature;
         SimpleDraweeView community_head_img,community_img;
-
+        TextView comment_nickName,comment_content;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             community_signature=itemView.findViewById(R.id.community_signature);
@@ -66,6 +79,10 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
             community_nickName=itemView.findViewById(R.id.community_nickName);
             community_time=itemView.findViewById(R.id.community_time);
             community_comment_num=itemView.findViewById(R.id.community_comment_num);
+
+            //评论的
+            comment_nickName=itemView.findViewById(R.id.comment_nickName);
+            comment_content=itemView.findViewById(R.id.comment_content);
 
         }
     }

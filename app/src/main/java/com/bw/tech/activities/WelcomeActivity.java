@@ -18,7 +18,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        Intent intent=new Intent(WelcomeActivity.this, LoginActivity.class);
+        Intent intent=new Intent(WelcomeActivity.this, MainActivity.class);
         startActivity(intent);
 
         ActivityCompat.requestPermissions(this, new String[]{

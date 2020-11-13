@@ -79,9 +79,12 @@ dependencies {
     //XBanner
     implementation 'com.github.xiaohaibin:XBanner:1.7.3'
     //极光IM消息
-    compile 'cn.jiguang.sdk:jmessage:2.9.2'  // 此处以JMessage 2.9.2 版本为例。
-    compile 'cn.jiguang.sdk:jcore:2.3.0'
+    implementation 'cn.jiguang.sdk:jmessage:2.9.2'  // 此处以JMessage 2.9.2 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.3.0'
     //implementation files('libs\\jcore-android-2.3.0.jar')
     //implementation files('libs\\jmessage-sdk-android-2.9.2.jar')  // 此处以JCore 2.3.0 版本为例。
     implementation 'com.github.bumptech.glide:glide:4.9.0'//glide依赖
+    //XRecyclerview
+    implementation 'com.jcodecraeer:xrecyclerview:1.6.0'
+
 }

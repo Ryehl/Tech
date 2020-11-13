@@ -16,5 +16,7 @@ public class Urls {
     //资讯消息列表
     public static final String Information_Url="information/v1/infoRecommendList";
 
+    //社区列表
+    public static final String Community_Url="community/v1/findCommunityList";
 
 }
