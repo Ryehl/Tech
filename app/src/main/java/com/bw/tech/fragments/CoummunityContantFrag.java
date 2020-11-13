@@ -26,7 +26,7 @@ public class CoummunityContantFrag extends BaseFragment {
 
     @Override
     public int getLayout() {
-        return R.layout.frag_comminity_contact;
+        return R.layout.frag_msg_contact;
     }
 
     @Override

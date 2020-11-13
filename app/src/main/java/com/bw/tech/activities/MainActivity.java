@@ -20,9 +20,9 @@ import com.bw.tech.fragments.DrawerLoginFrag;
 
 
 import com.bw.tech.fragments.DrawerUnLogin;
-import com.bw.tech.fragments.MainCommunityFrag;
-import com.bw.tech.fragments.MyInfomationFrag;
-import com.bw.tech.fragments.MyNewsFrag;
+import com.bw.tech.fragments.MainMsgFrag;
+import com.bw.tech.fragments.MainInfomationFrag;
+import com.bw.tech.fragments.MainCommuntityFrag;
 import com.bw.tech.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -51,16 +51,16 @@ public class MainActivity  extends BaseActivity {
                 FragmentTransaction temp=fm.beginTransaction();
                 switch (tab.getPosition()){
                     case 0:
-                        temp.replace(R.id.main_frame_show,new MyInfomationFrag());
+                        temp.replace(R.id.main_frame_show,new MainInfomationFrag());
                         tab.setIcon(R.mipmap.common_tab_informatiion_s);
                        // ViewUtils.setViewTransparent(MainActivity.this);  沉浸式
                         break;
                     case 1:
-                        temp.replace(R.id.main_frame_show,new MainCommunityFrag());
+                        temp.replace(R.id.main_frame_show,new MainMsgFrag());
                         tab.setIcon(R.mipmap.common_tab_message_s);
                         break;
                     case 2:
-                        temp.replace(R.id.main_frame_show,new MyNewsFrag());
+                        temp.replace(R.id.main_frame_show,new MainCommuntityFrag());
                         tab.setIcon(R.mipmap.common_tab_community_s);
                         break;
                 }

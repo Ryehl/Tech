@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MainCommunityFrag">
+    tools:context=".fragments.MainMsgFrag">
 
     <RelativeLayout
-        android:id="@+id/community_ll_top"
+        android:id="@+id/msg_ll_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/community_tab_top"
+            android:id="@+id/msg_tab_top"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
@@ -23,7 +23,7 @@
             app:tabRippleColor="@android:color/transparent" />
 
         <ImageView
-            android:id="@+id/community_img_iv"
+            android:id="@+id/msg_img_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -33,9 +33,9 @@
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/community_vp_show"
+        android:id="@+id/msg_vp_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/community_ll_top" />
+        android:layout_below="@id/msg_ll_top" />
 
 </RelativeLayout>

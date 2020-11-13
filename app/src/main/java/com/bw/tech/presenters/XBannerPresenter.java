@@ -2,18 +2,16 @@ package com.bw.tech.presenters;
 
 import android.widget.Toast;
 
-import com.bw.mylibrary.base.BaseFragment;
 import com.bw.mylibrary.base.BasePresenter;
 import com.bw.mylibrary.utils.InternetUtil;
 import com.bw.mylibrary.utils.NetUtils;
 import com.bw.tech.MyApp;
 import com.bw.tech.Urls;
-import com.bw.tech.fragments.MyInfomationFrag;
+import com.bw.tech.fragments.MainInfomationFrag;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class XBannerPresenter extends BasePresenter<MyInfomationFrag> {
+public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
     /*
     轮播图
      */

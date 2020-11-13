@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bw.mylibrary.base.BaseFragment;
 import com.bw.tech.R;
-import com.bw.tech.presenters.FragCommunityPresenter;
+import com.bw.tech.presenters.FragMsgPresenter;
 import com.google.android.material.tabs.TabLayout;
 
 /**
@@ -21,7 +21,7 @@ import com.google.android.material.tabs.TabLayout;
  * @author Xaoyv
  * date 2020/10/14 16:01
  */
-public class MainCommunityFrag extends BaseFragment<FragCommunityPresenter> {
+public class MainMsgFrag extends BaseFragment<FragMsgPresenter> {
 
     TabLayout tab;
     ViewPager vp;
@@ -32,9 +32,9 @@ public class MainCommunityFrag extends BaseFragment<FragCommunityPresenter> {
         View view = getView();
         if (view == null)
             return;
-        tab = view.findViewById(R.id.community_tab_top);
-        vp = view.findViewById(R.id.community_vp_show);
-        iv_add = view.findViewById(R.id.community_img_iv);
+        tab = view.findViewById(R.id.msg_tab_top);
+        vp = view.findViewById(R.id.msg_vp_show);
+        iv_add = view.findViewById(R.id.msg_img_iv);
     }
 
     @Override
@@ -70,11 +70,11 @@ public class MainCommunityFrag extends BaseFragment<FragCommunityPresenter> {
 
     @Override
     public int getLayout() {
-        return R.layout.fragment_my_community;
+        return R.layout.frag_my_msg;
     }
 
     @Override
-    public FragCommunityPresenter initPresenter() {
-        return new FragCommunityPresenter();
+    public FragMsgPresenter initPresenter() {
+        return new FragMsgPresenter();
     }
 }

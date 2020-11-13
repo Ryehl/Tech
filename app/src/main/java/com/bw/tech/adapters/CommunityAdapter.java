@@ -1,5 +1,6 @@
 package com.bw.tech.adapters;
 
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -38,7 +39,12 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         holder.community_content.setText(list.get(position).getContent());//评论内容
         holder.community_comment_num.setText(list.get(position).getComment());//评论数
         holder.community_praise_num.setText(list.get(position).getPraise());//点赞数
-
+        String head=list.get(position).getHeadPic();//头像
+        Uri uri=Uri.parse(head);
+        holder.community_head_img.setImageURI(uri);
+        String i=list.get(position).getFile();
+        Uri uri1=Uri.parse(i);
+        holder.community_img.setImageURI(uri1);
     }
 
     @Override

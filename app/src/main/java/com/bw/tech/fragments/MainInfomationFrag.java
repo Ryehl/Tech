@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bw.mylibrary.base.BaseFragment;
 import com.bw.tech.MyApp;
 import com.bw.tech.R;
-//import com.bw.tech.adapters.InformationAdapter;
+import com.bw.tech.adapters.InformationAdapter;
 import com.bw.tech.beans.InformationBean;
 import com.bw.tech.beans.XBannerBean;
 import com.bw.tech.presenters.XBannerPresenter;
@@ -27,12 +27,12 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyInfomationFrag extends BaseFragment<XBannerPresenter> {
+public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XBanner xBanner;
     private List<String> list_img = new ArrayList<>();//图片数据源
     private List<String> list_title = new ArrayList<>();//标题数据源
     private RecyclerView information_recyclerView;
-    // private InformationAdapter informationAdapter;
+    private InformationAdapter informationAdapter;
     private List<InformationBean.ResultBean> list_information = new ArrayList<>();//咨讯列表数据源
 
     @Override
@@ -87,10 +87,10 @@ public class MyInfomationFrag extends BaseFragment<XBannerPresenter> {
         Log.i("TAG", informationBean.toString());
         list_information.addAll(informationBean.getResult());
         //适配器
-//        informationAdapter=new InformationAdapter(list_information);
-//        //设置适配器
-//        information_recyclerView.setAdapter(informationAdapter);
-//        information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
+        informationAdapter=new InformationAdapter(list_information);
+        //设置适配器
+        information_recyclerView.setAdapter(informationAdapter);
+        information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
     }
 
 
@@ -108,7 +108,7 @@ public class MyInfomationFrag extends BaseFragment<XBannerPresenter> {
 
     @Override
     public int getLayout() {
-        return R.layout.fragment_my_infomation;
+        return R.layout.frag_my_infomation;
     }
 
     @Override

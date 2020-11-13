@@ -1,7 +1,7 @@
 package com.bw.tech.presenters;
 
 import com.bw.mylibrary.base.BasePresenter;
-import com.bw.tech.fragments.MainCommunityFrag;
+import com.bw.tech.fragments.MainMsgFrag;
 
 /**
  * <p>Project's name:Tech</p>
@@ -10,5 +10,5 @@ import com.bw.tech.fragments.MainCommunityFrag;
  * @author Xaoyv
  * date 2020/11/10 19:39
  */
-public class FragCommunityPresenter extends BasePresenter<MainCommunityFrag> {
+public class FragMsgPresenter extends BasePresenter<MainMsgFrag> {
 }
