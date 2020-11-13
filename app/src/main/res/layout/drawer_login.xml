@@ -233,7 +233,7 @@
     <LinearLayout
         android:id="@+id/listed_setting"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#fff">
 
         <ImageView
@@ -258,5 +258,9 @@
             android:layout_marginTop="12dp"
             android:background="@mipmap/my_icon_next_n" />
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        />
 </LinearLayout>
