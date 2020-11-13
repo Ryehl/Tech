@@ -96,14 +96,11 @@ public class MainActivity  extends BaseActivity {
         final LinearLayout center = findViewById(R.id.main_center);
         final NavigationView left = findViewById(R.id.main_left);
         DrawerLayout drawer = findViewById(R.id.main_drawer);
-        center.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if(isDrawer){
-                    return left.dispatchTouchEvent(motionEvent);
-                }else{
-                    return false;
-                }
+        center.setOnTouchListener((view, motionEvent) -> {
+            if(isDrawer){
+                return left.dispatchTouchEvent(motionEvent);
+            }else{
+                return false;
             }
         });
         drawer.setDrawerListener(new DrawerLayout.DrawerListener() {
@@ -114,7 +111,7 @@ public class MainActivity  extends BaseActivity {
                 WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
                 Display display = manager.getDefaultDisplay();
                 //设置右面的布局位置 根据左面菜单的right作为右面布局的left
-                // 左面的right+屏幕的宽度（或者right的宽度这里是相等的）为右面布局的right
+                // 左面的right+屏幕的宽度（或者right的宽度这里是相等的）为右面布 局的right
                 center.layout(left.getRight(), 0, left.getRight() + display.getWidth(), display.getHeight());
             }
             @Override

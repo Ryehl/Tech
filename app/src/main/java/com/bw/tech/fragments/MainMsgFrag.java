@@ -11,21 +11,28 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bw.mylibrary.base.BaseFragment;
 import com.bw.tech.R;
+import com.bw.tech.diyview.DiyPwCommontity;
 import com.bw.tech.presenters.FragMsgPresenter;
 import com.google.android.material.tabs.TabLayout;
 
 /**
  * <p>项目名称:维度科技</p>
- * <p>简述:网络工具类</p>   Model
+ * <p>简述:消息页面</p>   Model
  *
  * @author Xaoyv
  * date 2020/10/14 16:01
  */
 public class MainMsgFrag extends BaseFragment<FragMsgPresenter> {
 
+    //views
     TabLayout tab;
     ViewPager vp;
     ImageView iv_add;
+
+    //pw的状态
+    private boolean isPwShow = false;
+    //pw
+    private DiyPwCommontity pw;
 
     @Override
     public void initView() {
@@ -39,12 +46,12 @@ public class MainMsgFrag extends BaseFragment<FragMsgPresenter> {
 
     @Override
     public void initData() {
-        //init tab
+        //init view pager
         vp.setAdapter(new FragmentStatePagerAdapter(getActivity().getSupportFragmentManager()) {
             @NonNull
             @Override
             public Fragment getItem(int position) {
-                return position == 0 ? new CommunityMessageFrag() : new CoummunityContantFrag();
+                return position == 0 ? new MsgMessageFrag() : new MsgContantFrag();
             }
 
             @Override
@@ -62,10 +69,18 @@ public class MainMsgFrag extends BaseFragment<FragMsgPresenter> {
         //set up
         tab.setupWithViewPager(vp);
 
-        //onclick listener
+        //onclick listener show or dismiss pw
         iv_add.setOnClickListener(v -> {
             //popupwindow
+            if (pw == null)
+                pw = new DiyPwCommontity(getContext());
+            if (isPwShow)
+                pw.dismiss();
+            else
+                pw.showAsDropDown(iv_add);
         });
+
+        tab.getTabAt(1).select();
     }
 
     @Override
