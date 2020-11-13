@@ -1,5 +1,6 @@
 package com.bw.tech.fragments;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.ExpandableListView;
 
@@ -37,6 +38,7 @@ public class MsgContantFrag extends BaseFragment {
                 .setRoundingParams(RoundingParams.asCircle())
                 .build();
         sdv.setHierarchy(hierarchy);
+        sdv.setImageResource(R.mipmap.nav_btn_setting_n);
     }
 
     @Override

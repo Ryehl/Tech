@@ -3,7 +3,6 @@ package com.bw.tech.presenters;
 import com.bw.mylibrary.base.BasePresenter;
 import com.bw.mylibrary.utils.NetUtils;
 import com.bw.tech.Urls;
-import com.bw.tech.fragments.CommunityMessageFrag;
 import com.bw.tech.fragments.MainCommuntityFrag;
 
 import java.util.HashMap;
