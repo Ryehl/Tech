@@ -7,11 +7,10 @@ import com.bw.mylibrary.base.BasePresenter;
 import com.bw.mylibrary.bean.ConstantMMkv;
 import com.bw.mylibrary.utils.InternetUtil;
 import com.bw.mylibrary.utils.NetUtils;
-import com.bw.tech.activities.LoginActivity;
-import com.bw.tech.beans.LoginBean;
-import com.bw.tech.activities.MainActivity;
 import com.bw.tech.MyApp;
 import com.bw.tech.Urls;
+import com.bw.tech.activities.MainActivity;
+import com.bw.tech.beans.LoginBean;
 import com.google.gson.Gson;
 import com.tencent.mmkv.MMKV;
 
@@ -22,8 +21,14 @@ import java.util.HashMap;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
-public class LoginPresenter extends BasePresenter<LoginActivity> {
-
+/**
+ * <p>Project's name:Tech</p>
+ * <p>说明:主页面</p>
+ *
+ * @author Xaoyv
+ * date 11/14/2020 9:23 AM
+ */
+public class ActMainPresenter extends BasePresenter<MainActivity> {
     public void LoginInfo(String phone, String encrypt_pwd) {
         try {
             JSONObject jsonObject = new JSONObject();
@@ -57,8 +62,6 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                                 //设置头参
                                 NetUtils.getNetUtils().setHeader(loginBean.getResult().getSessionId(), String.valueOf(loginBean.getResult().getUserId()));
                                 //登陆成功后跳转页面
-                                Intent intent = new Intent(iView, MainActivity.class);
-                                iView.startActivity(intent);
                             } else {
                                 Toast.makeText(iView, "登陆失败！", Toast.LENGTH_SHORT).show();
                             }
