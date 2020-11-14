@@ -74,10 +74,13 @@ public class MainMsgFrag extends BaseFragment<FragMsgPresenter> {
             //popupwindow
             if (pw == null)
                 pw = new DiyPwCommontity(getContext());
-            if (isPwShow)
+            if (isPwShow) {
                 pw.dismiss();
-            else
+                isPwShow = false;
+            } else {
                 pw.showAsDropDown(iv_add);
+                isPwShow = true;
+            }
         });
 
         tab.getTabAt(1).select();
