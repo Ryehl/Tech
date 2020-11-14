@@ -32,7 +32,8 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_integral=view.findViewById(R.id.listed_integral);
         listed_task=view.findViewById(R.id.listed_task);
         listed_setting=view.findViewById(R.id.listed_setting);
-
+        listed_niakName=view.findViewById(R.id.listed_nickName);
+        listed_head_img=view.findViewById(R.id.listed_head_img);
     }
 
     @Override

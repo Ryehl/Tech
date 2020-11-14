@@ -21,4 +21,10 @@ public class Urls {
 
     //查询全量好友
     public static final String Friend_List = "chat/verify/v1/initFriendList";
+
+    //我的收藏
+    public static final String Collect_Url="user/verify/v1/findAllInfoCollection";
+
+    //我的关注
+    public static final String Attention_Url="user/verify/v1/findFollowUserList";
 }
