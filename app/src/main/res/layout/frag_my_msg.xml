@@ -20,7 +20,9 @@
             android:background="@drawable/border"
             app:tabBackground="@drawable/tab_message_select"
             app:tabIndicatorColor="@android:color/transparent"
-            app:tabRippleColor="@android:color/transparent" />
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="#FFF"
+            app:tabTextColor="#000" />
 
         <ImageView
             android:id="@+id/msg_img_iv"

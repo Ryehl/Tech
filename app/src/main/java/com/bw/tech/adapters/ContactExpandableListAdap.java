@@ -4,10 +4,15 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.TextView;
 
 import com.bw.mylibrary.bean.Constant;
 import com.bw.tech.R;
 import com.bw.tech.beans.JsonFriendListBean;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * <p>Project's name:Tech</p>
@@ -63,14 +68,31 @@ public class ContactExpandableListAdap extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        //TODO
-        return View.inflate(parent.getContext(), R.layout.item_contact_group, null);
+        View view = View.inflate(parent.getContext(), R.layout.item_contact_group, null);
+        TextView groupName = view.findViewById(R.id.item_contact_group_groupName);
+        groupName.setText(friendListBean.getResult().get(groupPosition).getGroupName());
+        return view;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        //TODO
-        return View.inflate(parent.getContext(), R.layout.item_contact_child, null);
+        View view = View.inflate(parent.getContext(), R.layout.item_contact_child, null);
+
+        //data bean
+        JsonFriendListBean.ResultBean.FriendInfoListBean friendInfo = friendListBean.getResult().get(groupPosition).getFriendInfoList().get(childPosition);
+
+        //find view by id
+        TextView name = view.findViewById(R.id.item_contact_child_tv_friendName);
+        SimpleDraweeView hd = view.findViewById(R.id.item_contact_child_sdv_hd);
+
+        //set data
+        name.setText(friendInfo.getNickName());
+        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(view.getResources())
+                .setRoundingParams(RoundingParams.asCircle())
+                .build();
+        hd.setHierarchy(hierarchy);
+        hd.setImageURI(friendInfo.getHeadPic());
+        return view;
     }
 
     @Override
