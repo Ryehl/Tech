@@ -1,27 +1,75 @@
 package com.bw.tech.activities;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
 
-import androidx.core.app.ActivityCompat;
+import androidx.annotation.NonNull;
 
 import com.bw.mylibrary.base.BaseActivity;
 import com.bw.tech.R;
 
 public class WelcomeActivity extends BaseActivity {
 
+    private final int REQUEST_CODE = 0;
+    private int countdown = 4;
+    private TextView welcome_tv_countdown;
+
+    @SuppressLint("HandlerLeak")
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if (countdown > 0) {
+                countdown--;
+                welcome_tv_countdown.setText(String.valueOf(countdown));
+                handler.sendEmptyMessageDelayed(0, 1000);
+            } else
+                skip();
+        }
+    };
 
     @Override
     public void initView() {
-
+        welcome_tv_countdown = findViewById(R.id.welcome_tv_countdown);
     }
 
     @Override
     public void initData() {
-        Intent intent=new Intent(WelcomeActivity.this, MainActivity.class);
-        startActivity(intent);
+        //requestPermissions
+        reqPre();
 
-        ActivityCompat.requestPermissions(this, new String[]{
+        //start handler
+        handler.sendEmptyMessage(0);
+
+        //set on click listener
+        welcome_tv_countdown.setOnClickListener(v -> skip());
+    }
+
+    /**
+     * 跳转新的界面
+     */
+    private void skip() {
+        //跳转
+        handler.removeCallbacksAndMessages(null);
+
+        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else
+            reqPre();
+    }
+
+    /**
+     * request permissions
+     */
+    private void reqPre() {
+        requestPermissions(new String[]{
                 Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -37,7 +85,7 @@ public class WelcomeActivity extends BaseActivity {
                 Manifest.permission.WRITE_SETTINGS,
                 Manifest.permission.ACCESS_WIFI_STATE,
                 "com.bw.tech.permission.JPUSH_MESSAGE"
-        }, 0);
+        }, REQUEST_CODE);
     }
 
     @Override
@@ -49,24 +97,17 @@ public class WelcomeActivity extends BaseActivity {
     public Object initPresenter() {
         return null;
     }
-    int i=3;
-//    private Handler handler=new Handler(){
-//        @Override
-//        public void handleMessage(@NonNull Message msg) {
-//            super.handleMessage(msg);
-//            if(msg==0){
-//                if(i>0){
-//                    i--;
-//                    handler.sendEmptyMessage(0,1000);
-//                }else{
-//                    Intent intent=new Intent(WelcomeActivity.this, MainActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//                }
-//            }else{
-//                handler.sendEmptyMessageDelayed(0,1000);
-//            }
-//        }
-//    };
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (countdown <= 0)
+                        skip();
+                }
+                break;
+        }
+    }
 }

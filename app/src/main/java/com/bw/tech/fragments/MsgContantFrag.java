@@ -1,6 +1,5 @@
 package com.bw.tech.fragments;
 
-import android.graphics.Color;
 import android.view.View;
 import android.widget.ExpandableListView;
 
@@ -20,15 +19,21 @@ import com.facebook.drawee.view.SimpleDraweeView;
  */
 public class MsgContantFrag extends BaseFragment {
 
+    //二级列表展示
     ExpandableListView elv;
-    SimpleDraweeView sdv;
+    //设置两个图标
+    SimpleDraweeView sdv_group;
+    SimpleDraweeView sdv_system;
 
     @Override
     public void initView() {
         View view = getView();
+        if (view == null)
+            return;
         //find view by id
         elv = view.findViewById(R.id.msg_contant_elv);
-        sdv = view.findViewById(R.id.msg_contant_sdv);
+        sdv_group = view.findViewById(R.id.msg_contant_sdv_group);
+        sdv_system = view.findViewById(R.id.msg_contant_sdv_systemMsg);
     }
 
     @Override
@@ -37,8 +42,10 @@ public class MsgContantFrag extends BaseFragment {
         GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
                 .setRoundingParams(RoundingParams.asCircle())
                 .build();
-        sdv.setHierarchy(hierarchy);
-        sdv.setImageResource(R.mipmap.nav_btn_setting_n);
+        sdv_group.setHierarchy(hierarchy);
+        sdv_group.setImageResource(R.mipmap.nav_btn_setting_n);
+        sdv_system.setHierarchy(hierarchy);
+        sdv_system.setImageResource(R.drawable.system_msg);
     }
 
     @Override
