@@ -7,7 +7,9 @@ import com.bw.mylibrary.base.BasePresenter;
 import com.bw.mylibrary.utils.InternetUtil;
 import com.bw.mylibrary.utils.NetUtils;
 import com.bw.tech.Urls;
+import com.bw.tech.beans.JsonFriendListBean;
 import com.bw.tech.fragments.MsgContantFrag;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
 
@@ -27,6 +29,9 @@ public class FragMsgContantPresenter extends BasePresenter<MsgContantFrag> {
                 @Override
                 public void success(String json) {
                     Log.d(TAG, "success: " + json);
+                    JsonFriendListBean friendListBean = new Gson().fromJson(json, JsonFriendListBean.class);
+                    if (iView != null)
+                        iView.setElvAdap(friendListBean);
                 }
 
                 @Override
