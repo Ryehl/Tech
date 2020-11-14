@@ -7,6 +7,7 @@ import com.bw.mylibrary.base.BasePresenter;
 import com.bw.mylibrary.bean.ConstantMMkv;
 import com.bw.mylibrary.utils.InternetUtil;
 import com.bw.mylibrary.utils.NetUtils;
+import com.bw.mylibrary.utils.encrypt.RsaCoder;
 import com.bw.tech.MyApp;
 import com.bw.tech.Urls;
 import com.bw.tech.activities.MainActivity;
@@ -29,16 +30,13 @@ import okhttp3.RequestBody;
  * date 11/14/2020 9:23 AM
  */
 public class ActMainPresenter extends BasePresenter<MainActivity> {
-    public void LoginInfo(String phone, String encrypt_pwd) {
+    public void LoginInfo(String phone, String pwd) {
         try {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("phone", phone);
-            jsonObject.put("pwd", encrypt_pwd);
+            String encrypt_pwd = RsaCoder.encryptByPublicKey(pwd);
             //入参
             HashMap<String, Object> map = new HashMap<>();
             map.put("phone", phone);
             map.put("pwd", encrypt_pwd);
-            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=utf-8"), jsonObject.toString());
             //网络请求
             NetUtils.getNetUtils().postInfo(Urls.Login_Ulr, map, new NetUtils.GetJsonListener() {
                 @Override
@@ -55,7 +53,6 @@ public class ActMainPresenter extends BasePresenter<MainActivity> {
                                 mmkv.putBoolean(ConstantMMkv.Key_IsLogin, true);
                                 mmkv.putString("status", loginBean.getStatus());//状态
                                 mmkv.putString("nickName", loginBean.getResult().getNickName());//昵称
-                                mmkv.putString("phone", loginBean.getResult().getPhone());//手机号
                                 mmkv.putInt("whetherVip", loginBean.getResult().getWhetherVip());//是否是Vip
                                 mmkv.putInt("whetherFaceId", loginBean.getResult().getWhetherFaceId());//FaceId
 

@@ -26,14 +26,10 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
 
     public void LoginInfo(String phone, String encrypt_pwd) {
         try {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("phone", phone);
-            jsonObject.put("pwd", encrypt_pwd);
             //入参
             HashMap<String, Object> map = new HashMap<>();
             map.put("phone", phone);
             map.put("pwd", encrypt_pwd);
-            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=utf-8"), jsonObject.toString());
             //网络请求
             NetUtils.getNetUtils().postInfo(Urls.Login_Ulr, map, new NetUtils.GetJsonListener() {
                 @Override
