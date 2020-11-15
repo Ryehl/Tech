@@ -27,4 +27,7 @@ public class Urls {
 
     //我的关注
     public static final String Attention_Url="user/verify/v1/findFollowUserList";
+
+    //我的帖子
+    public static final String Card_Url="community/verify/v1/findMyPostById";
 }

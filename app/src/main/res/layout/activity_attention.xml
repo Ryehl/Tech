@@ -27,6 +27,7 @@
                 android:text="我的关注"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="17sp"
                 />
 
         </LinearLayout>
@@ -39,6 +40,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/collect_recycle"
+        android:id="@+id/attention_recycle"
         />
 </LinearLayout>

@@ -4,8 +4,9 @@ import java.util.List;
 
 public class AttentionBean {
 
+
     /**
-     * result : [{"focusTime":1605314553000,"focusUid":1691,"headPic":"http://mobile.bwstudent.com/images/tech/head_pic/2020-11-08/20201108222257.png","nickName":"年轻人","userId":1721,"whetherMutualFollow":2,"whetherVip":2}]
+     * result : [{"focusTime":1605442973000,"focusUid":1694,"headPic":"http://mobile.bwstudent.com/images/tech/head_pic/2020-11-10/20201110175110.png","nickName":"胡图图","signature":"222","userId":1721,"whetherMutualFollow":2,"whetherVip":2},{"focusTime":1605314553000,"focusUid":1691,"headPic":"http://mobile.bwstudent.com/images/tech/head_pic/2020-11-08/20201108222257.png","nickName":"年轻人","userId":1721,"whetherMutualFollow":2,"whetherVip":2}]
      * message : 查询成功
      * status : 0000
      */
@@ -40,10 +41,11 @@ public class AttentionBean {
 
     public static class ResultBean {
         /**
-         * focusTime : 1605314553000
-         * focusUid : 1691
-         * headPic : http://mobile.bwstudent.com/images/tech/head_pic/2020-11-08/20201108222257.png
-         * nickName : 年轻人
+         * focusTime : 1605442973000
+         * focusUid : 1694
+         * headPic : http://mobile.bwstudent.com/images/tech/head_pic/2020-11-10/20201110175110.png
+         * nickName : 胡图图
+         * signature : 222
          * userId : 1721
          * whetherMutualFollow : 2
          * whetherVip : 2
@@ -53,6 +55,7 @@ public class AttentionBean {
         private int focusUid;
         private String headPic;
         private String nickName;
+        private String signature;
         private int userId;
         private int whetherMutualFollow;
         private int whetherVip;
@@ -87,6 +90,14 @@ public class AttentionBean {
 
         public void setNickName(String nickName) {
             this.nickName = nickName;
+        }
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
         }
 
         public int getUserId() {

@@ -1,6 +1,7 @@
 package com.bw.tech.fragments;
 
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,8 @@ import com.bumptech.glide.Glide;
 import com.bw.mylibrary.base.BaseFragment;
 import com.bw.tech.MyApp;
 import com.bw.tech.R;
+import com.bw.tech.activities.InterestActivity;
+import com.bw.tech.activities.SearchActivity;
 import com.bw.tech.adapters.InformationAdapter;
 import com.bw.tech.beans.InformationBean;
 import com.bw.tech.beans.XBannerBean;
@@ -35,18 +38,38 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XRecyclerView information_recyclerView;
     private InformationAdapter informationAdapter;
     private List<InformationBean.ResultBean> list_information = new ArrayList<>();//咨讯列表数据源
-
+    private ImageView information_interest,information_search;
     @Override
     public void initView() {
         View view = getView();
         xBanner = view.findViewById(R.id.info_xbanner);
         information_recyclerView = view.findViewById(R.id.information_recycle);
+        information_interest=view.findViewById(R.id.information_interest);
+        information_search=view.findViewById(R.id.information_search);
     }
 
     @Override
     public void initData() {
         pre.getXBannerData();
         pre.InformationData();
+
+        //点击跳转到分类页面
+        information_interest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), InterestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //点击跳转到搜索页面
+        information_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /*

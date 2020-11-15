@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.facebook.drawee.view.SimpleDraweeView
-        android:layout_width="70dp"
+        android:layout_width="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         fresco:roundAsCircle="true"
         android:id="@+id/myattention_head"
         />
@@ -25,7 +25,7 @@
             android:textSize="17sp"
             />
         <TextView
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -35,7 +35,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.Sign_inActivity"></activity>
+        <activity android:name=".activities.PublishActivity"></activity>
+        <activity android:name=".activities.DetailsActivity" />
+        <activity android:name=".activities.SearchActivity" />
+        <activity android:name=".activities.InterestActivity" />
+        <activity android:name=".activities.Sign_inActivity" />
         <activity android:name=".activities.SettingActivity" />
         <activity android:name=".activities.TaskActivity" />
         <activity android:name=".activities.IntegralActivity" />
