@@ -2,6 +2,7 @@ package com.bw.tech.fragments;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class DrawerLoginFrag extends BaseFragment {
     private LinearLayout listed_collect,listed_attention,listed_card,listed_notice,listed_integral,listed_task,listed_setting;
     private SimpleDraweeView listed_head_img;
     private TextView listed_niakName;
+    private ImageView sign_in;
     @Override
     public void initView() {
 
@@ -34,6 +36,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_setting=view.findViewById(R.id.listed_setting);
         listed_niakName=view.findViewById(R.id.listed_nickName);
         listed_head_img=view.findViewById(R.id.listed_head_img);
+        sign_in=view.findViewById(R.id.sign_in);
     }
 
     @Override
@@ -43,7 +46,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_collect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, CollectActivity.class);
+                Intent intent=new Intent(getActivity(), CollectActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +54,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_attention.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, AttentionActivity.class);
+                Intent intent=new Intent(getActivity(), AttentionActivity.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +62,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, CardActivity.class);
+                Intent intent=new Intent(getActivity(), CardActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +70,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, NoticeActivity.class);
+                Intent intent=new Intent(getActivity(), NoticeActivity.class);
                 startActivity(intent);
             }
         });
@@ -75,7 +78,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_integral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, IntegralActivity.class);
+                Intent intent=new Intent(getActivity(), IntegralActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +86,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, TaskActivity.class);
+                Intent intent=new Intent(getActivity(), TaskActivity.class);
                 startActivity(intent);
             }
         });
@@ -91,7 +94,15 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyApp.context, SettingActivity.class);
+                Intent intent=new Intent(getActivity(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+        //签到
+        sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent);
             }
         });

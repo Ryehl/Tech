@@ -38,6 +38,7 @@
                 android:layout_height="23dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="110dp"
+                android:id="@+id/sign_in"
                 android:background="@mipmap/my_icon_sign_n" />
 
             <TextView
