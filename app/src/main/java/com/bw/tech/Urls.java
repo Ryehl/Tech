@@ -36,4 +36,10 @@ public class Urls {
 
     //我的积分
     public static final String Integral_Url="user/verify/v1/findUserIntegral";
+
+    //积分明细
+    public static final String IntegralRecord_Url="user/verify/v1/findUserIntegralRecord";
+
+    //所有兴趣版块
+    public static final String Interest_Url="information/v1/findAllInfoPlate";
 }
