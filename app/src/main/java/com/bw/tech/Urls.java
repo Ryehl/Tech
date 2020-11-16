@@ -30,4 +30,7 @@ public class Urls {
 
     //我的帖子
     public static final String Card_Url="community/verify/v1/findMyPostById";
+
+    //我的通知
+    public static final String Notice_Url="tool/verify/v1/findSysNoticeList";
 }
