@@ -2,45 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_bg"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CardActivity">
-
+    tools:context=".activities.PublishActivity">
 
     <RelativeLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:layout_marginLeft="20sp"
+            android:text="取消"
             />
-        <LinearLayout
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="我的帖子"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                />
-
-        </LinearLayout>
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="发送"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
             />
-    </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mycard_recycle"
-        />
 
+    </RelativeLayout>
+    <EditText
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/publish_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textSize="90sp"
+        android:gravity="center"
+        android:text="+"
+        />
 </LinearLayout>

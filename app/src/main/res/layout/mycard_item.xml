@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:background="@mipmap/common_icon_collect_n" />
 
-        <TextViewb
+        <TextView
             android:id="@+id/mycard_comment_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
