@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#02FFFFFF"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mynotice_time"
+        android:textSize="13sp"
+        android:text="11"
         android:layout_marginTop="10dp"
         />
     <TextView
+        android:layout_marginLeft="20dp"
+        android:textColor="#000"
+        android:gravity="center"
+        android:text="111"
         android:layout_marginTop="10dp"
+        android:background="@drawable/textview_round_birder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="27dp"
         android:id="@+id/mynotice_content"
         android:textSize="15sp"
         />

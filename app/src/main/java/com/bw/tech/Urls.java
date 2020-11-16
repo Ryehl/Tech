@@ -33,4 +33,7 @@ public class Urls {
 
     //我的通知
     public static final String Notice_Url="tool/verify/v1/findSysNoticeList";
+
+    //我的积分
+    public static final String Integral_Url="user/verify/v1/findUserIntegral";
 }
