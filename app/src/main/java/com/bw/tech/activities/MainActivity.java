@@ -7,11 +7,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.view.Display;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bw.mylibrary.base.BaseActivity;
@@ -19,7 +17,7 @@ import com.bw.mylibrary.bean.ConstantMMkv;
 import com.bw.tech.fragments.DrawerLoginFrag;
 
 
-import com.bw.tech.fragments.DrawerUnLogin;
+import com.bw.tech.fragments.DrawerUnLoginFrag;
 import com.bw.tech.fragments.MainMsgFrag;
 import com.bw.tech.fragments.MainInfomationFrag;
 import com.bw.tech.fragments.MainCommuntityFrag;
@@ -142,7 +140,7 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
             pre.LoginInfo(mmkv.decodeString(ConstantMMkv.Key_Phone), mmkv.decodeString(ConstantMMkv.Key_Pwd));
         } else {
             //未登录显示的页面
-            ft.replace(R.id.main_left, new DrawerUnLogin());
+            ft.replace(R.id.main_left, new DrawerUnLoginFrag());
         }
         ft.commit();
     }

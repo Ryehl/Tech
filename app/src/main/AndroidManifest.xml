@@ -35,7 +35,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.PublishActivity"></activity>
+        <activity android:name=".activities.CreateGroupActivity"></activity>
+        <activity android:name=".activities.AddfriendActivity" />
+        <activity android:name=".activities.PublishActivity" />
         <activity android:name=".activities.DetailsActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.InterestActivity" />

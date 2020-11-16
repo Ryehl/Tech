@@ -95,4 +95,13 @@ public class MainMsgFrag extends BaseFragment<FragMsgPresenter> {
     public FragMsgPresenter initPresenter() {
         return new FragMsgPresenter();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        //remove pw
+        if (pw != null)
+            pw.dismiss();
+        pw = null;
+    }
 }

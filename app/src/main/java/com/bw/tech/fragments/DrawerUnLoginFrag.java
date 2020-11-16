@@ -9,7 +9,7 @@ import com.bw.tech.MyApp;
 import com.bw.tech.R;
 import com.bw.tech.activities.LoginActivity;
 
-public class DrawerUnLogin extends BaseFragment {
+public class DrawerUnLoginFrag extends BaseFragment {
     private LinearLayout log_out_layout;
     @Override
     public void initView() {

@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.bw.tech.R;
+import com.bw.tech.activities.AddfriendActivity;
+import com.bw.tech.activities.CreateGroupActivity;
 
 /**
  * <p>Project's name:Tech</p>
@@ -32,12 +34,12 @@ public class DiyPwCommontity extends PopupWindow {
         addGroup = view.findViewById(R.id.diy_msg_top_add_group);
         //set onclick listener
         addFriend.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, );
-//            view.getContext().startActivity(intent);
+            Intent intent = new Intent(view.getContext(), AddfriendActivity.class);
+            view.getContext().startActivity(intent);
         });
         addGroup.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, );
-//            view.getContext().startActivity(intent);
+            Intent intent = new Intent(view.getContext(), CreateGroupActivity.class);
+            view.getContext().startActivity(intent);
         });
     }
 }
