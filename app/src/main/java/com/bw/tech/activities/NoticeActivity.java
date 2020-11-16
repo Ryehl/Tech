@@ -41,11 +41,11 @@ public class NoticeActivity extends BaseActivity<NoticePresenter> {
 
     @Override
     public int getLayout() {
-        return 0;
+        return R.layout.activity_notice;
     }
 
     @Override
     public NoticePresenter initPresenter() {
-        return null;
+        return new NoticePresenter();
     }
 }

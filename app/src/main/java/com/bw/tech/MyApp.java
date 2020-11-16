@@ -6,6 +6,7 @@ import android.content.Context;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.mmkv.MMKV;
+import com.zhangzheng.superxml.library.SuperXml;
 
 import cn.jpush.im.android.api.JMessageClient;
 
@@ -23,5 +24,6 @@ public class MyApp extends Application {
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this);
         ViewTarget.setTagId(R.id.glide_tag);
+
     }
 }
