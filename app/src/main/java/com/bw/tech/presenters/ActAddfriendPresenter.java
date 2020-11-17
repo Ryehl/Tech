@@ -1,4 +1,4 @@
-package com.bw.tech.fragments;
+package com.bw.tech.presenters;
 
 import com.bw.mylibrary.base.BasePresenter;
 import com.bw.tech.activities.AddfriendActivity;

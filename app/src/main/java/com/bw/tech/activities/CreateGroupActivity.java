@@ -2,7 +2,7 @@ package com.bw.tech.activities;
 
 import com.bw.mylibrary.base.BaseActivity;
 import com.bw.tech.R;
-import com.bw.tech.fragments.ActCreateGroupPresenter;
+import com.bw.tech.presenters.ActCreateGroupPresenter;
 
 public class CreateGroupActivity extends BaseActivity<ActCreateGroupPresenter> {
 

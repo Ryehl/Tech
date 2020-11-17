@@ -2,7 +2,7 @@ package com.bw.tech.activities;
 
 import com.bw.mylibrary.base.BaseActivity;
 import com.bw.tech.R;
-import com.bw.tech.fragments.ActAddfriendPresenter;
+import com.bw.tech.presenters.ActAddfriendPresenter;
 
 public class AddfriendActivity extends BaseActivity<ActAddfriendPresenter> {
 
