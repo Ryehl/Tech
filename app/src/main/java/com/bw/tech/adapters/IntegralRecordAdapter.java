@@ -8,27 +8,27 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bw.tech.R;
-import com.bw.tech.beans.IntegralBean;
+import com.bw.tech.beans.IntegralRecordBean;
 
 import java.util.List;
 
-public class IntegralAdapter extends RecyclerView.Adapter<IntegralAdapter.ViewHolder> {
-    private List<IntegralBean.ResultBean> list;
+public class IntegralRecordAdapter extends RecyclerView.Adapter<IntegralRecordAdapter.ViewHolder> {
+    private List<IntegralRecordBean.ResultBean> list;
 
-    public IntegralAdapter(List<IntegralBean.ResultBean> list) {
+    public IntegralRecordAdapter(List<IntegralRecordBean.ResultBean> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.myintegral_item,null);
+        View view=View.inflate(parent.getContext(), R.layout.myintegralrecord_item,null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.integral_num.setText(list.get(position).getAmount()+"");
+  //      holder.myintegralrecord_title.setText(list.get(position).);
     }
 
     @Override
@@ -37,10 +37,12 @@ public class IntegralAdapter extends RecyclerView.Adapter<IntegralAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView integral_num;
+        TextView myintegralrecord_title,myintegralrecord_time,myintegralrecord_num;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            integral_num=itemView.findViewById(R.id.integral_num);
+            myintegralrecord_num=itemView.findViewById(R.id.myintegralrecord_num);
+            myintegralrecord_time=itemView.findViewById(R.id.myintegralrecord_time);
+            myintegralrecord_title=itemView.findViewById(R.id.myintegralrecord_title);
         }
     }
 }
