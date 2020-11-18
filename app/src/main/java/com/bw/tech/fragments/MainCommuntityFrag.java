@@ -46,12 +46,9 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         pre.CommunityData();
 
         //点击跳转到发表帖子页面
-        community_publish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), PublishActivity.class);
-                startActivity(intent);
-            }
+        community_publish.setOnClickListener(v -> {
+            Intent intent=new Intent(getActivity(), PublishActivity.class);
+            startActivity(intent);
         });
     }
 

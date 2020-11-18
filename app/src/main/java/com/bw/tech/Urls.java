@@ -23,23 +23,26 @@ public class Urls {
     public static final String Friend_List = "chat/verify/v1/initFriendList";
 
     //我的收藏
-    public static final String Collect_Url="user/verify/v1/findAllInfoCollection";
+    public static final String Collect_Url = "user/verify/v1/findAllInfoCollection";
 
     //我的关注
-    public static final String Attention_Url="user/verify/v1/findFollowUserList";
+    public static final String Attention_Url = "user/verify/v1/findFollowUserList";
 
     //我的帖子
-    public static final String Card_Url="community/verify/v1/findMyPostById";
+    public static final String Card_Url = "community/verify/v1/findMyPostById";
 
     //我的通知
-    public static final String Notice_Url="tool/verify/v1/findSysNoticeList";
+    public static final String Notice_Url = "tool/verify/v1/findSysNoticeList";
 
     //我的积分
-    public static final String Integral_Url="user/verify/v1/findUserIntegral";
+    public static final String Integral_Url = "user/verify/v1/findUserIntegral";
 
     //积分明细
-    public static final String IntegralRecord_Url="user/verify/v1/findUserIntegralRecord";
+    public static final String IntegralRecord_Url = "user/verify/v1/findUserIntegralRecord";
 
     //所有兴趣版块
-    public static final String Interest_Url="information/v1/findAllInfoPlate";
+    public static final String Interest_Url = "information/v1/findAllInfoPlate";
+
+    //上传图片
+    public static final String tz_dtsc = "community/verify/v1/releasePost";
 }

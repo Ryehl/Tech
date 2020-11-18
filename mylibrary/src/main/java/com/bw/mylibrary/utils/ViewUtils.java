@@ -2,6 +2,7 @@ package com.bw.mylibrary.utils;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,9 +17,10 @@ import android.view.WindowManager;
 public class ViewUtils {
     /**
      * 设置标题栏透明 5.0以上系统使用
-     * @param activity
+     *
+     * @param activity act
      */
-    public static void setViewTransparent(Activity activity){
+    public static void setViewTransparent(Activity activity) {
         Window window = activity.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -27,13 +29,27 @@ public class ViewUtils {
         window.setStatusBarColor(Color.TRANSPARENT);
     }
 
-    public static void unSetViewTransparent(Activity activity){
+    public static void unSetViewTransparent(Activity activity) {
         Window window = activity.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         window.setStatusBarColor(Color.BLACK);
+    }
 
+    public void changStatusIconCollor(Activity activity, boolean setDark) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decorView = activity.getWindow().getDecorView();
+            if (decorView != null) {
+                int vis = decorView.getSystemUiVisibility();
+                if (setDark) {
+                    vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                } else {
+                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+                decorView.setSystemUiVisibility(vis);
+            }
+        }
     }
 }

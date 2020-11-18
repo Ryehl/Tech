@@ -9,6 +9,7 @@ import com.bw.mylibrary.interfaces.IApi;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observer;
@@ -16,6 +17,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -345,6 +347,45 @@ public class NetUtils {
      */
     public void deleteInfoWithBody(String url, RequestBody body, GetJsonListener listener) {
         mIApi.deleteInfoWithBody(url, body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            String json = responseBody.string();
+                            listener.success(json);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                        listener.error();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
+    }
+
+    /**
+     * 上传多张图片
+     *
+     * @param url      url
+     * @param content  传入的文本消息
+     * @param list     文件列表
+     * @param listener 接口回调
+     */
+    public void upLoadFiles(String url, String content, List<MultipartBody.Part> list, GetJsonListener listener) {
+        mIApi.uploadFiles(url, content, list)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {

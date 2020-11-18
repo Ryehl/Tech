@@ -63,4 +63,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     //tablayou 依赖
     implementation 'com.android.support:design:30.0.0'
+    //图片选择器
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.8'
+    //glide依赖
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 }

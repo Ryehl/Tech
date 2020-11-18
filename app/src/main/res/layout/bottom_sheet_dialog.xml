@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/bsd_tv_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:text="相机"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/bsd_tv_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:layout_marginTop="2dp"
+        android:text="图库"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/bsd_tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:text="取消"
+        android:textSize="26sp" />
+
+</LinearLayout>
