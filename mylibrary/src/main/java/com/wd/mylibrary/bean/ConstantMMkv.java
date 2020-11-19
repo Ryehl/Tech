@@ -19,4 +19,8 @@ public class ConstantMMkv {
     //info
     public static final String Key_HeadPic = "headPic";
     public static final String Key_NickName = "nickName";
+
+    //极光
+    public static final String Key_UserName = "userName";
+    public static final String Key_Jpwd = "JG_pwd";
 }

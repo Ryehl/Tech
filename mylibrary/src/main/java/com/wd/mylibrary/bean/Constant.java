@@ -9,6 +9,7 @@ package com.wd.mylibrary.bean;
  */
 public class Constant {
     public static final String TAG = "TAG";
+    public static final String AppKey = "d4cf77f0d3b85e9edc540dee";
     public static final String RequestBodyMediaType = "application/json;charset=UTF-8";
     public static final String BASE_URL = "https://mobile.bwstudent.com/techApi/";
 }

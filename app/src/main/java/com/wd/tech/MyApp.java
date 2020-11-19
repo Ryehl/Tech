@@ -23,5 +23,7 @@ public class MyApp extends Application {
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this);
         ViewTarget.setTagId(R.id.glide_tag);
+        //set flag
+        JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND);
     }
 }
