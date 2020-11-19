@@ -16,6 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@mipmap/common_icon_back_n"
             />
         <LinearLayout
             android:gravity="center"
@@ -38,6 +41,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_marginTop="30sp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -80,18 +84,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_nickName"
             android:text="昵称"
             android:textSize="15sp"
             android:layout_marginLeft="40dp"
             />
         <TextView
             android:textSize="15sp"
+            android:id="@+id/setting_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
             />
     </RelativeLayout>
     <LinearLayout
@@ -115,17 +118,18 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_sex"
+
             android:text="性别"
             android:layout_marginLeft="40dp"
             />
         <TextView
             android:textSize="15sp"
+            android:id="@+id/setting_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -183,17 +187,18 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_birthday"
+
             android:text="生日"
             android:layout_marginLeft="40dp"
             />
         <TextView
             android:textSize="15sp"
+            android:id="@+id/setting_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -217,7 +222,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_phone"
+
             android:text="电话"
             android:layout_marginLeft="40dp"
             />
@@ -227,7 +232,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+            android:id="@+id/setting_phone"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -251,7 +257,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_email"
+
             android:text="邮箱"
             android:layout_marginLeft="40dp"
             />
@@ -261,7 +267,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+            android:id="@+id/setting_email"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -285,7 +292,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_integral"
+
             android:text="积分"
             android:layout_marginLeft="40dp"
             />
@@ -295,7 +302,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+            android:id="@+id/setting_integral"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -319,7 +327,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_vip"
+
             android:text="VIP"
             android:layout_marginLeft="40dp"
             />
@@ -329,7 +337,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="否"
+            android:id="@+id/setting_vip"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -353,7 +362,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_face"
+
             android:text="Face ID"
             android:layout_marginLeft="40dp"
             />
@@ -363,7 +372,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+            android:id="@+id/setting_face"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -387,7 +397,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_wechat"
+
             android:text="微信绑定"
             android:layout_marginLeft="40dp"
             />
@@ -396,8 +406,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:text="立即绑定"
+            android:id="@+id/setting_wechat"
             android:layout_marginRight="40dp"
-            android:text="GGBond"
+
             />
     </RelativeLayout>
     <LinearLayout
@@ -432,7 +444,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:id="@+id/setting_alter"
+            android:id="@+id/setting_alterpwd"
             android:text="修改密码"
             android:textColor="#FF2819"
             />

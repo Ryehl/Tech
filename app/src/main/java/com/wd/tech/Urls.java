@@ -51,4 +51,8 @@ public class Urls {
 
     //详情页评论
     public static final String DetailsComment_Url="information/v1/findAllInfoCommentList";
+
+    //修改用户签名
+    public static final String AlterSignature_Url="user/verify/v1/modifySignature";
+
 }

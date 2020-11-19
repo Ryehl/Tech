@@ -4,6 +4,7 @@ import java.util.List;
 
 public class TaskBean {
 
+
     /**
      * result : [{"status":2,"taskId":1001,"taskIntegral":10,"taskName":"每日签到","taskType":1},{"status":2,"taskId":1002,"taskIntegral":10,"taskName":"每日首评","taskType":1},{"status":2,"taskId":1003,"taskIntegral":20,"taskName":"每日发帖","taskType":1},{"status":2,"taskId":1004,"taskIntegral":20,"taskName":"每日分享","taskType":1},{"status":2,"taskId":1005,"taskIntegral":20,"taskName":"每日查看广告","taskType":1},{"status":2,"taskId":1006,"taskIntegral":50,"taskName":"完善用户信息","taskType":2},{"status":2,"taskId":1007,"taskIntegral":50,"taskName":"绑定微信","taskType":2}]
      * message : 查询成功

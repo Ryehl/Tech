@@ -44,7 +44,8 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                                 mmkv.putString("phone", loginBean.getResult().getPhone());//手机号
                                 mmkv.putInt("whetherVip", loginBean.getResult().getWhetherVip());//是否是Vip
                                 mmkv.putInt("whetherFaceId", loginBean.getResult().getWhetherFaceId());//FaceId
-                                mmkv.putString("head",loginBean.getResult().getHeadPic());//头像
+                                mmkv.putString("headPic",loginBean.getResult().getHeadPic());//头像
+
                                 //设置头参
                                 NetUtils.getNetUtils().setHeader(loginBean.getResult().getSessionId(), String.valueOf(loginBean.getResult().getUserId()));
                                 //登陆成功后跳转页面
