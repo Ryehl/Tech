@@ -45,4 +45,10 @@ public class Urls {
 
     //上传图片
     public static final String tz_dtsc = "community/verify/v1/releasePost";
+
+    //详情页
+    public static final String Details_Url="information/v1/findInformationDetails";
+
+    //详情页评论
+    public static final String DetailsComment_Url="information/v1/findAllInfoCommentList";
 }

@@ -8,11 +8,13 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.MyApp;
 import com.wd.tech.R;
+import com.wd.tech.activities.DetailsActivity;
 import com.wd.tech.activities.InterestActivity;
 import com.wd.tech.activities.SearchActivity;
 import com.wd.tech.adapters.InformationAdapter;
@@ -69,6 +71,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
                 startActivity(intent);
             }
         });
+
     }
 
     /*
@@ -117,6 +120,18 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
         //头部
       //  information_recyclerView.addHeaderView(xBanner);
+
+
+
+        //接口回调  点击事件跳转到详情页
+        informationAdapter.setOnJumpDetails(new InformationAdapter.OnJumpDetails() {
+            @Override
+            public void jumpdetails(int index) {
+                Intent intent=new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("id",index);
+                startActivity(intent);
+            }
+        });
     }
 
 

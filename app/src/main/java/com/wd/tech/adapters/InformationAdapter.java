@@ -51,6 +51,8 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 //            simpleDateFormat.format("yy-")
             String time=TypeConversionUtils.long2String(list.get(position).getReleaseTime());
             ((InformationViewHolder) holder).information_content_time.setText(time);
+
+
         } else if(holder instanceof InformationAdvertisingViewHolder){
             String url=list.get(position).getInfoAdvertisingVo().getPic();
             Uri uri=Uri.parse(url);
@@ -84,6 +86,16 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             information_img = itemView.findViewById(R.id.information_img);//发布的图片
             information_content_title = itemView.findViewById(R.id.information_content_title);//发布
             information_title = itemView.findViewById(R.id.information_title);//发表内容的标题
+
+            //利用接口回调将下标传过去
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(JumpDetails!=null){
+                        JumpDetails.jumpdetails(getLayoutPosition());
+                    }
+                }
+            });
         }
     }
 
@@ -95,6 +107,27 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             super(itemView);
             advertising_title=itemView.findViewById(R.id.advertising_title);
             advertising_img=itemView.findViewById(R.id.advertising_img);
+
+            //利用接口回调将下标传过去
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(JumpDetails!=null){
+                        JumpDetails.jumpdetails(getLayoutPosition());
+                    }
+                }
+            });
+
         }
+    }
+
+    //接口回调  跳转时携带下标
+    public interface OnJumpDetails{
+        void jumpdetails(int index);
+    }
+    public OnJumpDetails JumpDetails;
+
+    public void setOnJumpDetails(OnJumpDetails onJumpDetails) {
+        this.JumpDetails = onJumpDetails;
     }
 }
