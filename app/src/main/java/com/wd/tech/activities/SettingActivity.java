@@ -1,21 +1,23 @@
 package com.wd.tech.activities;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.mylibrary.bean.ConstantMMkv;
 import com.wd.tech.R;
+import com.wd.tech.diyview.BottomSelectImage;
 import com.wd.tech.presenters.SettingPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tencent.mmkv.MMKV;
 
 public class SettingActivity extends BaseActivity<SettingPresenter> {
-    TextView setting_nickName,setting_sex,setting_birthday,setting_phone,setting_email;
+    RelativeLayout setting_sex;
+    TextView setting_nickName,setting_birthday,setting_phone,setting_email,setting_sex1;
     TextView setting_integral,setting_VIP,setting_Face,setting_wechat,setting_goout,setting_alterpwd;
     SimpleDraweeView setting_head;
     ImageView setting_next;
@@ -33,7 +35,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         setting_goout=findViewById(R.id. setting_goout);
         setting_alterpwd=findViewById(R.id.setting_alterpwd);
         setting_integral=findViewById(R.id.setting_integral);
-
+        setting_sex1=findViewById(R.id.setting_sex1);
     }
 
     @Override
@@ -82,6 +84,23 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
                 startActivity(intent);
             }
         });
+
+        //TODO 性别
+        setting_sex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //弹框
+                BottomSheetDialog bsd=new BottomSheetDialog(SettingActivity.this);
+                bsd.setCancelable(true);
+                bsd.setContentView(R.layout.activity_sheetdialog);
+                //弹出(显示出来所加载的布局效果)
+                bsd.show();
+            }
+        });
+        //接收性别选择页面传过来的值
+        Intent intent=getIntent();
+        String man = intent.getStringExtra("sex");
+        setting_sex1.setText(man);
     }
 
     @Override

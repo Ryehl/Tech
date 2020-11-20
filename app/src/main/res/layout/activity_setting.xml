@@ -111,6 +111,7 @@
             />
     </LinearLayout>
     <RelativeLayout
+        android:id="@+id/setting_sex"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -119,13 +120,12 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="性别"
             android:layout_marginLeft="40dp"
             />
         <TextView
             android:textSize="15sp"
-            android:id="@+id/setting_sex"
+            android:id="@+id/setting_sex1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
