@@ -65,10 +65,6 @@ public class RecyUploadImagesAdap extends RecyclerView.Adapter<RecyUploadImagesA
         //根据下标显示 p 1 || p 8
         if (position >= list.size() && position <= (picMax - 1)) {
             //设置图片
-//            Glide.with(holder.itemView.getContext())
-//                    //TODO .load(list.get(position))
-//                    .load(R.drawable.add)
-//                    .into(holder.show);
             holder.show.setImageResource(R.drawable.add);
             //设置删除 显示
             holder.delete.setVisibility(View.GONE);
@@ -114,7 +110,7 @@ public class RecyUploadImagesAdap extends RecyclerView.Adapter<RecyUploadImagesA
         //if list's size was zero
         if (list.size() == 0)
             return 1;
-        return list.size() > picMax ? picMax : list.size() + 1;
+        return list.size() >= picMax ? picMax : list.size() + 1;
     }
 
     class Holder extends RecyclerView.ViewHolder {
