@@ -29,12 +29,11 @@ public class PersonalInformationActivity extends BaseActivity<PersonalInformatio
         personal_email=findViewById(R.id.personal_email);
         personal_back=findViewById(R.id.personal_back);
         personal_signature=findViewById(R.id.personal_signature);
-
-        pre.getPersonalInformationData();
     }
 
     @Override
     public void initData() {
+        pre.getPersonalInformationData();
         MMKV mmkv=MMKV.defaultMMKV();
         String nickName = mmkv.decodeString("nickName");
         personal_nickName.setText(nickName);

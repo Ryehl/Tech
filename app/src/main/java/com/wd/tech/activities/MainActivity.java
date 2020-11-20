@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
@@ -27,8 +28,21 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.tencent.mmkv.MMKV;
 
+import java.util.List;
+import java.util.Locale;
+
+import cn.jpush.android.service.JCommonService;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.event.ConversationRefreshEvent;
+import cn.jpush.im.android.api.event.MessageEvent;
+import cn.jpush.im.android.api.event.OfflineMessageEvent;
+import cn.jpush.im.android.api.model.Conversation;
+import cn.jpush.im.android.api.model.Message;
+
 
 public class MainActivity extends BaseActivity<ActMainPresenter> {
+
+    private final String TAG = "MainActivity";
 
     private TabLayout tab;
     boolean isDrawer;
@@ -143,6 +157,8 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
             ft.replace(R.id.main_left, new DrawerUnLoginFrag());
         }
         ft.commit();
+
+        JMessageClient.registerEventReceiver(this);
     }
 
     @Override
@@ -172,5 +188,45 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * 接收在线消息
+     **/
+    public void onEvent(MessageEvent event) {
+        //获取事件发生的会话对象
+//        Conversation conversation = event.getConversation();
+//        Message newMessage = event.getMessage();//获取此次离线期间会话收到的新消息列表
+//        System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到一条来自%s的在线消息。\n", conversation.getTargetId()));
+        Log.d(TAG, "onEvent: " + event.toString());
+    }
+
+
+    /**
+     * 接收离线消息。
+     * 类似MessageEvent事件的接收，上层在需要的地方增加OfflineMessageEvent事件的接收
+     * 即可实现离线消息的接收。
+     **/
+    public void onEvent(OfflineMessageEvent event) {
+        //获取事件发生的会话对象
+        Conversation conversation = event.getConversation();
+        List<Message> newMessageList = event.getOfflineMessageList();//获取此次离线期间会话收到的新消息列表
+        System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到%d条来自%s的离线消息。\n", newMessageList.size(), conversation.getTargetId()));
+    }
+
+
+    /**
+     * 接收消息漫游事件
+     * 如果在JMessageClient.init时启用了消息漫游功能，则每当一个会话的漫游消息同步完成时
+     * sdk会发送此事件通知上层。
+     **/
+    public void onEvent(ConversationRefreshEvent event) {
+        //获取事件发生的会话对象
+        Conversation conversation = event.getConversation();
+        //获取事件发生的原因，对于漫游完成触发的事件，此处的reason应该是
+        //MSG_ROAMING_COMPLETE
+        ConversationRefreshEvent.Reason reason = event.getReason();
+        System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到ConversationRefreshEvent事件,待刷新的会话是%s.\n", conversation.getTargetId()));
+        System.out.println("事件发生的原因 : " + reason);
     }
 }

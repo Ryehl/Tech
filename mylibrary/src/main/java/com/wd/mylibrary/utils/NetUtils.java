@@ -129,7 +129,8 @@ public class NetUtils {
                     public void onNext(ResponseBody responseBody) {
                         try {
                             String json = responseBody.string();
-                            listener.success(json);
+                            if (listener != null)
+                                listener.success(json);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -138,7 +139,8 @@ public class NetUtils {
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
-                        listener.error();
+                        if (listener != null)
+                            listener.error();
                     }
 
                     @Override

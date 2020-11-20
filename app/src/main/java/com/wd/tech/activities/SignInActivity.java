@@ -15,12 +15,11 @@ public class SignInActivity extends BaseActivity<SignInPresenter> {
 
     @Override
     public void initView() {
-        pre.getSignInData();
     }
 
     @Override
     public void initData() {
-
+        pre.getSignInData();
     }
     public void SignInData(String json){
         //解析
