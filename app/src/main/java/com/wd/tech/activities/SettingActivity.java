@@ -32,6 +32,8 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         setting_Face=findViewById(R.id.setting_face);
         setting_goout=findViewById(R.id. setting_goout);
         setting_alterpwd=findViewById(R.id.setting_alterpwd);
+        setting_integral=findViewById(R.id.setting_integral);
+
     }
 
     @Override
@@ -69,6 +71,14 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
                 Intent intent=new Intent(SettingActivity.this,MainActivity.class);
                 MMKV mmkv1=MMKV.defaultMMKV();
                 mmkv1.putBoolean(ConstantMMkv.Key_IsLogin,false);
+                startActivity(intent);
+            }
+        });
+        //签名
+        setting_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,AlterSignatureActivity.class);
                 startActivity(intent);
             }
         });

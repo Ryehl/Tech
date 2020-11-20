@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="110dp"
-            android:text="GGBond"
             android:id="@+id/listed_nickName"
             android:textColor="#fff"
             android:textSize="20sp" />

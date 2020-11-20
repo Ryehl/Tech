@@ -35,6 +35,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.PersonalInformationActivity"/>
 
         <meta-data
             android:name="JPUSH_CHANNEL"
@@ -43,13 +44,15 @@
             android:name="JPUSH_APPKEY"
             android:value="d4cf77f0d3b85e9edc540dee" />
 
+        <activity android:name=".activities.AlterSignatureActivity" />
+        <activity android:name=".activities.AlterpwdActivity" />
         <activity android:name=".activities.CreateGroupActivity" />
         <activity android:name=".activities.AddfriendActivity" />
         <activity android:name=".activities.PublishActivity" />
         <activity android:name=".activities.DetailsActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.InterestActivity" />
-        <activity android:name=".activities.Sign_inActivity" />
+        <activity android:name=".activities.SignInActivity" />
         <activity android:name=".activities.SettingActivity" />
         <activity android:name=".activities.TaskActivity" />
         <activity android:name=".activities.IntegralActivity" />
@@ -71,8 +74,7 @@
         <service
             android:name="cn.jpush.android.service.PushService"
             android:process=":multiprocess"
-            tools:node="replace" />
-        <!-- Since JCore2.0.0 Required SDK核心功能 -->
+            tools:node="replace" /> <!-- Since JCore2.0.0 Required SDK核心功能 -->
         <!-- 这个Service要继承JCommonService -->
         <service
             android:name=".service.XService"

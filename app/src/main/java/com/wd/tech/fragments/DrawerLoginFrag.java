@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.tencent.mmkv.MMKV;
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.R;
 import com.wd.tech.activities.AttentionActivity;
@@ -13,15 +14,18 @@ import com.wd.tech.activities.CardActivity;
 import com.wd.tech.activities.CollectActivity;
 import com.wd.tech.activities.IntegralActivity;
 import com.wd.tech.activities.NoticeActivity;
+import com.wd.tech.activities.PersonalInformationActivity;
 import com.wd.tech.activities.SettingActivity;
+import com.wd.tech.activities.SignInActivity;
 import com.wd.tech.activities.TaskActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class DrawerLoginFrag extends BaseFragment {
     private LinearLayout listed_collect,listed_attention,listed_card,listed_notice,listed_integral,listed_task,listed_setting;
     private SimpleDraweeView listed_head_img;
-    private TextView listed_niakName;
+    private TextView listed_nickName;
     private ImageView sign_in;
+
     @Override
     public void initView() {
 
@@ -33,14 +37,32 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_integral=view.findViewById(R.id.listed_integral);
         listed_task=view.findViewById(R.id.listed_task);
         listed_setting=view.findViewById(R.id.listed_setting);
-        listed_niakName=view.findViewById(R.id.listed_nickName);
+        listed_nickName=view.findViewById(R.id.listed_nickName);
         listed_head_img=view.findViewById(R.id.listed_head_img);
         sign_in=view.findViewById(R.id.sign_in);
     }
 
     @Override
     public void initData() {
-        //点击跳转到相应页面
+        //签到
+        sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+        //完善个人信息
+        listed_head_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),PersonalInformationActivity.class);
+                startActivity(intent);
+            }
+        });
+        /*
+        点击跳转到相应页面
+         */
         //收藏
         listed_collect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,14 +119,11 @@ public class DrawerLoginFrag extends BaseFragment {
                 startActivity(intent);
             }
         });
-        //签到
-        sign_in.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), SettingActivity.class);
-                startActivity(intent);
-            }
-        });
+
+        //将昵称拿出来并设置
+        MMKV mmkv=MMKV.defaultMMKV();
+        String nickName = mmkv.decodeString("nickName");
+        listed_nickName.setText(nickName);
     }
 
     @Override

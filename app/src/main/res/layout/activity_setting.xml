@@ -10,6 +10,7 @@
 
 
     <RelativeLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -153,7 +154,6 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/setting_signature"
             android:text="签名"
             android:layout_marginLeft="40dp"
             />

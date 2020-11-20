@@ -55,4 +55,13 @@ public class Urls {
     //修改用户签名
     public static final String AlterSignature_Url="user/verify/v1/modifySignature";
 
+    //任务列表
+    public static final String Task_Url="user/verify/v1/findUserTaskList";
+
+    //完善用户信息
+    public static final String PersonalInformation_Url="user/verify/v1/perfectUserInfo";
+
+    //签到
+    public static final String SignIn_Url="user/verify/v1/userSign";
+
 }
