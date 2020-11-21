@@ -17,24 +17,25 @@ import com.wd.tech.presenters.PersonalInformationPresenter;
 
 public class PersonalInformationActivity extends BaseActivity<PersonalInformationPresenter> {
 
-    private TextView personal_finish,personal_nickName;
-    private RelativeLayout personal_sex,personal_birthday,personal_email;
-    private ImageView personal_back,personal_signature;
+    private TextView personal_finish, personal_nickName;
+    private RelativeLayout personal_sex, personal_birthday, personal_email;
+    private ImageView personal_back, personal_signature;
+
     @Override
     public void initView() {
-        personal_nickName=findViewById(R.id.personal_nickName);
-        personal_finish=findViewById(R.id.personal_finish);
-        personal_sex=findViewById(R.id.personal_sex);
-        personal_birthday=findViewById(R.id.personal_birthday);
-        personal_email=findViewById(R.id.personal_email);
-        personal_back=findViewById(R.id.personal_back);
-        personal_signature=findViewById(R.id.personal_signature);
+        personal_nickName = findViewById(R.id.personal_nickName);
+        personal_finish = findViewById(R.id.personal_finish);
+        personal_sex = findViewById(R.id.personal_sex);
+        personal_birthday = findViewById(R.id.personal_birthday);
+        personal_email = findViewById(R.id.personal_email);
+        personal_back = findViewById(R.id.personal_back);
+        personal_signature = findViewById(R.id.personal_signature);
     }
 
     @Override
     public void initData() {
         pre.getPersonalInformationData();
-        MMKV mmkv=MMKV.defaultMMKV();
+        MMKV mmkv = MMKV.defaultMMKV();
         String nickName = mmkv.decodeString("nickName");
         personal_nickName.setText(nickName);
         //签名
@@ -48,7 +49,8 @@ public class PersonalInformationActivity extends BaseActivity<PersonalInformatio
 
 
     }
-    public void PersonalInformation(String json){
+
+    public void PersonalInformation(String json) {
 
     }
 

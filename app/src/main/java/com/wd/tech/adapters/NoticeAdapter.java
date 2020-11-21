@@ -23,14 +23,14 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.mynotice_item,null);
+        View view = View.inflate(parent.getContext(), R.layout.mynotice_item, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mynotice_content.setText(list.get(position).getContent());
-        String time= TypeConversionUtils.long2String(list.get(position).getCreateTime());
+        String time = TypeConversionUtils.long2String(list.get(position).getCreateTime());
         holder.mynotice_time.setText(time);
     }
 
@@ -40,11 +40,12 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView mynotice_time,mynotice_content;
+        TextView mynotice_time, mynotice_content;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mynotice_time=itemView.findViewById(R.id.mynotice_time);
-            mynotice_content=itemView.findViewById(R.id.mynotice_content);
+            mynotice_time = itemView.findViewById(R.id.mynotice_time);
+            mynotice_content = itemView.findViewById(R.id.mynotice_content);
 
         }
     }

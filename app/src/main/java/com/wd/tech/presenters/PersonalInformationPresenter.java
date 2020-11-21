@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class PersonalInformationPresenter extends BasePresenter<PersonalInformationActivity> {
 
-    public void getPersonalInformationData(){
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
+    public void getPersonalInformationData() {
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
             NetUtils.getNetUtils().getInfo(Urls.PersonalInformation_Url, new HashMap<String, Object>(), new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
@@ -26,7 +26,7 @@ public class PersonalInformationPresenter extends BasePresenter<PersonalInformat
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "无网！", Toast.LENGTH_SHORT).show();
         }
     }

@@ -13,9 +13,9 @@ import com.wd.tech.activities.TaskActivity;
 import java.util.HashMap;
 
 public class TaskPresenter extends BasePresenter<TaskActivity> {
-    public void getTaskData(){
+    public void getTaskData() {
         //判断网络
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
             NetUtils.getNetUtils().getInfo(Urls.Task_Url, new HashMap<String, Object>(), new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
@@ -27,7 +27,7 @@ public class TaskPresenter extends BasePresenter<TaskActivity> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "无网！", Toast.LENGTH_SHORT).show();
         }
     }

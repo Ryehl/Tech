@@ -47,21 +47,21 @@ public class Urls {
     public static final String tz_dtsc = "community/verify/v1/releasePost";
 
     //详情页
-    public static final String Details_Url="information/v1/findInformationDetails";
+    public static final String Details_Url = "information/v1/findInformationDetails";
 
     //详情页评论
-    public static final String DetailsComment_Url="information/v1/findAllInfoCommentList";
+    public static final String DetailsComment_Url = "information/v1/findAllInfoCommentList";
 
     //修改用户签名
-    public static final String AlterSignature_Url="user/verify/v1/modifySignature";
+    public static final String AlterSignature_Url = "user/verify/v1/modifySignature";
 
     //任务列表
-    public static final String Task_Url="user/verify/v1/findUserTaskList";
+    public static final String Task_Url = "user/verify/v1/findUserTaskList";
 
     //完善用户信息
-    public static final String PersonalInformation_Url="user/verify/v1/perfectUserInfo";
+    public static final String PersonalInformation_Url = "user/verify/v1/perfectUserInfo";
 
     //签到
-    public static final String SignIn_Url="user/verify/v1/userSign";
+    public static final String SignIn_Url = "user/verify/v1/userSign";
 
 }

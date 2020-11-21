@@ -23,13 +23,13 @@ public class IntegralRecordAdapter extends RecyclerView.Adapter<IntegralRecordAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.myintegralrecord_item,null);
+        View view = View.inflate(parent.getContext(), R.layout.myintegralrecord_item, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        switch (list.get(position).getType()){
+        switch (list.get(position).getType()) {
             case 1:
                 holder.myintegralrecord_title.setText("签到成功");
                 break;
@@ -61,13 +61,13 @@ public class IntegralRecordAdapter extends RecyclerView.Adapter<IntegralRecordAd
                 holder.myintegralrecord_title.setText("绑定第三方");
                 break;
         }
-        if(list.get(position).getDirection()==1){
-            holder.myintegralrecord_num.setText("+"+list.get(position).getAmount());
-        }else {
-            holder.myintegralrecord_num.setText("-"+list.get(position).getAmount());
+        if (list.get(position).getDirection() == 1) {
+            holder.myintegralrecord_num.setText("+" + list.get(position).getAmount());
+        } else {
+            holder.myintegralrecord_num.setText("-" + list.get(position).getAmount());
 
         }
-        String time= TypeConversionUtils.long2String(list.get(position).getCreateTime());
+        String time = TypeConversionUtils.long2String(list.get(position).getCreateTime());
         holder.myintegralrecord_time.setText(time);
     }
 
@@ -77,12 +77,13 @@ public class IntegralRecordAdapter extends RecyclerView.Adapter<IntegralRecordAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView myintegralrecord_title,myintegralrecord_time,myintegralrecord_num;
+        TextView myintegralrecord_title, myintegralrecord_time, myintegralrecord_num;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            myintegralrecord_num=itemView.findViewById(R.id.myintegralrecord_num);
-            myintegralrecord_time=itemView.findViewById(R.id.myintegralrecord_time);
-            myintegralrecord_title=itemView.findViewById(R.id.myintegralrecord_title);
+            myintegralrecord_num = itemView.findViewById(R.id.myintegralrecord_num);
+            myintegralrecord_time = itemView.findViewById(R.id.myintegralrecord_time);
+            myintegralrecord_title = itemView.findViewById(R.id.myintegralrecord_title);
         }
     }
 }

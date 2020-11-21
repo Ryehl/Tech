@@ -12,8 +12,8 @@ import com.wd.tech.activities.InterestActivity;
 import java.util.HashMap;
 
 public class InterestPresenter extends BasePresenter<InterestActivity> {
-    public void getInterestData(){
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
+    public void getInterestData() {
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
             NetUtils.getNetUtils().getInfo(Urls.Interest_Url, new HashMap<String, Object>(), new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
@@ -25,7 +25,7 @@ public class InterestPresenter extends BasePresenter<InterestActivity> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "无网!", Toast.LENGTH_SHORT).show();
         }
     }

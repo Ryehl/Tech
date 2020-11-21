@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/community_head_img"
             android:layout_width="50dp"
-            fresco:roundAsCircle="true"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            fresco:roundAsCircle="true" />
 
         <LinearLayout
 
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/community_nickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
                 android:layout_marginLeft="10dp"
-                />
+                android:textSize="17sp" />
+
             <TextView
-                android:layout_marginLeft="10dp"
                 android:id="@+id/community_signature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:textSize="13sp" />
         </LinearLayout>
 
         <TextView
-            android:layout_marginLeft="20dp"
             android:id="@+id/community_time"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-</LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
 
     <TextView
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:id="@+id/community_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="10dp" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/community_img"
         android:layout_width="120dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="120dp"
         android:layout_marginLeft="20dp"
-        fresco:roundedCornerRadius="10dp"
-        android:layout_height="120dp" />
+        android:layout_marginTop="100dp"
+        fresco:roundedCornerRadius="10dp" />
 
     <LinearLayout
-        android:layout_marginTop="230dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp">
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="230dp">
 
         <ImageView
             android:id="@+id/information_collect"
@@ -101,23 +101,24 @@
             android:text="3"
             android:textSize="13sp" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="260dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:orientation="horizontal">
+
         <TextView
+            android:id="@+id/comment_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/comment_nickName"
-            android:textSize="17sp"
-            />
+            android:textSize="17sp" />
+
         <TextView
-            android:textSize="15sp"
+            android:id="@+id/comment_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/comment_content"
-            />
+            android:textSize="15sp" />
     </LinearLayout>
 
 </RelativeLayout>

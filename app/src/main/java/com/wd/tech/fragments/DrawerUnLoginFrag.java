@@ -10,10 +10,11 @@ import com.wd.tech.activities.LoginActivity;
 
 public class DrawerUnLoginFrag extends BaseFragment {
     private LinearLayout log_out_layout;
+
     @Override
     public void initView() {
-        View view=getView();
-        log_out_layout=view.findViewById(R.id.log_out_layout);
+        View view = getView();
+        log_out_layout = view.findViewById(R.id.log_out_layout);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class DrawerUnLoginFrag extends BaseFragment {
         log_out_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }
         });

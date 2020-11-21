@@ -28,21 +28,11 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
 
     private final String TAG = "DetailsActivity";
 
-    private RecyclerView details_recycle, details_recycle_two;
-    private List<DetailsBean.ResultBean> list = new ArrayList<>();
-    private DetailsAdapter detailsAdapter;
-    private List<DetailsBean.ResultBean.InformationListBean> list2 = new ArrayList<>();
-    private List<DetailsBean.ResultBean> list_content = new ArrayList<>();
-    private DetailsAdapter_Recommend detailsAdapter_recommend;
-    private List<DetailsCommentBean.ResultBean> list_comment = new ArrayList<>();
-    private DetailsAdapter_Comment detailsAdapter_comment;
     private WebView webView;
 
     @Override
     public void initView() {
-        details_recycle = findViewById(R.id.details_recycle);
         webView = findViewById(R.id.details_webview);
-        details_recycle_two = findViewById(R.id.details_recycle_two);
     }
 
     @Override
@@ -51,19 +41,12 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
         int id = intent.getIntExtra("id", 0);
         pre.getDetailsData(id);
         pre.getDetailsCommentData(id);
-
-//        detailsAdapter_comment.setOnDetailsComment(new DetailsAdapter_Comment.OnDetailsComment() {
-//            @Override
-//            public void DetailsComment(int index) {
-//                pre.getDetailsCommentData(index);
-//            }
-//        });
-
     }
 
     public void DetailsData(String json) {
         //解析
         DetailsBean detailsBean = new Gson().fromJson(json, DetailsBean.class);
+        //
         String data = detailsBean.getResult().getContent();
         webView.loadDataWithBaseURL(null, data, "text/html", "UTF-8", null);
         Utils.setttingWebView(webView);

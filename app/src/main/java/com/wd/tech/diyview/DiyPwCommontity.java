@@ -22,8 +22,8 @@ public class DiyPwCommontity extends PopupWindow {
     private LinearLayout addFriend;
     private LinearLayout addGroup;
 
-    public DiyPwCommontity(Context context){
-        super(View.inflate(context, R.layout.diy_pw_msg_top, null),LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+    public DiyPwCommontity(Context context) {
+        super(View.inflate(context, R.layout.diy_pw_msg_top, null), LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         initView();
     }
 

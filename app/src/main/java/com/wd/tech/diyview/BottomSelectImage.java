@@ -57,8 +57,9 @@ public class BottomSelectImage extends LinearLayout {
 
     private BottomDialogListener listener;
 
-    public interface BottomDialogListener{
+    public interface BottomDialogListener {
         void camera();
+
         void gallery();
     }
 

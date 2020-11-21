@@ -17,21 +17,23 @@ public class NoticeActivity extends BaseActivity<NoticePresenter> {
 
     private RecyclerView notice_recycle;
     private NoticeAdapter noticeAdapter;
-    private List<NoticeBean.ResultBean> list=new ArrayList<>();
+    private List<NoticeBean.ResultBean> list = new ArrayList<>();
+
     @Override
     public void initView() {
-        notice_recycle=findViewById(R.id.notice_recycle);
+        notice_recycle = findViewById(R.id.notice_recycle);
     }
 
     @Override
     public void initData() {
         pre.getNoticeData();
     }
-    public void NoticeData(String json){
+
+    public void NoticeData(String json) {
         //解析
-        NoticeBean noticeBean=new Gson().fromJson(json,NoticeBean.class);
+        NoticeBean noticeBean = new Gson().fromJson(json, NoticeBean.class);
         list.addAll(noticeBean.getResult());
-        noticeAdapter=new NoticeAdapter(list);
+        noticeAdapter = new NoticeAdapter(list);
         notice_recycle.setAdapter(noticeAdapter);
         notice_recycle.setLayoutManager(new LinearLayoutManager(NoticeActivity.this));
     }

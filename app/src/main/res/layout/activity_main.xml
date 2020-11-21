@@ -17,8 +17,7 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@mipmap/mybg">
-    </com.google.android.material.navigation.NavigationView>
+        android:background="@mipmap/mybg"></com.google.android.material.navigation.NavigationView>
 
 
     <!--    中间的(右侧的)    -->

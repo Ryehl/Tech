@@ -46,6 +46,7 @@ public interface IApi {
 
     /**
      * 进行多个文件的上传
+     * TODO 尝试更改成QueryMap
      *
      * @param path    需要上传的路径
      * @param content 传入的文本内容 参数需要进行修改

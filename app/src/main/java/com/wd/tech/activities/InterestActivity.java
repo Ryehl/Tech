@@ -16,25 +16,28 @@ import java.util.List;
 public class InterestActivity extends BaseActivity<InterestPresenter> {
 
     private RecyclerView recyclerView;
-    private List<InterestBean.ResultBean> list=new ArrayList<>();
+    private List<InterestBean.ResultBean> list = new ArrayList<>();
     private InterestAdapter interestAdapter;
+
     @Override
     public void initView() {
-        recyclerView=findViewById(R.id.interest_recycle);
+        recyclerView = findViewById(R.id.interest_recycle);
     }
 
     @Override
     public void initData() {
         pre.getInterestData();
     }
-    public void InterestData(String json){
+
+    public void InterestData(String json) {
         //解析
-        InterestBean interestBean=new Gson().fromJson(json,InterestBean.class);
+        InterestBean interestBean = new Gson().fromJson(json, InterestBean.class);
         list.addAll(interestBean.getResult());
-        interestAdapter=new InterestAdapter(list);
+        interestAdapter = new InterestAdapter(list);
         recyclerView.setAdapter(interestAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(InterestActivity.this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(InterestActivity.this, 2));
     }
+
     @Override
     public int getLayout() {
         return R.layout.activity_interest;

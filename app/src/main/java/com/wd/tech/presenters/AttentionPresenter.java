@@ -13,12 +13,12 @@ import java.util.HashMap;
 
 public class AttentionPresenter extends BasePresenter<AttentionActivity> {
 
-    public void getAttentionData(){
+    public void getAttentionData() {
         //判断网络
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
-            HashMap<String,Object> map=new HashMap<>();
-            map.put("page","1");
-            map.put("count","5");
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("page", "1");
+            map.put("count", "5");
             //网络请求
             NetUtils.getNetUtils().getInfo(Urls.Attention_Url, map, new NetUtils.GetJsonListener() {
                 @Override
@@ -31,7 +31,7 @@ public class AttentionPresenter extends BasePresenter<AttentionActivity> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "没网玩你妈？", Toast.LENGTH_SHORT).show();
         }
     }

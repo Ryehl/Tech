@@ -31,11 +31,12 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
     private List<CommuntiyBean.ResultBean> list = new ArrayList<>();
     private CommunityAdapter communityAdapter;
     private SimpleDraweeView community_publish;
+
     @Override
     public void initView() {
         View view = getView();
         recyclerView = view.findViewById(R.id.community_recycle);
-        community_publish=view.findViewById(R.id.publish);
+        community_publish = view.findViewById(R.id.publish);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
 
         //点击跳转到发表帖子页面
         community_publish.setOnClickListener(v -> {
-            Intent intent=new Intent(getActivity(), PublishActivity.class);
+            Intent intent = new Intent(getActivity(), PublishActivity.class);
             startActivity(intent);
         });
     }
@@ -53,7 +54,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         //解析
         CommuntiyBean communtiyBean = new Gson().fromJson(json, CommuntiyBean.class);
         list.addAll(communtiyBean.getResult());
-        communityAdapter=new CommunityAdapter(list);
+        communityAdapter = new CommunityAdapter(list);
         recyclerView.setAdapter(communityAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
     }

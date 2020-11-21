@@ -25,7 +25,7 @@ public class DetailsAdapter_Comment extends RecyclerView.Adapter<DetailsAdapter_
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.detailscomment_item,null);
+        View view = View.inflate(parent.getContext(), R.layout.detailscomment_item, null);
         return new ViewHolder(view);
     }
 
@@ -33,10 +33,10 @@ public class DetailsAdapter_Comment extends RecyclerView.Adapter<DetailsAdapter_
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.detailscomment_nickName.setText(list.get(position).getNickName());
         holder.detailscomment_content.setText(list.get(position).getContent());
-        String head=list.get(position).getHeadPic();
-        Uri uri=Uri.parse(head);
+        String head = list.get(position).getHeadPic();
+        Uri uri = Uri.parse(head);
         holder.detailscomment_head.setImageURI(uri);
-        String time= TypeConversionUtils.long2String(list.get(position).getCommentTime());
+        String time = TypeConversionUtils.long2String(list.get(position).getCommentTime());
         holder.detailscomment_time.setText(time);
     }
 
@@ -46,24 +46,26 @@ public class DetailsAdapter_Comment extends RecyclerView.Adapter<DetailsAdapter_
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView detailscomment_nickName,detailscomment_time,detailscomment_content;
+        TextView detailscomment_nickName, detailscomment_time, detailscomment_content;
         SimpleDraweeView detailscomment_head;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            detailscomment_content=itemView.findViewById(R.id.detailscomment_content);
-            detailscomment_time=itemView.findViewById(R.id.detailscomment_time);
-            detailscomment_nickName=itemView.findViewById(R.id.detailscomment_nickName);
-            detailscomment_head=itemView.findViewById(R.id.detailscomment_head);
+            detailscomment_content = itemView.findViewById(R.id.detailscomment_content);
+            detailscomment_time = itemView.findViewById(R.id.detailscomment_time);
+            detailscomment_nickName = itemView.findViewById(R.id.detailscomment_nickName);
+            detailscomment_head = itemView.findViewById(R.id.detailscomment_head);
 
-            if(onDetailsComment!=null){
+            if (onDetailsComment != null) {
                 onDetailsComment.DetailsComment(list.get(getLayoutPosition()).getInfoId());
             }
         }
     }
 
-    public interface OnDetailsComment{
+    public interface OnDetailsComment {
         void DetailsComment(int index);
     }
+
     private OnDetailsComment onDetailsComment;
 
     public void setOnDetailsComment(OnDetailsComment onDetailsComment) {

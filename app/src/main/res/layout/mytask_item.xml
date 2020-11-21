@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_marginLeft="20dp"
-            android:textSize="15sp"
-            android:layout_width="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
             android:id="@+id/mytask_title"
-            android:text="每日签到"
-            />
-        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:textSize="17sp"
-            android:layout_marginLeft="70dp"
+            android:text="每日签到"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/mytask_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mytask_num"
-            android:textColor="#F44336"
-            />
-        <Button
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
-            android:textSize="17sp"
-            android:textColor="#fff"
+            android:textColor="#F44336"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/mytask_but"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:background="#41C2FC"
             android:text="已完成"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="90dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mytask_but"
-            />
+            android:textColor="#fff"
+            android:textSize="17sp" />
     </LinearLayout>
 </LinearLayout>

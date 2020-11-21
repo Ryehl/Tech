@@ -13,11 +13,11 @@ import java.util.HashMap;
 
 public class CardPresenter extends BasePresenter<CardActivity> {
 
-    public void getCardData(){
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
-            HashMap<String,Object> map=new HashMap<>();
-            map.put("page","1");
-            map.put("count","5");
+    public void getCardData() {
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("page", "1");
+            map.put("count", "5");
             NetUtils.getNetUtils().getInfo(Urls.Card_Url, map, new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
@@ -29,7 +29,7 @@ public class CardPresenter extends BasePresenter<CardActivity> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "没网！", Toast.LENGTH_SHORT).show();
         }
     }

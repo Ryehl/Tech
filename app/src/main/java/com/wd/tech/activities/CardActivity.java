@@ -17,21 +17,23 @@ public class CardActivity extends BaseActivity<CardPresenter> {
 
     private RecyclerView mycard_recyclerView;
     private CardAdapter cardAdapter;
-    private List<CardBean.ResultBean> list=new ArrayList<>();
+    private List<CardBean.ResultBean> list = new ArrayList<>();
+
     @Override
     public void initView() {
-        mycard_recyclerView=findViewById(R.id.mycard_recycle);
+        mycard_recyclerView = findViewById(R.id.mycard_recycle);
     }
 
     @Override
     public void initData() {
         pre.getCardData();
     }
-    public void CardData(String json){
+
+    public void CardData(String json) {
         //解析数据
-        CardBean cardBean=new Gson().fromJson(json,CardBean.class);
+        CardBean cardBean = new Gson().fromJson(json, CardBean.class);
         list.addAll(cardBean.getResult());
-        cardAdapter=new CardAdapter(list);
+        cardAdapter = new CardAdapter(list);
         mycard_recyclerView.setAdapter(cardAdapter);
         mycard_recyclerView.setLayoutManager(new LinearLayoutManager(CardActivity.this));
     }

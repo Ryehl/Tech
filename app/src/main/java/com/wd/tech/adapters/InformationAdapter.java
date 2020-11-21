@@ -42,20 +42,20 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((InformationViewHolder) holder).information_title.setText(list.get(position).getTitle());
             ((InformationViewHolder) holder).information_content.setText(list.get(position).getSummary());
             ((InformationViewHolder) holder).information_content_title.setText(list.get(position).getSource());
-            String url=list.get(position).getThumbnail();
-            Uri uri=Uri.parse(url);
+            String url = list.get(position).getThumbnail();
+            Uri uri = Uri.parse(url);
             ((InformationViewHolder) holder).information_img.setImageURI(uri);
-            ((InformationViewHolder) holder).information_collect_num.setText(""+list.get(position).getCollection());
-            ((InformationViewHolder) holder).information_share_num.setText(""+list.get(position).getShare());
+            ((InformationViewHolder) holder).information_collect_num.setText("" + list.get(position).getCollection());
+            ((InformationViewHolder) holder).information_share_num.setText("" + list.get(position).getShare());
 //            SimpleDateFormat simpleDateFormat=new SimpleDateFormat();
 //            simpleDateFormat.format("yy-")
-            String time=TypeConversionUtils.long2String(list.get(position).getReleaseTime());
+            String time = TypeConversionUtils.long2String(list.get(position).getReleaseTime());
             ((InformationViewHolder) holder).information_content_time.setText(time);
 
 
-        } else if(holder instanceof InformationAdvertisingViewHolder){
-            String url=list.get(position).getInfoAdvertisingVo().getPic();
-            Uri uri=Uri.parse(url);
+        } else if (holder instanceof InformationAdvertisingViewHolder) {
+            String url = list.get(position).getInfoAdvertisingVo().getPic();
+            Uri uri = Uri.parse(url);
             ((InformationAdvertisingViewHolder) holder).advertising_img.setImageURI(uri);
             ((InformationAdvertisingViewHolder) holder).advertising_title.setText(list.get(position).getInfoAdvertisingVo().getContent());
         }
@@ -91,7 +91,7 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(JumpDetails!=null){
+                    if (JumpDetails != null) {
                         JumpDetails.jumpdetails(getLayoutPosition());
                     }
                 }
@@ -103,16 +103,17 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public class InformationAdvertisingViewHolder extends RecyclerView.ViewHolder {
         TextView advertising_title;
         SimpleDraweeView advertising_img;
+
         public InformationAdvertisingViewHolder(@NonNull View itemView) {
             super(itemView);
-            advertising_title=itemView.findViewById(R.id.advertising_title);
-            advertising_img=itemView.findViewById(R.id.advertising_img);
+            advertising_title = itemView.findViewById(R.id.advertising_title);
+            advertising_img = itemView.findViewById(R.id.advertising_img);
 
             //利用接口回调将下标传过去
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(JumpDetails!=null){
+                    if (JumpDetails != null) {
                         JumpDetails.jumpdetails(getLayoutPosition());
                     }
                 }
@@ -122,9 +123,10 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     //接口回调  跳转时携带下标
-    public interface OnJumpDetails{
+    public interface OnJumpDetails {
         void jumpdetails(int index);
     }
+
     public OnJumpDetails JumpDetails;
 
     public void setOnJumpDetails(OnJumpDetails onJumpDetails) {

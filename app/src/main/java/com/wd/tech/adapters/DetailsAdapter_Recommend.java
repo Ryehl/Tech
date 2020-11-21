@@ -24,15 +24,15 @@ public class DetailsAdapter_Recommend extends RecyclerView.Adapter<DetailsAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.details_item_two,null);
+        View view = View.inflate(parent.getContext(), R.layout.details_item_two, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.details_recommend_title.setText(list.get(position).getTitle());
-        String img=list.get(position).getThumbnail();
-        Uri uri=Uri.parse(img);
+        String img = list.get(position).getThumbnail();
+        Uri uri = Uri.parse(img);
         holder.details_recommend_img.setImageURI(uri);
 
     }
@@ -45,10 +45,11 @@ public class DetailsAdapter_Recommend extends RecyclerView.Adapter<DetailsAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView details_recommend_title;
         SimpleDraweeView details_recommend_img;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            details_recommend_img=itemView.findViewById(R.id.details_recommend_img);
-            details_recommend_title=itemView.findViewById(R.id.details_recommend_tile);
+            details_recommend_img = itemView.findViewById(R.id.details_recommend_img);
+            details_recommend_title = itemView.findViewById(R.id.details_recommend_tile);
         }
     }
 }

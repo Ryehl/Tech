@@ -8,11 +8,12 @@ import com.wd.mylibrary.base.BaseActivity;
 import com.wd.tech.R;
 
 public class SheetDialogActivity extends BaseActivity {
-    TextView man,woman;
+    TextView man, woman;
+
     @Override
     public void initView() {
-        man=findViewById(R.id.man);
-        woman=findViewById(R.id.woman);
+        man = findViewById(R.id.man);
+        woman = findViewById(R.id.woman);
     }
 
     @Override
@@ -21,8 +22,8 @@ public class SheetDialogActivity extends BaseActivity {
         man.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SheetDialogActivity.this,SettingActivity.class);
-                intent.putExtra("sex","男");
+                Intent intent = new Intent(SheetDialogActivity.this, SettingActivity.class);
+                intent.putExtra("sex", "男");
                 startActivity(intent);
             }
         });

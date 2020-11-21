@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:id="@+id/log_out_layout"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            fresco:roundAsCircle="true"
             android:background="@mipmap/icon"
-            />
+            fresco:roundAsCircle="true" />
+
         <TextView
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="登录/注册"
-            android:textColor="#fff"
-            />
+            android:textColor="#fff" />
     </LinearLayout>
 
 

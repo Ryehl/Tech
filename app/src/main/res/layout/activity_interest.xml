@@ -8,24 +8,23 @@
     tools:context=".activities.InterestActivity">
 
     <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="选择兴趣分类"
-        android:textSize="22sp"
-        />
+        android:textSize="22sp" />
+
     <TextView
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="让我们更懂你"
-        />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="让我们更懂你" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="20dp"
+        android:id="@+id/interest_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/interest_recycle"
-        />
+        android:layout_marginTop="20dp" />
 </LinearLayout>

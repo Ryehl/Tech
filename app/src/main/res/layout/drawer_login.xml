@@ -10,8 +10,8 @@
         android:layout_height="200dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="50dp"
             android:id="@+id/listed_head_img"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="100dp"
@@ -19,11 +19,11 @@
             fresco:roundAsCircle="true" />
 
         <TextView
+            android:id="@+id/listed_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="110dp"
-            android:id="@+id/listed_nickName"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -33,11 +33,11 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/sign_in"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="110dp"
-                android:id="@+id/sign_in"
                 android:background="@mipmap/my_icon_sign_n" />
 
             <TextView
@@ -258,9 +258,9 @@
             android:layout_marginTop="12dp"
             android:background="@mipmap/my_icon_next_n" />
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
-        />
+        android:background="#fff" />
 </LinearLayout>

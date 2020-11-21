@@ -23,20 +23,20 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.mytask_item,null);
+        View view = View.inflate(parent.getContext(), R.layout.mytask_item, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //判断任务状态(已完成或者是未完成)
-        if(list.get(position).getStatus()==1){
+        if (list.get(position).getStatus() == 1) {
             holder.mytask_but.setText("已完成");
-            holder.mytask_num.setText("+"+list.get(position).getTaskIntegral());
+            holder.mytask_num.setText("+" + list.get(position).getTaskIntegral());
             holder.mytask_title.setText(list.get(position).getTaskName());
-        }else{
-            if(list.get(position).getTaskType()==1){
-                switch (list.get(position).getTaskName()){
+        } else {
+            if (list.get(position).getTaskType() == 1) {
+                switch (list.get(position).getTaskName()) {
                     case "每日签到":
                         holder.mytask_but.setText("去签到");
                         break;
@@ -53,10 +53,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
                         holder.mytask_but.setText("去查看");
                         break;
                 }
-                holder.mytask_num.setText("+"+list.get(position).getTaskIntegral());
+                holder.mytask_num.setText("+" + list.get(position).getTaskIntegral());
                 holder.mytask_title.setText(list.get(position).getTaskName());
-            }else{
-                holder.mytask_num.setText("+"+list.get(position).getTaskIntegral());
+            } else {
+                holder.mytask_num.setText("+" + list.get(position).getTaskIntegral());
                 holder.mytask_title.setText(list.get(position).getTaskName());
             }
         }
@@ -93,13 +93,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView mytask_title,mytask_num;
+        TextView mytask_title, mytask_num;
         Button mytask_but;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mytask_title=itemView.findViewById(R.id.mytask_title);
-            mytask_num=itemView.findViewById(R.id.mytask_num);
-            mytask_but=itemView.findViewById(R.id.mytask_but);
+            mytask_title = itemView.findViewById(R.id.mytask_title);
+            mytask_num = itemView.findViewById(R.id.mytask_num);
+            mytask_but = itemView.findViewById(R.id.mytask_but);
         }
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SignInActivity extends BaseActivity<SignInPresenter> {
 
-    private List<SignInBean> list=new ArrayList<>();
+    private List<SignInBean> list = new ArrayList<>();
 
     @Override
     public void initView() {
@@ -21,9 +21,10 @@ public class SignInActivity extends BaseActivity<SignInPresenter> {
     public void initData() {
         pre.getSignInData();
     }
-    public void SignInData(String json){
+
+    public void SignInData(String json) {
         //解析
-        SignInBean signInBean=new Gson().fromJson(json,SignInBean.class);
+        SignInBean signInBean = new Gson().fromJson(json, SignInBean.class);
         list.add(signInBean);
 
     }

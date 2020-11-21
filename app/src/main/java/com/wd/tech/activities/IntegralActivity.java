@@ -19,13 +19,14 @@ import java.util.List;
 public class IntegralActivity extends BaseActivity<IntegralPresenter> {
 
     private RecyclerView integralrecord_recycle;
-    private List<IntegralRecordBean.ResultBean> list=new ArrayList<>();
+    private List<IntegralRecordBean.ResultBean> list = new ArrayList<>();
     private IntegralRecordAdapter integralRecordAdapter;
     TextView integral_num;
+
     @Override
     public void initView() {
-        integral_num=findViewById(R.id.integral_num);
-        integralrecord_recycle=findViewById(R.id.myintegralrecod_recycle);
+        integral_num = findViewById(R.id.integral_num);
+        integralrecord_recycle = findViewById(R.id.myintegralrecod_recycle);
     }
 
     @Override
@@ -33,19 +34,22 @@ public class IntegralActivity extends BaseActivity<IntegralPresenter> {
         pre.getIntegralData();
         pre.getIntegralRecordData();
     }
-    public void IntegralData(String json){
+
+    public void IntegralData(String json) {
         //解析数据
-        IntegralBean integralBean=new Gson().fromJson(json,IntegralBean.class);
-        integral_num.setText(integralBean.getResult().getAmount()+"");
+        IntegralBean integralBean = new Gson().fromJson(json, IntegralBean.class);
+        integral_num.setText(integralBean.getResult().getAmount() + "");
     }
-    public void IntegralRecordData(String json){
+
+    public void IntegralRecordData(String json) {
         //解析
-        IntegralRecordBean integralRecordBean=new Gson().fromJson(json,IntegralRecordBean.class);
+        IntegralRecordBean integralRecordBean = new Gson().fromJson(json, IntegralRecordBean.class);
         list.addAll(integralRecordBean.getResult());
-        integralRecordAdapter=new IntegralRecordAdapter(list);
+        integralRecordAdapter = new IntegralRecordAdapter(list);
         integralrecord_recycle.setAdapter(integralRecordAdapter);
         integralrecord_recycle.setLayoutManager(new LinearLayoutManager(IntegralActivity.this));
     }
+
     @Override
     public int getLayout() {
         return R.layout.activity_integral;

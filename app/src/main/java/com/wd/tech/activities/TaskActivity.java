@@ -20,25 +20,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskActivity extends BaseActivity<TaskPresenter> {
-    private List<TaskBean.ResultBean> list=new ArrayList<>();
+    private List<TaskBean.ResultBean> list = new ArrayList<>();
     private TaskAdapter taskAdapter;
-    private RecyclerView mytaskreycle,mytask_singleuse_recycle;
+    private RecyclerView mytaskreycle, mytask_singleuse_recycle;
     private TaskAdapterSingleUse taskAdapterSingleUse;
+
     @Override
     public void initView() {
-        mytaskreycle=findViewById(R.id.mytask_recycle);
-        mytask_singleuse_recycle=findViewById(R.id.mytask_singleuse_recycle);
+        mytaskreycle = findViewById(R.id.mytask_recycle);
+        mytask_singleuse_recycle = findViewById(R.id.mytask_singleuse_recycle);
     }
 
     @Override
     public void initData() {
         pre.getTaskData();
     }
-    public void TaskData(String json){
+
+    public void TaskData(String json) {
         //解析
-        TaskBean taskBean=new Gson().fromJson(json,TaskBean.class);
+        TaskBean taskBean = new Gson().fromJson(json, TaskBean.class);
         list.addAll(taskBean.getResult());
-        taskAdapter=new TaskAdapter(list);
+        taskAdapter = new TaskAdapter(list);
         mytaskreycle.setAdapter(taskAdapter);
         mytaskreycle.setLayoutManager(new LinearLayoutManager(TaskActivity.this));
 
@@ -47,6 +49,7 @@ public class TaskActivity extends BaseActivity<TaskPresenter> {
 //        mytask_singleuse_recycle.setLayoutManager(new LinearLayoutManager(TaskActivity.this));
 
     }
+
     @Override
     public int getLayout() {
         return R.layout.activity_task;

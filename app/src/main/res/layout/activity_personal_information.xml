@@ -3,216 +3,231 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.PersonalInformationActivity">
+
     <RelativeLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
         <ImageView
+            android:id="@+id/personal_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:id="@+id/personal_back"
-            android:background="@mipmap/common_icon_back_n"
-            />
+            android:background="@mipmap/common_icon_back_n" />
+
         <LinearLayout
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
             <TextView
-                android:text="完善个人信息"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
-                />
+                android:text="完善个人信息"
+                android:textSize="17sp" />
 
         </LinearLayout>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="完成"
             android:id="@+id/personal_finish"
-            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
-            />
+            android:text="完成"
+            android:textSize="17sp" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="昵称"
             android:layout_marginLeft="40dp"
-            />
+            android:text="昵称"
+            android:textSize="15sp" />
+
         <TextView
-            android:textSize="15sp"
+            android:id="@+id/personal_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="立即绑定"
-            android:id="@+id/personal_nickName"
             android:layout_marginRight="40dp"
+            android:text="立即绑定"
+            android:textSize="15sp"
 
             />
     </RelativeLayout>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="315dp"
             android:layout_height="1dp"
-            android:background="#17000000"
-            />
+            android:background="#17000000" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/personal_sex"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="性别"
             android:layout_marginLeft="40dp"
-            />
+            android:text="性别"
+            android:textSize="15sp" />
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
+            android:textSize="15sp"
 
             />
     </RelativeLayout>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="315dp"
             android:layout_height="1dp"
-            android:background="#17000000"
-            />
+            android:background="#17000000" />
     </LinearLayout>
+
     <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="签名"
             android:layout_marginLeft="40dp"
-            />
+            android:text="签名"
+            android:textSize="15sp" />
+
         <ImageView
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="50dp"
             android:id="@+id/personal_signature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/my_icon_next_n"
-            />
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:background="@mipmap/my_icon_next_n" />
     </RelativeLayout>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="315dp"
             android:layout_height="1dp"
-            android:background="#17000000"
-            />
+            android:background="#17000000" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/personal_birthday"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
 
             android:text="生日"
-            android:layout_marginLeft="40dp"
-            />
+            android:textSize="15sp" />
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
+            android:textSize="15sp"
 
             />
     </RelativeLayout>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="315dp"
             android:layout_height="1dp"
-            android:background="#17000000"
-            />
+            android:background="#17000000" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/personal_email"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
 
             android:text="邮箱"
-            android:layout_marginLeft="40dp"
-            />
+            android:textSize="15sp" />
+
         <TextView
-            android:textSize="15sp"
+            android:id="@+id/setting_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:id="@+id/setting_email"
+            android:textSize="15sp"
 
             />
     </RelativeLayout>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="315dp"
             android:layout_height="1dp"
-            android:background="#17000000"
-            />
+            android:background="#17000000" />
     </LinearLayout>
 </LinearLayout>

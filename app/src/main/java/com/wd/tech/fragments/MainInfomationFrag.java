@@ -39,14 +39,15 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XRecyclerView information_recyclerView;
     private InformationAdapter informationAdapter;
     private List<InformationBean.ResultBean> list_information = new ArrayList<>();//咨讯列表数据源
-    private ImageView information_interest,information_search;
+    private ImageView information_interest, information_search;
+
     @Override
     public void initView() {
         View view = getView();
         xBanner = view.findViewById(R.id.info_xbanner);
         information_recyclerView = view.findViewById(R.id.information_recycle);
-        information_interest=view.findViewById(R.id.information_interest);
-        information_search=view.findViewById(R.id.information_search);
+        information_interest = view.findViewById(R.id.information_interest);
+        information_search = view.findViewById(R.id.information_search);
     }
 
     @Override
@@ -58,7 +59,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         information_interest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), InterestActivity.class);
+                Intent intent = new Intent(getActivity(), InterestActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +68,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         information_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -114,21 +115,20 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         Log.i("TAG", informationBean.toString());
         list_information.addAll(informationBean.getResult());
         //适配器
-        informationAdapter=new InformationAdapter(list_information);
+        informationAdapter = new InformationAdapter(list_information);
         //设置适配器
         information_recyclerView.setAdapter(informationAdapter);
         information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
         //头部
-      //  information_recyclerView.addHeaderView(xBanner);
-
+        //  information_recyclerView.addHeaderView(xBanner);
 
 
         //接口回调  点击事件跳转到详情页
         informationAdapter.setOnJumpDetails(new InformationAdapter.OnJumpDetails() {
             @Override
             public void jumpdetails(int index) {
-                Intent intent=new Intent(getActivity(), DetailsActivity.class);
-                intent.putExtra("id",index);
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("id", index);
                 startActivity(intent);
             }
         });

@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
     <com.facebook.drawee.view.SimpleDraweeView
-        android:layout_width="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="60dp"
-        fresco:roundAsCircle="true"
         android:id="@+id/myattention_head"
-        />
-    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:orientation="vertical"
+        fresco:roundAsCircle="true" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp">
+        android:layout_height="90dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/myattention_nickName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/myattention_nickName"
-            android:textSize="17sp"
-            />
+            android:textSize="17sp" />
+
         <TextView
-            android:layout_marginBottom="30dp"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/myattention_signature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/myattention_signature"
-            />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp" />
     </RelativeLayout>
 </LinearLayout>

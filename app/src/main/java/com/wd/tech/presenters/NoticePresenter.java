@@ -13,11 +13,11 @@ import java.util.HashMap;
 
 public class NoticePresenter extends BasePresenter<NoticeActivity> {
 
-    public void getNoticeData(){
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
-            HashMap<String,Object> map=new HashMap<>();
-            map.put("page","1");
-            map.put("count","5");
+    public void getNoticeData() {
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("page", "1");
+            map.put("count", "5");
             NetUtils.getNetUtils().getInfo(Urls.Notice_Url, map, new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
@@ -29,7 +29,7 @@ public class NoticePresenter extends BasePresenter<NoticeActivity> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "没网", Toast.LENGTH_SHORT).show();
         }
     }

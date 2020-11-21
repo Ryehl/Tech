@@ -33,7 +33,7 @@ public class MsgMessageFrag extends BaseFragment<FragMsgMessagePresenter> {
         pre.getMessageList();
     }
 
-    public void setAdap(){
+    public void setAdap() {
         recy_show.setLayoutManager(new LinearLayoutManager(getContext()));
         //recy_show.setAdapter();
     }

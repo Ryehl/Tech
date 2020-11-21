@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <TextView
-        android:gravity="center"
-        android:textSize="17sp"
+        android:id="@+id/man"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:gravity="center"
         android:text="男"
-        android:id="@+id/man"
-        />
+        android:textSize="17sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#16000000"
-        />
+        android:background="#16000000" />
+
     <TextView
-        android:gravity="center"
-        android:textSize="17sp"
+        android:id="@+id/woman"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:gravity="center"
         android:text="女"
-        android:id="@+id/woman"
-        />
+        android:textSize="17sp" />
 </LinearLayout>

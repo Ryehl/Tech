@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class SignInPresenter extends BasePresenter<SignInActivity> {
 
-    public void getSignInData(){
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
+    public void getSignInData() {
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
             NetUtils.getNetUtils().postInfo(Urls.SignIn_Url, new HashMap<String, Object>(), new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
@@ -26,7 +26,7 @@ public class SignInPresenter extends BasePresenter<SignInActivity> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "无网！", Toast.LENGTH_SHORT).show();
         }
     }

@@ -24,14 +24,14 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.interest_item,null);
+        View view = View.inflate(parent.getContext(), R.layout.interest_item, null);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String s=list.get(position).getPic();
-        Uri uri=Uri.parse(s);
+        String s = list.get(position).getPic();
+        Uri uri = Uri.parse(s);
         holder.interest_img.setImageURI(uri);
 
         holder.interest_title.setText(list.get(position).getName());
@@ -45,10 +45,11 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         SimpleDraweeView interest_img;
         TextView interest_title;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            interest_img=itemView.findViewById(R.id.interest_img);
-            interest_title=itemView.findViewById(R.id.interest_title);
+            interest_img = itemView.findViewById(R.id.interest_img);
+            interest_title = itemView.findViewById(R.id.interest_title);
         }
     }
 }

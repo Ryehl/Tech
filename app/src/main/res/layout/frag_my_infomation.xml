@@ -2,54 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.MainInfomationFrag">
 
     <RelativeLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <ImageView
+            android:id="@+id/information_interest"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/information_interest"
-            android:background="@mipmap/home_nav_btn_menu_n"
-            />
+            android:layout_marginTop="15dp"
+            android:background="@mipmap/home_nav_btn_menu_n" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="咨讯"
-
             android:gravity="center"
-            android:textSize="23sp"
-            />
+
+            android:text="咨讯"
+            android:textSize="23sp" />
+
         <ImageView
-            android:layout_alignParentRight="true"
+            android:id="@+id/information_search"
             android:layout_width="18dp"
             android:layout_height="18dp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/information_search"
-            android:background="@mipmap/home_nav_btn_menu_n"
-            />
+            android:background="@mipmap/home_nav_btn_menu_n" />
     </RelativeLayout>
 
     <!--轮播图-->
     <com.stx.xhb.xbanner.XBanner
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
         android:id="@+id/info_xbanner"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
     <!--列表展示-->
-  <com.jcodecraeer.xrecyclerview.XRecyclerView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:id="@+id/information_recycle"
-      />
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/information_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

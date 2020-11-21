@@ -35,7 +35,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.PersonalInformationActivity"/>
+        <activity android:name=".activities.PersonalInformationActivity" />
 
         <meta-data
             android:name="JPUSH_CHANNEL"

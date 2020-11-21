@@ -16,22 +16,24 @@ import java.util.List;
 public class CollectActivity extends BaseActivity<CollectPresenter> {
 
     private RecyclerView collect_recyclerView;
-    private List<CollectBean.ResultBean> list=new ArrayList<>();
+    private List<CollectBean.ResultBean> list = new ArrayList<>();
     private CollectAdapter collectAdapter;
+
     @Override
     public void initView() {
-        collect_recyclerView=findViewById(R.id.collect_recycle);
+        collect_recyclerView = findViewById(R.id.collect_recycle);
     }
 
     @Override
     public void initData() {
         pre.getCollectData();
     }
-    public void CollectData(String json){
+
+    public void CollectData(String json) {
         //解析
-        CollectBean collectBean=new Gson().fromJson(json,CollectBean.class);
+        CollectBean collectBean = new Gson().fromJson(json, CollectBean.class);
         list.addAll(collectBean.getResult());
-        collectAdapter=new CollectAdapter(list);
+        collectAdapter = new CollectAdapter(list);
         collect_recyclerView.setAdapter(collectAdapter);
         collect_recyclerView.setLayoutManager(new LinearLayoutManager(CollectActivity.this));
     }

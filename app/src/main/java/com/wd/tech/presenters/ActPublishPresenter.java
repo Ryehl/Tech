@@ -26,24 +26,24 @@ public class ActPublishPresenter extends BasePresenter<PublishActivity> {
     private final String TAG = "ActPublishPresenter";
 
     public void uploadImages(String content, List<String> images_list) {
-        ArrayList<File> images = new ArrayList<>();
         //add images
         List<MultipartBody.Part> parts = new ArrayList<>();
         for (String path : images_list) {
             File file = new File(path);
-            images.add(file);
             RequestBody reqBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
             MultipartBody.Part part = MultipartBody.Part.createFormData("file", file.getName(), reqBody);
             parts.add(part);
         }
 
-        //begin
+        //begin 开始调接口上传
         NetUtils.getNetUtils().upLoadFiles(Urls.tz_dtsc, content, parts, new NetUtils.GetJsonListener() {
             @Override
             public void success(String json) {
+                //success
                 JsonSendBean sendBean = new Gson().fromJson(json, JsonSendBean.class);
                 if (iView != null)
                     iView.uploadImagesMsg(sendBean.getMessage());
+                //TODO 跳转到社区页面，刷新数据
             }
 
             @Override

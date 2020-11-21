@@ -12,8 +12,8 @@ import com.wd.tech.fragments.MsgMessageFrag;
  * date 11/13/2020 6:51 PM
  */
 public class FragMsgMessagePresenter extends BasePresenter<MsgMessageFrag> {
-    public void getMessageList(){
-        if (InternetUtil.getNetworkState(iView.getContext()) != InternetUtil.NETWORN_NONE){
+    public void getMessageList() {
+        if (InternetUtil.getNetworkState(iView.getContext()) != InternetUtil.NETWORN_NONE) {
             //
         }
     }

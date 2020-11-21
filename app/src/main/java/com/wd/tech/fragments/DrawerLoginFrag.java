@@ -21,7 +21,7 @@ import com.wd.tech.activities.TaskActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class DrawerLoginFrag extends BaseFragment {
-    private LinearLayout listed_collect,listed_attention,listed_card,listed_notice,listed_integral,listed_task,listed_setting;
+    private LinearLayout listed_collect, listed_attention, listed_card, listed_notice, listed_integral, listed_task, listed_setting;
     private SimpleDraweeView listed_head_img;
     private TextView listed_nickName;
     private ImageView sign_in;
@@ -29,17 +29,17 @@ public class DrawerLoginFrag extends BaseFragment {
     @Override
     public void initView() {
 
-        View view=getView();
-        listed_collect=view.findViewById(R.id.listed_collect);
-        listed_attention=view.findViewById(R.id.listed_attention);
-        listed_card=view.findViewById(R.id.listed_card);
-        listed_notice=view.findViewById(R.id.listed_notice);
-        listed_integral=view.findViewById(R.id.listed_integral);
-        listed_task=view.findViewById(R.id.listed_task);
-        listed_setting=view.findViewById(R.id.listed_setting);
-        listed_nickName=view.findViewById(R.id.listed_nickName);
-        listed_head_img=view.findViewById(R.id.listed_head_img);
-        sign_in=view.findViewById(R.id.sign_in);
+        View view = getView();
+        listed_collect = view.findViewById(R.id.listed_collect);
+        listed_attention = view.findViewById(R.id.listed_attention);
+        listed_card = view.findViewById(R.id.listed_card);
+        listed_notice = view.findViewById(R.id.listed_notice);
+        listed_integral = view.findViewById(R.id.listed_integral);
+        listed_task = view.findViewById(R.id.listed_task);
+        listed_setting = view.findViewById(R.id.listed_setting);
+        listed_nickName = view.findViewById(R.id.listed_nickName);
+        listed_head_img = view.findViewById(R.id.listed_head_img);
+        sign_in = view.findViewById(R.id.sign_in);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class DrawerLoginFrag extends BaseFragment {
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), SignInActivity.class);
+                Intent intent = new Intent(getActivity(), SignInActivity.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_head_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),PersonalInformationActivity.class);
+                Intent intent = new Intent(getActivity(), PersonalInformationActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_collect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), CollectActivity.class);
+                Intent intent = new Intent(getActivity(), CollectActivity.class);
                 startActivity(intent);
             }
         });
@@ -75,7 +75,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_attention.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), AttentionActivity.class);
+                Intent intent = new Intent(getActivity(), AttentionActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +83,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), CardActivity.class);
+                Intent intent = new Intent(getActivity(), CardActivity.class);
                 startActivity(intent);
             }
         });
@@ -91,7 +91,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), NoticeActivity.class);
+                Intent intent = new Intent(getActivity(), NoticeActivity.class);
                 startActivity(intent);
             }
         });
@@ -99,7 +99,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_integral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), IntegralActivity.class);
+                Intent intent = new Intent(getActivity(), IntegralActivity.class);
                 startActivity(intent);
             }
         });
@@ -107,7 +107,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), TaskActivity.class);
+                Intent intent = new Intent(getActivity(), TaskActivity.class);
                 startActivity(intent);
             }
         });
@@ -115,13 +115,13 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), SettingActivity.class);
+                Intent intent = new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent);
             }
         });
 
         //将昵称拿出来并设置
-        MMKV mmkv=MMKV.defaultMMKV();
+        MMKV mmkv = MMKV.defaultMMKV();
         String nickName = mmkv.decodeString("nickName");
         listed_nickName.setText(nickName);
     }

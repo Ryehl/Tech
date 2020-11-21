@@ -15,22 +15,23 @@ public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
     /*
     轮播图
      */
-    public void getXBannerData(){
+    public void getXBannerData() {
         //网络判断
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
             NetUtils.getNetUtils().getInfo(Urls.XBanner_Url, new HashMap<String, Object>(), new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
                     //将拿到的数据返回到Fragment页面
                     iView.XBannerData(json);
                 }
+
                 @Override
                 public void error() {
 
                 }
             });
 
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "没网!玩您妈呢？", Toast.LENGTH_SHORT).show();
 
         }
@@ -40,13 +41,13 @@ public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
     咨讯信息列表
      */
 
-    public void InformationData(){
+    public void InformationData() {
         //判断网络
-        if(InternetUtil.getNetworkState(MyApp.context)!=InternetUtil.NETWORN_NONE){
-            HashMap<String,Object> map=new HashMap<>();
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
+            HashMap<String, Object> map = new HashMap<>();
 //            map.put("plateId","10");
-            map.put("page","1");
-            map.put("count","5");
+            map.put("page", "1");
+            map.put("count", "5");
             //请求数据
             NetUtils.getNetUtils().getInfo(Urls.Information_Url, map, new NetUtils.GetJsonListener() {
                 @Override
@@ -60,7 +61,7 @@ public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
 
                 }
             });
-        }else{
+        } else {
             Toast.makeText(MyApp.context, "没网!玩您妈呢？", Toast.LENGTH_SHORT).show();
 
         }

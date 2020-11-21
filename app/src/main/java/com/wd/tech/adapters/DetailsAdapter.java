@@ -23,7 +23,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(parent.getContext(), R.layout.details_item,null);
+        View view = View.inflate(parent.getContext(), R.layout.details_item, null);
         return new ViewHolder(view);
     }
 
@@ -31,7 +31,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.details_title.setText(list.get(position).getTitle());
         holder.details_author.setText(list.get(position).getSource());
-        String time= TypeConversionUtils.long2String(list.get(position).getReleaseTime());
+        String time = TypeConversionUtils.long2String(list.get(position).getReleaseTime());
         holder.details_time.setText(time);
     }
 
@@ -41,13 +41,14 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView details_title,details_time,details_author;
+        TextView details_title, details_time, details_author;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            details_author=itemView.findViewById(R.id.details_author);
-            details_time=itemView.findViewById(R.id.details_time);
-            details_title=itemView.findViewById(R.id.details_title);
+            details_author = itemView.findViewById(R.id.details_author);
+            details_time = itemView.findViewById(R.id.details_time);
+            details_title = itemView.findViewById(R.id.details_title);
         }
     }
 }
