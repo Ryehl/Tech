@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择付费方式"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="让阅读随时随地" />
+
+    <RelativeLayout
+        android:id="@+id/paydialog_rel_byJf"
+        android:layout_width="340dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/rectangle_red"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/paydialog_tv_jfdh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="积分兑换"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/paydialog_tv_jfdh_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paydialog_tv_jfdh"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Integral purchase"
+            android:textColor="#FFF" />
+
+        <ImageView
+            android:id="@+id/paydialog_img_jfdh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/paydialog_tv_jfdh_en"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/payment_method_icon_integration_n" />
+
+        <TextView
+            android:id="@+id/paydialog_tv_gmsm"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:text="购买说明"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/paydialog_tv_gmsm_info"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paydialog_tv_gmsm"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:text="只需一次性付费即可对该条咨询永久免费阅读"
+            android:textColor="#FFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="点击兑换>>"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/paydialog_rel_byHy"
+        android:layout_width="340dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/rectangle_green"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/paydialog_tv_kthy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="开通会员"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/paydialog_tv_kthy_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paydialog_tv_kthy"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:autoSizeMaxTextSize="10dp"
+            android:text="membership purchase"
+            android:textColor="#FFF" />
+
+        <ImageView
+            android:id="@+id/paydialog_img_kthy"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/paydialog_tv_kthy_en"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/payment_method_icon_vip_n" />
+
+        <TextView
+            android:id="@+id/paydialog_tv_hysm"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="会员说明"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/paydialog_tv_hysm_info"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paydialog_tv_hysm"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:text="会员可以免费阅读所有付费资讯"
+            android:textColor="#FFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="点击开通>>"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+
+</LinearLayout>

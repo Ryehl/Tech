@@ -74,8 +74,7 @@
         <service
             android:name="cn.jpush.android.service.PushService"
             android:process=":multiprocess"
-            tools:node="replace" /> <!-- Since JCore2.0.0 Required SDK核心功能 -->
-        <!-- 这个Service要继承JCommonService -->
+            tools:node="replace" />
         <service
             android:name=".service.XService"
             android:process=":pushcore">
