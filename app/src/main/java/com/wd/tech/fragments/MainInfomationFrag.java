@@ -86,7 +86,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
 //        for(int i=0;i<list.size();i++){
 //            list_img.add(list);
 //        }
-        //TODO
+
         list_img.clear();
         list_title.clear();
         //加强for循环将  图片跟对应的标题全部设置上

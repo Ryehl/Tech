@@ -1,5 +1,8 @@
 package com.wd.tech.activities;
 
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,16 +20,25 @@ public class AttentionActivity extends BaseActivity<AttentionPresenter> {
 
     private RecyclerView attention_recycle;
     private AttentionAdapter attentionAdapter;
+    private ImageView attention_back;
     private List<AttentionBean.ResultBean> list = new ArrayList<>();
 
     @Override
     public void initView() {
         attention_recycle = findViewById(R.id.attention_recycle);
+        attention_back=findViewById(R.id.attention_back);
     }
 
     @Override
     public void initData() {
         pre.getAttentionData();
+        //返回上一个页面
+        attention_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void AttentionData(String json) {

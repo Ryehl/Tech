@@ -1,5 +1,8 @@
 package com.wd.tech.activities;
 
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,17 +19,26 @@ import java.util.List;
 public class CollectActivity extends BaseActivity<CollectPresenter> {
 
     private RecyclerView collect_recyclerView;
+    private ImageView collect_delete,collect_back;
     private List<CollectBean.ResultBean> list = new ArrayList<>();
     private CollectAdapter collectAdapter;
 
     @Override
     public void initView() {
         collect_recyclerView = findViewById(R.id.collect_recycle);
+        collect_back=findViewById(R.id.collect_back);
     }
 
     @Override
     public void initData() {
         pre.getCollectData();
+        //点击返回上一页
+       collect_back.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               finish();
+           }
+       });
     }
 
     public void CollectData(String json) {
@@ -36,6 +48,16 @@ public class CollectActivity extends BaseActivity<CollectPresenter> {
         collectAdapter = new CollectAdapter(list);
         collect_recyclerView.setAdapter(collectAdapter);
         collect_recyclerView.setLayoutManager(new LinearLayoutManager(CollectActivity.this));
+
+        //点击删除
+//        collect_delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+
     }
 
     @Override

@@ -20,7 +20,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
     TextView setting_nickName, setting_birthday, setting_phone, setting_email, setting_sex1;
     TextView setting_integral, setting_VIP, setting_Face, setting_wechat, setting_goout, setting_alterpwd;
     SimpleDraweeView setting_head;
-    ImageView setting_next;
+    ImageView setting_next,setting_back;
 
     @Override
     public void initView() {
@@ -37,6 +37,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         setting_alterpwd = findViewById(R.id.setting_alterpwd);
         setting_integral = findViewById(R.id.setting_integral);
         setting_sex1 = findViewById(R.id.setting_sex1);
+        setting_back=findViewById(R.id.setting_back);
     }
 
     @Override
@@ -85,7 +86,6 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
                 startActivity(intent);
             }
         });
-
         //TODO 性别
         setting_sex.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +102,14 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         Intent intent = getIntent();
         String man = intent.getStringExtra("sex");
         setting_sex1.setText(man);
+
+        //返回上一个页面
+        setting_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

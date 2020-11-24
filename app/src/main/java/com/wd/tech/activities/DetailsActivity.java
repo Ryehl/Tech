@@ -10,26 +10,34 @@ import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.mylibrary.utils.TypeConversionUtils;
 import com.wd.mylibrary.utils.Utils;
 import com.wd.tech.R;
+import com.wd.tech.adapters.DetailsAdapter_Comment;
 import com.wd.tech.beans.DetailsBean;
+import com.wd.tech.beans.DetailsCommentBean;
 import com.wd.tech.fragments.DetailsHasperFrag;
 import com.wd.tech.fragments.DetailsNoReadPerFrag;
 import com.wd.tech.presenters.DetailsPresenter;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailsActivity extends BaseActivity<DetailsPresenter> {
 
     private final String TAG = "DetailsActivity";
-
+    private List<DetailsCommentBean.ResultBean> list=new ArrayList<>();
     private RelativeLayout rel;
     private TextView tv_title;
     private TextView tv_time;
     private TextView tv_author;
-
+    private DetailsAdapter_Comment detailsAdapter_comment;
+    private RecyclerView details_recycle_comments;
     @Override
     public void initView() {
         rel = findViewById(R.id.details_rel);
@@ -78,6 +86,12 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
     public void DetailsCommentData(String json) {
         //解析
         Log.d(TAG, "DetailsCommentData: " + json);
+//        DetailsCommentBean detailsCommentBean=new Gson().fromJson(json,DetailsCommentBean.class);
+//        list.addAll(detailsCommentBean.getResult());
+//        detailsAdapter_comment=new DetailsAdapter_Comment(list);
+//        details_recycle_comments.setAdapter(detailsAdapter_comment);
+//        details_recycle_comments.setLayoutManager(new LinearLayoutManager(DetailsActivity.this,RecyclerView.HORIZONTAL,false));
+//
     }
 
     @Override

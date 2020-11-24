@@ -16,6 +16,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/collect_back"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/common_icon_back_n"
             android:layout_alignParentLeft="true" />
 
         <LinearLayout
@@ -34,7 +37,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" />
+            android:id="@+id/collect_delete"
+            android:background="@drawable/picture_icon_delete"
+            android:layout_alignParentRight="true"
+            />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -14,6 +14,7 @@ import com.wd.tech.MyApp;
 import com.wd.tech.R;
 import com.wd.tech.activities.PublishActivity;
 import com.wd.tech.adapters.CommunityAdapter;
+import com.wd.tech.adapters.CommunityCommentAdapter;
 import com.wd.tech.beans.CommuntiyBean;
 import com.wd.tech.presenters.FragCommuntityPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -27,9 +28,11 @@ import java.util.List;
  */
 public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,comment_recycle;
     private List<CommuntiyBean.ResultBean> list = new ArrayList<>();
+    private List<CommuntiyBean.ResultBean.CommunityCommentVoListBean> list2=new ArrayList<>();
     private CommunityAdapter communityAdapter;
+    private CommunityCommentAdapter communityCommentAdapter;
     private SimpleDraweeView community_publish;
 
     @Override
@@ -37,6 +40,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         View view = getView();
         recyclerView = view.findViewById(R.id.community_recycle);
         community_publish = view.findViewById(R.id.publish);
+        comment_recycle=view.findViewById(R.id.comment_recycle);
     }
 
     @Override
@@ -54,6 +58,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         //解析
         CommuntiyBean communtiyBean = new Gson().fromJson(json, CommuntiyBean.class);
         list.addAll(communtiyBean.getResult());
+//        list2.addAll(communtiyBean.getResult());
         communityAdapter = new CommunityAdapter(list);
         recyclerView.setAdapter(communityAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));

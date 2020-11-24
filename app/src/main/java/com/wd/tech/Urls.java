@@ -64,4 +64,13 @@ public class Urls {
     //签到
     public static final String SignIn_Url = "user/verify/v1/userSign";
 
+    //按文章搜索
+    public static final String Article_Url="information/v1/findInformationByTitle";
+
+    //按作者搜索
+    public static final String Author_Url="information/v1/findInformationBySource";
+
+    //取消收藏
+    public static final String UnCollect_Url="user/verify/v1/cancelCollection";
+
 }

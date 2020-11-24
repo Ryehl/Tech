@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--背景颜色-->
+    <solid android:color="#fff"/>
+    <!--边框圆角-->
+    <corners
+        android:topRightRadius="6dp"
+        android:topLeftRadius="6dp"
+        />
+</selector>

@@ -29,12 +29,12 @@
 
         <ImageView
             android:id="@+id/information_search"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
-            android:background="@mipmap/home_nav_btn_menu_n" />
+            android:background="@mipmap/common_nav_btn_search_n" />
     </RelativeLayout>
 
     <!--轮播图-->

@@ -1,5 +1,8 @@
 package com.wd.tech.activities;
 
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,16 +20,26 @@ public class CardActivity extends BaseActivity<CardPresenter> {
 
     private RecyclerView mycard_recyclerView;
     private CardAdapter cardAdapter;
+    private ImageView card_back;
     private List<CardBean.ResultBean> list = new ArrayList<>();
 
     @Override
     public void initView() {
         mycard_recyclerView = findViewById(R.id.mycard_recycle);
+        card_back=findViewById(R.id.card_back);
     }
 
     @Override
     public void initData() {
         pre.getCardData();
+
+        //点击返回上个页面
+        card_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void CardData(String json) {
