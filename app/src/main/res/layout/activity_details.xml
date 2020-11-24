@@ -1,61 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp"
     tools:context=".activities.DetailsActivity">
 
-    <TextView
-        android:id="@+id/details_text_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="标题"
-        android:textSize="26sp" />
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:context=".activities.DetailsActivity">
 
-    <TextView
-        android:id="@+id/details_text_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="time"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/details_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标题"
+            android:textSize="26sp" />
 
-    <TextView
-        android:id="@+id/details_text_author"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="摘要"
-        android:textColor="#999"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/details_text_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:textSize="18sp" />
 
-    <RelativeLayout
-        android:id="@+id/details_rel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/details_text_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="摘要"
+            android:textColor="#999"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/details_interest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="推荐阅读"
-        android:textSize="20sp" />
+        <RelativeLayout
+            android:id="@+id/details_rel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/details_recycle_horizontal_images"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/details_interest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="推荐阅读"
+            android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="评论"
-        android:textSize="20sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_recycle_horizontal_images"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/details_recycle_comments"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="评论"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/details_recycle_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

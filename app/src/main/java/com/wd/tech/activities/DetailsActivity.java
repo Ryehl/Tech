@@ -3,29 +3,36 @@ package com.wd.tech.activities;
 import android.content.Intent;
 
 import android.util.Log;
-import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.mylibrary.utils.TypeConversionUtils;
-import com.wd.mylibrary.utils.Utils;
 import com.wd.tech.R;
+import com.wd.tech.adapters.DetailsAdapter_Comment;
+import com.wd.tech.adapters.DetailsAdapter_Recommend;
 import com.wd.tech.beans.DetailsBean;
+import com.wd.tech.beans.JsonDetailsCommentsBean;
 import com.wd.tech.fragments.DetailsHasperFrag;
 import com.wd.tech.fragments.DetailsNoReadPerFrag;
 import com.wd.tech.presenters.DetailsPresenter;
 import com.google.gson.Gson;
+
+import java.util.List;
 
 public class DetailsActivity extends BaseActivity<DetailsPresenter> {
 
     private final String TAG = "DetailsActivity";
 
     private RelativeLayout rel;
+    private RecyclerView recy_comment;
+    private RecyclerView recy_infomation;
     private TextView tv_title;
     private TextView tv_time;
     private TextView tv_author;
@@ -33,6 +40,8 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
     @Override
     public void initView() {
         rel = findViewById(R.id.details_rel);
+        recy_comment = findViewById(R.id.details_recycle_comments);
+        recy_infomation = findViewById(R.id.details_recycle_horizontal_images);
         tv_title = findViewById(R.id.details_text_title);
         tv_time = findViewById(R.id.details_text_time);
         tv_author = findViewById(R.id.details_text_author);
@@ -42,12 +51,13 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
     public void initData() {
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
+        //获取资讯详情
         pre.getDetailsData(id);
+        //获取资讯评论
         pre.getDetailsCommentData(id);
     }
 
     public void DetailsData(String json) {
-        Log.d(TAG, "DetailsData: " + json);
         //解析
         DetailsBean detailsBean = new Gson().fromJson(json, DetailsBean.class);
         //设置标、作者和时间等
@@ -73,11 +83,33 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
             ft.replace(R.id.details_rel, new DetailsHasperFrag(data));
         }
         ft.commit();
+
+        //set adapter
+        List<DetailsBean.ResultBean.InformationListBean> informationList = detailsBean.getResult().getInformationList();
+        if (informationList == null)
+            return;
+        recy_infomation.setAdapter(new DetailsAdapter_Recommend(informationList));
+        recy_infomation.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
     }
 
+    /**
+     * 设置评论列表
+     *
+     * @param json
+     */
     public void DetailsCommentData(String json) {
         //解析
-        Log.d(TAG, "DetailsCommentData: " + json);
+        JsonDetailsCommentsBean commentsBean = new Gson().fromJson(json, JsonDetailsCommentsBean.class);
+        //setAdapter
+        DetailsAdapter_Comment adapter = new DetailsAdapter_Comment(commentsBean.getResult());
+        recy_comment.setAdapter(adapter);
+        LinearLayoutManager layout = new LinearLayoutManager(this){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        recy_comment.setLayoutManager(layout);
     }
 
     @Override

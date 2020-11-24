@@ -20,7 +20,6 @@ public class DetailsNoReadPerFrag extends BaseFragment<FragDetalisNoperPresenter
     private TextView tv_summary;
     private TextView tv_pay;
     private String summary;
-    private boolean isShow = false;
 
     public DetailsNoReadPerFrag(String summary) {
         this.summary = summary;
@@ -36,10 +35,13 @@ public class DetailsNoReadPerFrag extends BaseFragment<FragDetalisNoperPresenter
 
     @Override
     public void initData() {
+        //初始化弹窗
         DiyBottomPay bottomPay = new DiyBottomPay(getContext());
         BottomSheetDialog bsd = new BottomSheetDialog(getContext());
         bsd.setCancelable(true);
         bsd.setContentView(bottomPay);
+        //设置数据
+        tv_summary.setText(summary);
         //设置付费
         tv_pay.setOnClickListener(v -> {
             //弹出弹框

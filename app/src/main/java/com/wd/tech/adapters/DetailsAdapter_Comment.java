@@ -12,13 +12,14 @@ import com.wd.mylibrary.utils.TypeConversionUtils;
 import com.wd.tech.R;
 import com.wd.tech.beans.DetailsCommentBean;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.wd.tech.beans.JsonDetailsCommentsBean;
 
 import java.util.List;
 
 public class DetailsAdapter_Comment extends RecyclerView.Adapter<DetailsAdapter_Comment.ViewHolder> {
-    private List<DetailsCommentBean.ResultBean> list;
+    private List<JsonDetailsCommentsBean.ResultBean> list;
 
-    public DetailsAdapter_Comment(List<DetailsCommentBean.ResultBean> list) {
+    public DetailsAdapter_Comment(List<JsonDetailsCommentsBean.ResultBean> list) {
         this.list = list;
     }
 

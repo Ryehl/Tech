@@ -35,6 +35,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.FaceRecognitionActivity"></activity>
         <activity android:name=".activities.PersonalInformationActivity" />
 
         <meta-data

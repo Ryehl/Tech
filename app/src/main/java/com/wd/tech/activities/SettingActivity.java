@@ -1,5 +1,7 @@
 package com.wd.tech.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,6 +23,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
     TextView setting_integral, setting_VIP, setting_Face, setting_wechat, setting_goout, setting_alterpwd;
     SimpleDraweeView setting_head;
     ImageView setting_next;
+    RelativeLayout setting_rel_faceId;
 
     @Override
     public void initView() {
@@ -37,6 +40,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         setting_alterpwd = findViewById(R.id.setting_alterpwd);
         setting_integral = findViewById(R.id.setting_integral);
         setting_sex1 = findViewById(R.id.setting_sex1);
+        setting_rel_faceId = findViewById(R.id.setting_rel_faceId);
     }
 
     @Override
@@ -52,41 +56,38 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         } else {
             setting_VIP.setText("否");
         }
+        //face id
         int whetherFaceId = mmkv.decodeInt("whetherFaceId");
         if (whetherFaceId == 1) {
             setting_Face.setText("已绑定");
+            setting_rel_faceId.setOnClickListener(v -> {
+                showUnbindDialog();
+            });
         } else {
             setting_Face.setText("立即绑定");
+            //设置点击事件
+            setting_rel_faceId.setOnClickListener(v -> {
+                Intent intent = new Intent(this, FaceRecognitionActivity.class);
+                startActivity(intent);
+            });
         }
-
-//        Log.i("img",head);
-//        Uri img=Uri.parse(head);
-        //设置值
         setting_nickName.setText(nickName);
-//        setting_head.setImageURI(img);
-
         setting_phone.setText(phone);
 
         //退出登录
-        setting_goout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, MainActivity.class);
-                MMKV mmkv1 = MMKV.defaultMMKV();
-                mmkv1.putBoolean(ConstantMMkv.Key_IsLogin, false);
-                startActivity(intent);
-            }
+        setting_goout.setOnClickListener(v -> {
+            Intent intent = new Intent(SettingActivity.this, MainActivity.class);
+            MMKV mmkv1 = MMKV.defaultMMKV();
+            mmkv1.putBoolean(ConstantMMkv.Key_IsLogin, false);
+            startActivity(intent);
         });
         //签名
-        setting_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, AlterSignatureActivity.class);
-                startActivity(intent);
-            }
+        setting_next.setOnClickListener(v -> {
+            Intent intent = new Intent(SettingActivity.this, AlterSignatureActivity.class);
+            startActivity(intent);
         });
 
-        //TODO 性别
+        //TODO 更改性别
         setting_sex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +103,20 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         Intent intent = getIntent();
         String man = intent.getStringExtra("sex");
         setting_sex1.setText(man);
+    }
+
+    /**
+     * 展示解绑的弹框
+     */
+    private void showUnbindDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("您确定要解绑FaceId吗");
+        builder.setPositiveButton("确定", (dialog, which) -> {
+            pre.unBindFaceId();
+        });
+        builder.setNegativeButton("取消", ((dialog, which) -> {
+        }));
+        builder.show();
     }
 
     @Override

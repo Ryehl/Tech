@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.SearchActivity">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,8 +15,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:background="@mipmap/common_icon_back_n" />
 
@@ -38,7 +36,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -50,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:text="头像"
             android:textSize="15sp" />
@@ -59,8 +57,8 @@
             android:id="@+id/setting_head"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/chaiquan"
             fresco:roundAsCircle="true" />
     </RelativeLayout>
@@ -87,7 +85,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:text="昵称"
             android:textSize="15sp" />
 
@@ -95,8 +93,8 @@
             android:id="@+id/setting_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
             android:textSize="15sp" />
     </RelativeLayout>
 
@@ -123,7 +121,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:text="性别"
             android:textSize="15sp" />
 
@@ -131,11 +129,9 @@
             android:id="@+id/setting_sex1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -160,7 +156,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:text="签名"
             android:textSize="15sp" />
 
@@ -168,8 +164,8 @@
             android:id="@+id/setting_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
             android:background="@mipmap/my_icon_next_n" />
     </RelativeLayout>
 
@@ -195,8 +191,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="生日"
             android:textSize="15sp" />
 
@@ -204,11 +199,9 @@
             android:id="@+id/setting_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -233,8 +226,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="电话"
             android:textSize="15sp" />
 
@@ -242,11 +234,9 @@
             android:id="@+id/setting_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -271,8 +261,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="邮箱"
             android:textSize="15sp" />
 
@@ -280,11 +269,9 @@
             android:id="@+id/setting_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -309,8 +296,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="积分"
             android:textSize="15sp" />
 
@@ -318,11 +304,9 @@
             android:id="@+id/setting_integral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -347,8 +331,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="VIP"
             android:textSize="15sp" />
 
@@ -356,11 +339,9 @@
             android:id="@+id/setting_vip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -377,6 +358,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/setting_rel_faceId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -385,8 +367,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="Face ID"
             android:textSize="15sp" />
 
@@ -394,11 +375,9 @@
             android:id="@+id/setting_face"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:textSize="15sp"
-
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -423,8 +402,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-
+            android:layout_marginStart="40dp"
             android:text="微信绑定"
             android:textSize="15sp" />
 
@@ -432,12 +410,10 @@
             android:id="@+id/setting_wechat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
             android:text="立即绑定"
-            android:textSize="15sp"
-
-            />
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -463,7 +439,7 @@
             android:id="@+id/setting_goout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:text="退出登录"
             android:textColor="#FF2819"
             android:textSize="15sp" />
@@ -472,8 +448,8 @@
             android:id="@+id/setting_alterpwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
             android:text="修改密码"
             android:textColor="#FF2819"
             android:textSize="15sp" />
