@@ -1,5 +1,8 @@
 package com.wd.tech.activities;
 
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,16 +20,26 @@ public class NoticeActivity extends BaseActivity<NoticePresenter> {
 
     private RecyclerView notice_recycle;
     private NoticeAdapter noticeAdapter;
+    private ImageView notice_back;
     private List<NoticeBean.ResultBean> list = new ArrayList<>();
 
     @Override
     public void initView() {
         notice_recycle = findViewById(R.id.notice_recycle);
+        notice_back=findViewById(R.id.notice_back);
     }
 
     @Override
     public void initData() {
         pre.getNoticeData();
+
+        //返回上一页
+        notice_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void NoticeData(String json) {

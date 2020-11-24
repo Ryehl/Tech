@@ -3,6 +3,7 @@ package com.wd.tech.activities;
 import android.content.Intent;
 
 import android.util.Log;
+import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,8 +18,10 @@ import com.wd.mylibrary.utils.TypeConversionUtils;
 import com.wd.tech.R;
 import com.wd.tech.adapters.DetailsAdapter_Comment;
 import com.wd.tech.adapters.DetailsAdapter_Recommend;
+import com.wd.tech.adapters.DetailsAdapter_Comment;
 import com.wd.tech.beans.DetailsBean;
 import com.wd.tech.beans.JsonDetailsCommentsBean;
+import com.wd.tech.beans.DetailsCommentBean;
 import com.wd.tech.fragments.DetailsHasperFrag;
 import com.wd.tech.fragments.DetailsNoReadPerFrag;
 import com.wd.tech.presenters.DetailsPresenter;
@@ -26,17 +29,21 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailsActivity extends BaseActivity<DetailsPresenter> {
 
     private final String TAG = "DetailsActivity";
-
+    private List<DetailsCommentBean.ResultBean> list=new ArrayList<>();
     private RelativeLayout rel;
     private RecyclerView recy_comment;
     private RecyclerView recy_infomation;
     private TextView tv_title;
     private TextView tv_time;
     private TextView tv_author;
-
+    private DetailsAdapter_Comment detailsAdapter_comment;
+    private RecyclerView details_recycle_comments;
     @Override
     public void initView() {
         rel = findViewById(R.id.details_rel);
@@ -58,6 +65,7 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
     }
 
     public void DetailsData(String json) {
+        Log.d(TAG, "DetailsData: " + json);
         //解析
         DetailsBean detailsBean = new Gson().fromJson(json, DetailsBean.class);
         //设置标、作者和时间等
@@ -110,6 +118,7 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
             }
         };
         recy_comment.setLayoutManager(layout);
+        Log.d(TAG, "DetailsCommentData: " + json);
     }
 
     @Override

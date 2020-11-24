@@ -24,6 +24,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
     SimpleDraweeView setting_head;
     ImageView setting_next;
     RelativeLayout setting_rel_faceId;
+    ImageView setting_next,setting_back;
 
     @Override
     public void initView() {
@@ -41,6 +42,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         setting_integral = findViewById(R.id.setting_integral);
         setting_sex1 = findViewById(R.id.setting_sex1);
         setting_rel_faceId = findViewById(R.id.setting_rel_faceId);
+        setting_back=findViewById(R.id.setting_back);
     }
 
     @Override
@@ -103,6 +105,14 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         Intent intent = getIntent();
         String man = intent.getStringExtra("sex");
         setting_sex1.setText(man);
+
+        //返回上一个页面
+        setting_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**
