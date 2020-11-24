@@ -65,12 +65,20 @@ public class Urls {
     public static final String SignIn_Url = "user/verify/v1/userSign";
 
     //按文章搜索
-    public static final String Article_Url="information/v1/findInformationByTitle";
+    public static final String Article_Url = "information/v1/findInformationByTitle";
 
     //按作者搜索
-    public static final String Author_Url="information/v1/findInformationBySource";
+    public static final String Author_Url = "information/v1/findInformationBySource";
 
     //取消收藏
-    public static final String UnCollect_Url="user/verify/v1/cancelCollection";
+    public static final String UnCollect_Url = "user/verify/v1/cancelCollection";
 
+    //根据手机号进行查询 get phone
+    public static final String QueryFriendByPhone = "user/verify/v1/findUserByPhone";
+
+    //查询好友信息 get friendUid
+    public static final String QueryFriendById = "user/verify/v1/queryFriendInformation";
+
+    //检查是不是我的好友 get friendUid flag 1=好友 2=x
+    public static final String CheckMyFriend = "chat/verify/v1/checkMyFriend";
 }
