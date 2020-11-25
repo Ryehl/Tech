@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.MyApp;
 import com.wd.tech.R;
+import com.wd.tech.activities.FindUserActivity;
 import com.wd.tech.activities.PublishActivity;
 import com.wd.tech.adapters.CommunityAdapter;
 import com.wd.tech.adapters.CommunityCommentAdapter;
@@ -33,13 +35,13 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
     private List<CommuntiyBean.ResultBean.CommunityCommentVoListBean> list2=new ArrayList<>();
     private CommunityAdapter communityAdapter;
     private CommunityCommentAdapter communityCommentAdapter;
-    private SimpleDraweeView community_publish;
+    private ImageView community_publish;
 
     @Override
     public void initView() {
         View view = getView();
         recyclerView = view.findViewById(R.id.community_recycle);
-        community_publish = view.findViewById(R.id.publish);
+        community_publish = view.findViewById(R.id.go_publish);
         comment_recycle=view.findViewById(R.id.comment_recycle);
     }
 
@@ -48,10 +50,23 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         pre.CommunityData();
 
         //点击跳转到发表帖子页面
-        community_publish.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), PublishActivity.class);
-            startActivity(intent);
+        community_publish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PublishActivity.class);
+                startActivity(intent);
+            }
         });
+
+//        communityAdapter.setFindUserHead(new CommunityAdapter.FindUserHead() {
+//            @Override
+//            public void finduser(int index) {
+//                Intent intent=new Intent(getActivity(), FindUserActivity.class);
+//                intent.putExtra("userId",index);
+//                startActivity(intent);
+//            }
+//        });
+
     }
 
     public void CommunityData(String json) {
@@ -62,6 +77,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         communityAdapter = new CommunityAdapter(list);
         recyclerView.setAdapter(communityAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
+
     }
 
     @Override

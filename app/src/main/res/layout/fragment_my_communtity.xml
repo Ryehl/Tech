@@ -9,11 +9,6 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/community_recycle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/comment_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,15 +18,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/publish"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+        <ImageView
+            android:id="@+id/go_publish"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="70dp"
             android:background="@drawable/chaiquan"
-            fresco:roundAsCircle="true" />
+          />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/community_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 </FrameLayout>

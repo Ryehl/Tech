@@ -42,21 +42,13 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         String head = list.get(position).getHeadPic();//头像
         Uri uri = Uri.parse(head);
         holder.community_head_img.setImageURI(uri);
-        String i = list.get(position).getFile();
+
+        String i = list.get(position).getFile();//图片
         Uri uri1 = Uri.parse(i);
         holder.community_img.setImageURI(uri1);
 
-        //判断评论长度
-//        if(list.get(position).getComment()==0){
-//
-//        }else if(list.get(position).getComment()>0&&list.get(position).getComment()<=3){
-//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
-//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
-//        }
-//        else{
-//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getNickName());
-//            holder.comment_nickName.setText(list.get(position).getCommunityCommentVoList().get(position).getContent());
-//        }
+
+
 
     }
 
@@ -85,6 +77,27 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
             comment_nickName = itemView.findViewById(R.id.comment_nickName);
             comment_content = itemView.findViewById(R.id.comment_content);
 
+            //点击图片跳转到用户中心页面
+            community_head_img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(findUserHead!=null){
+                        findUserHead.finduser(list.get(getLayoutPosition()).getUserId());
+                    }
+                }
+            });
+
+
         }
+    }
+
+    //接口回调
+    public interface FindUserHead{
+        void finduser(int index);
+    }
+    private FindUserHead findUserHead;
+
+    public void setFindUserHead(FindUserHead findUserHead) {
+        this.findUserHead = findUserHead;
     }
 }

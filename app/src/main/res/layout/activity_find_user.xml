@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.FindUserActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/user_bg"
+        />
+    <RelativeLayout
+        android:id="@+id/find_user_layout"
+        android:layout_below="@id/user_bg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/find_user_nickName"
+            android:textSize="17sp"
+            android:text="小雨"
+            android:layout_marginLeft="100dp"
+            />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/find_user_nickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/find_user_signature"
+            android:textSize="15sp"
+            android:text="益达"
+            android:layout_marginLeft="100dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/friend_community_btn_more_n"
+            />
+    </RelativeLayout>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="60dp"
+        android:id="@+id/find_user_head"
+        android:layout_marginTop="185dp"
+        fresco:roundAsCircle="true"
+        android:background="@drawable/chaiquan"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"
+        android:id="@+id/find_user_recycle"
+        android:layout_below="@id/find_user_layout"
+        />
+
+
+</RelativeLayout>

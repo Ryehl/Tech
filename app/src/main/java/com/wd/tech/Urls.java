@@ -73,6 +73,9 @@ public class Urls {
     //取消收藏
     public static final String UnCollect_Url = "user/verify/v1/cancelCollection";
 
+    //查询好友发布的帖子
+    public static final String FindUser_Url="community/verify/v1/findUserPostById";
+
     //根据手机号进行查询 get phone
     public static final String QueryFriendByPhone = "user/verify/v1/findUserByPhone";
 
