@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.MyApp;
@@ -30,7 +31,7 @@ import java.util.List;
  */
 public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
 
-    RecyclerView recyclerView,comment_recycle;
+    RecyclerView recyclerView;
     private List<CommuntiyBean.ResultBean> list = new ArrayList<>();
     private List<CommuntiyBean.ResultBean.CommunityCommentVoListBean> list2=new ArrayList<>();
     private CommunityAdapter communityAdapter;
@@ -42,7 +43,7 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         View view = getView();
         recyclerView = view.findViewById(R.id.community_recycle);
         community_publish = view.findViewById(R.id.go_publish);
-        comment_recycle=view.findViewById(R.id.comment_recycle);
+
     }
 
     @Override
@@ -53,8 +54,9 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         community_publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PublishActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), PublishActivity.class);
+//                startActivity(intent);
+                Toast.makeText(getActivity(), "嘿嘿", Toast.LENGTH_SHORT).show();
             }
         });
 
