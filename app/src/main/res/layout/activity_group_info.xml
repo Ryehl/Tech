@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".activities.GroupInfoActivity">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/groupinfo_sdv_groupHd"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="20dp" />
+
+    <TextView
+        android:id="@+id/groupinfo_tv_groupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/groupinfo_sdv_groupHd"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@id/groupinfo_sdv_groupHd"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/groupinfo_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groupinfo_tv_groupName"
+        android:layout_margin="10dp"
+        android:text="群简介" />
+
+    <TextView
+        android:id="@+id/groupinfo_tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groupinfo_tv"
+        android:background="@drawable/border"
+        android:padding="20dp" />
+
+    <TextView
+        android:id="@+id/groupinfo_tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groupinfo_tv_description"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/groupinfo_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groupinfo_tv_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+
+</RelativeLayout>

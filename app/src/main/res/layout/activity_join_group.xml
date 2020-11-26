@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".activities.JoinGroupActivity">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/addgroup_sdv_groupHd"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="20dp" />
+
+    <TextView
+        android:id="@+id/addgroup_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addgroup_sdv_groupHd"
+        android:text="填写备注信息"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/addgroup_et_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addgroup_tv"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:text="我是。。。"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/addgroup_btn_add"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addgroup_et_remark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="申请加群" />
+
+</RelativeLayout>

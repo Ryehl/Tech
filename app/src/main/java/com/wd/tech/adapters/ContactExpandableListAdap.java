@@ -1,12 +1,14 @@
 package com.wd.tech.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.wd.tech.R;
+import com.wd.tech.activities.ContactInfoActivity;
 import com.wd.tech.beans.JsonFriendListBean;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
@@ -91,6 +93,12 @@ public class ContactExpandableListAdap extends BaseExpandableListAdapter {
                 .build();
         hd.setHierarchy(hierarchy);
         hd.setImageURI(friendInfo.getHeadPic());
+        view.setOnClickListener(v -> {
+            //跳转到好友信息展示页面
+            Intent in = new Intent(context, ContactInfoActivity.class);
+            in.putExtra("friendUid", friendInfo.getFriendUid());
+            context.startActivity(in);
+        });
         return view;
     }
 

@@ -1,5 +1,6 @@
 package com.wd.tech.fragments;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,7 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.R;
+import com.wd.tech.adapters.MsgMessageRecyAdap;
 import com.wd.tech.presenters.FragMsgMessagePresenter;
+
+import java.util.List;
+
+import cn.jpush.im.android.api.model.Conversation;
 
 /**
  * <p>Project's name:Tech</p>
@@ -33,9 +39,13 @@ public class MsgMessageFrag extends BaseFragment<FragMsgMessagePresenter> {
         pre.getMessageList();
     }
 
-    public void setAdap() {
+    public void setAdap(List<Conversation> list) {
+        if (list == null || list.size() == 0)
+            return;
+        Log.d("TAG", "setAdap: " + list.toArray().toString());
         recy_show.setLayoutManager(new LinearLayoutManager(getContext()));
-        //recy_show.setAdapter();
+        MsgMessageRecyAdap adap = new MsgMessageRecyAdap(list);
+        recy_show.setAdapter(adap);
     }
 
     @Override

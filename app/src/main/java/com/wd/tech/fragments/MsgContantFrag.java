@@ -24,10 +24,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class MsgContantFrag extends BaseFragment<FragMsgContantPresenter> {
 
     //二级列表展示
-    ExpandableListView elv;
+    private ExpandableListView elv;
     //设置两个图标
-    SimpleDraweeView sdv_group;
-    SimpleDraweeView sdv_system;
+    private SimpleDraweeView sdv_group;
+    private SimpleDraweeView sdv_system;
 
     @Override
     public void initView() {
@@ -56,7 +56,7 @@ public class MsgContantFrag extends BaseFragment<FragMsgContantPresenter> {
     }
 
     /**
-     *
+     * 设置二级联系人列表的适配器
      */
     public void setElvAdap(JsonFriendListBean friendListBean) {
         if (friendListBean == null)

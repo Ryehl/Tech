@@ -7,6 +7,7 @@ import com.wd.mylibrary.base.BasePresenter;
 import com.wd.mylibrary.bean.ConstantMMkv;
 import com.wd.mylibrary.utils.InternetUtil;
 import com.wd.mylibrary.utils.NetUtils;
+import com.wd.mylibrary.utils.encrypt.RsaCoder;
 import com.wd.tech.activities.LoginActivity;
 import com.wd.tech.beans.LoginBean;
 import com.wd.tech.activities.MainActivity;
@@ -45,6 +46,14 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                                 mmkv.putInt("whetherVip", loginBean.getResult().getWhetherVip());//是否是Vip
                                 mmkv.putInt("whetherFaceId", loginBean.getResult().getWhetherFaceId());//FaceId
                                 mmkv.putString("headPic", loginBean.getResult().getHeadPic());//头像
+
+                                mmkv.putString(ConstantMMkv.Key_UserName, loginBean.getResult().getUserName());
+                                try {
+                                    mmkv.putString(ConstantMMkv.Key_Jpwd, RsaCoder.decryptByPublicKey(loginBean.getResult().getPwd()));
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    //mmkv.putString(ConstantMMkv.Key_Jpwd, pwd);
+                                }
 
                                 //设置头参
                                 NetUtils.getNetUtils().setHeader(loginBean.getResult().getSessionId(), String.valueOf(loginBean.getResult().getUserId()));

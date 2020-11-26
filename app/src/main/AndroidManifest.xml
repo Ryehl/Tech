@@ -35,6 +35,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.JoinGroupActivity"></activity>
+        <activity android:name=".activities.GroupInfoActivity" />
+        <activity android:name=".activities.ChatGroupActivity" />
+        <activity android:name=".activities.ChatFriendActivity" />
+        <activity android:name=".activities.ContactInfoActivity" />
+        <activity android:name=".activities.FaceRecognitionActivity" />
         <activity android:name=".activities.FindUserActivity"></activity>
         <activity android:name=".activities.FaceRecognitionActivity" />
         <activity android:name=".activities.PersonalInformationActivity" />

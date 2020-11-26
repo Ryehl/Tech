@@ -4,7 +4,7 @@ import com.wd.mylibrary.base.BasePresenter;
 import com.wd.mylibrary.utils.NetUtils;
 import com.wd.tech.Urls;
 import com.wd.tech.activities.PublishActivity;
-import com.wd.tech.beans.JsonSendBean;
+import com.wd.tech.beans.JsonMsgAndStatusBean;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -40,7 +40,7 @@ public class ActPublishPresenter extends BasePresenter<PublishActivity> {
             @Override
             public void success(String json) {
                 //success
-                JsonSendBean sendBean = new Gson().fromJson(json, JsonSendBean.class);
+                JsonMsgAndStatusBean sendBean = new Gson().fromJson(json, JsonMsgAndStatusBean.class);
                 if (iView != null)
                     iView.uploadImagesMsg(sendBean.getMessage());
                 //TODO 跳转到社区页面，刷新数据

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_msg_sdv_hd"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp" />
+
+    <TextView
+        android:id="@+id/item_msg_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@id/item_msg_sdv_hd"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/item_msg_tv_lastMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_msg_tv_name"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/item_msg_sdv_hd" />
+
+    <TextView
+        android:id="@+id/item_msg_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_msg_tv_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:textSize="12sp" />
+
+    <!--    未读消息数-->
+    <TextView
+        android:id="@+id/item_msg_tv_noReadCount"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignBottom="@id/item_msg_tv_lastMsg"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/border_red"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:visibility="gone" />
+
+</RelativeLayout>

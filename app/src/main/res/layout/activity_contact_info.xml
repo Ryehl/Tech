@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ContactInfoActivity">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/contactInfo_sdv_background"
+        android:layout_width="match_parent"
+        android:layout_height="260dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@id/contactInfo_sdv_background"
+        android:background="@drawable/sanjiao" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/contactInfo_sdv_hd"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:layout_toEndOf="@id/contactInfo_sdv_hd"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_redJf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/contactInfo_tv_name"
+        android:layout_toEndOf="@id/contactInfo_tv_name"
+        android:textColor="#F00"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+    <ImageView
+        android:id="@+id/contactInfo_img_vip"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/contactInfo_tv_name"
+        android:layout_toEndOf="@id/contactInfo_tv_name"
+        android:src="@mipmap/isvip" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_sdv_hd"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_grzl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_tv_signature"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="_ _ _ _ _个人资料_ _ _ _ _" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_sex8bir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_tv_grzl"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_tv_sex8bir"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/contactInfo_tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_tv_phone"
+        android:layout_centerHorizontal="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contactInfo_recy_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_tv_email"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/contactInfo_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp" />
+
+</RelativeLayout>

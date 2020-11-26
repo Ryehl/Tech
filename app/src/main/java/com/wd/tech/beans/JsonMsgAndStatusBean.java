@@ -7,7 +7,7 @@ package com.wd.tech.beans;
  * @author Xaoyv
  * date 11/16/2020 3:12 PM
  */
-public class JsonSendBean {
+public class JsonMsgAndStatusBean {
 
     /**
      * message : 发布成功

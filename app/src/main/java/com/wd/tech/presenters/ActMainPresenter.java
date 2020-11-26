@@ -49,6 +49,13 @@ public class ActMainPresenter extends BasePresenter<MainActivity> {
                                 mmkv.putString("nickName", loginBean.getResult().getNickName());//昵称
                                 mmkv.putInt("whetherVip", loginBean.getResult().getWhetherVip());//是否是Vip
                                 mmkv.putInt("whetherFaceId", loginBean.getResult().getWhetherFaceId());//FaceId
+                                mmkv.putString(ConstantMMkv.Key_UserName, loginBean.getResult().getUserName());
+                                try {
+                                    mmkv.putString(ConstantMMkv.Key_Jpwd, RsaCoder.decryptByPublicKey(loginBean.getResult().getPwd()));
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    mmkv.putString(ConstantMMkv.Key_Jpwd, pwd);
+                                }
 
                                 //设置头参
                                 NetUtils.getNetUtils().setHeader(loginBean.getResult().getSessionId(), String.valueOf(loginBean.getResult().getUserId()));

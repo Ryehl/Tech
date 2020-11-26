@@ -27,7 +27,7 @@ import cn.jpush.im.api.BasicCallback;
  */
 public class JIMUtils {
     private final String TAG = "JIMUtils";
-    private JIMUtils jimUtils;
+    private static JIMUtils jimUtils;
     private MMKV kv;
 
     private JIMUtils() {
@@ -35,7 +35,7 @@ public class JIMUtils {
         kv = MMKV.defaultMMKV();
     }
 
-    public JIMUtils getJimUtils() {
+    public static JIMUtils getJimUtils() {
         return jimUtils = jimUtils == null ? new JIMUtils() : jimUtils;
     }
 
@@ -45,6 +45,7 @@ public class JIMUtils {
     public void login() {
         String username = kv.decodeString(ConstantMMkv.Key_UserName);
         String pwd = kv.decodeString(ConstantMMkv.Key_Jpwd);
+        Log.d(TAG, "login: " + username + pwd);
         JMessageClient.login(username, pwd, new BasicCallback() {
             @Override
             public void gotResult(int i, String s) {
@@ -53,6 +54,7 @@ public class JIMUtils {
                     Log.d(TAG, "gotResult: " + s);
                 else
                     Toast.makeText(MyApp.context, "极光服务初始化异常，无法聊天", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "gotResult: " + i);
             }
         });
     }

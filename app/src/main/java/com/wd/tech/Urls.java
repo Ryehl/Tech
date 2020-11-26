@@ -85,6 +85,21 @@ public class Urls {
     //检查是不是我的好友 get friendUid flag 1=好友 2=x
     public static final String CheckMyFriend = "chat/verify/v1/checkMyFriend";
 
+    //添加好友 post friendUid=int remark=String备注
+    public static final String Add_Friend = "chat/verify/v1/addFriend";
+
+    //删除好友 delete friendUid
+    public static final String Delete_Friend = "chat/verify/v1/deleteFriendRelation";
+
+    //查询群组信息
+    public static final String Get_GroupInfo = "group/verify/v1/findGroupInfo";
+
+    //检查我有没有在群里
+    public static final String Check_IsInGroup = "group/verify/v1/whetherInGroup";
+
+    //加入群聊
+    public static final String JoinGroup = "group/verify/v1/applyAddGroup";
+
     //添加收藏(帖子)
     public static final String AddCollection_Url="user/verify/v1/addCollection";
 
