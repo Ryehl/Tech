@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import com.wd.tech.activities.DetailsActivity;
 import com.wd.tech.activities.InterestActivity;
 import com.wd.tech.activities.SearchActivity;
 import com.wd.tech.adapters.InformationAdapter;
+import com.wd.tech.beans.AddCollectionBean;
 import com.wd.tech.beans.InformationBean;
 import com.wd.tech.beans.XBannerBean;
 import com.wd.tech.presenters.XBannerPresenter;
@@ -34,6 +36,7 @@ import java.util.List;
  */
 public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XBanner xBanner;
+    private int page=1,count=5;
     private List<String> list_img = new ArrayList<>();//图片数据源
     private List<String> list_title = new ArrayList<>();//标题数据源
     private XRecyclerView information_recyclerView;
@@ -52,8 +55,10 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
 
     @Override
     public void initData() {
+        //轮播图
         pre.getXBannerData();
-        pre.InformationData();
+        //咨询
+        pre.InformationData(page, count);
 
         //点击跳转到分类页面
         information_interest.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +77,6 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
                 startActivity(intent);
             }
         });
-
     }
 
     /*
@@ -83,9 +87,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         //解析数据
         XBannerBean xBannerBean = new Gson().fromJson(json, XBannerBean.class);
         final List<XBannerBean.ResultBean> list = xBannerBean.getResult();
-//        for(int i=0;i<list.size();i++){
-//            list_img.add(list);
-//        }
+
 
         list_img.clear();
         list_title.clear();
@@ -119,6 +121,29 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         //设置适配器
         information_recyclerView.setAdapter(informationAdapter);
         information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
+
+        /**
+         *         设置上拉刷新下拉加载
+         */
+        //开启上拉加载下拉刷新
+        information_recyclerView.setPullRefreshEnabled(true);
+        information_recyclerView.setLoadingMoreEnabled(true);
+
+        information_recyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override//刷新
+            public void onRefresh() {
+                pre.InformationData(page, count);
+                information_recyclerView.refreshComplete();
+            }
+
+            @Override//加载
+            public void onLoadMore() {
+                page++;
+                pre.InformationData(page, count);
+                information_recyclerView.loadMoreComplete();
+            }
+        });
+
         //头部
         //  information_recyclerView.addHeaderView(xBanner);
 
@@ -132,6 +157,27 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
                 startActivity(intent);
             }
         });
+
+        //点赞
+        informationAdapter.setOnPraise(new InformationAdapter.OnPraise() {
+            @Override
+            public void praise(int index) {
+                pre.getPraiseData(index);
+                list_information.get(index).getCollection();
+
+            }
+        });
+    }
+
+    /**
+     * 添加到收藏
+     * @param json
+     */
+    public void PraiseData(String json){
+        //解析
+        AddCollectionBean addCollectionBean=new Gson().fromJson(json,AddCollectionBean.class);
+        //吐司  收藏成功  或者  已收藏不能重复收藏
+        Toast.makeText(getActivity(), addCollectionBean.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
 

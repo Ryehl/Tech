@@ -61,7 +61,6 @@ public class SearchActivity extends BaseActivity<SearchPresenter> {
                                pre.getSearchArticleData(keyword);
                            }
                        });
-
                        break;
                    case 1:
                        search_search.setOnClickListener(new View.OnClickListener() {

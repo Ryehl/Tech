@@ -3,6 +3,7 @@ package com.wd.tech.adapters;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,11 +54,14 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((InformationViewHolder) holder).information_content_time.setText(time);
 
 
+
         } else if (holder instanceof InformationAdvertisingViewHolder) {
             String url = list.get(position).getInfoAdvertisingVo().getPic();
             Uri uri = Uri.parse(url);
             ((InformationAdvertisingViewHolder) holder).advertising_img.setImageURI(uri);
             ((InformationAdvertisingViewHolder) holder).advertising_title.setText(list.get(position).getInfoAdvertisingVo().getContent());
+
+
         }
     }
 
@@ -76,9 +80,10 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView information_title, information_content, information_content_title, information_content_time;
         TextView information_collect_num, information_share_num;
         SimpleDraweeView information_img;
-
+        ImageView information_collect;
         public InformationViewHolder(@NonNull View itemView) {
             super(itemView);
+
             information_collect_num = itemView.findViewById(R.id.information_collect_num);//收藏数量
             information_share_num = itemView.findViewById(R.id.information_share_num);//分享数量
             information_content = itemView.findViewById(R.id.information_content);//发布内容
@@ -86,7 +91,7 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             information_img = itemView.findViewById(R.id.information_img);//发布的图片
             information_content_title = itemView.findViewById(R.id.information_content_title);//发布
             information_title = itemView.findViewById(R.id.information_title);//发表内容的标题
-
+            information_collect=itemView.findViewById(R.id.information_collect);//点赞的图片
             //利用接口回调将下标传过去
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -96,6 +101,23 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     }
                 }
             });
+
+            //判断当前账号是否已经收藏此文章
+
+                //点赞 接口回调
+                information_collect.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(onPraise!=null){
+                            onPraise.praise(list.get(getLayoutPosition()).getId());
+                            //  int i=list.get(getLayoutPosition()).getCollection();
+
+                        }
+                    }
+
+
+                });
+
         }
     }
 
@@ -119,6 +141,7 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 }
             });
 
+
         }
     }
 
@@ -131,5 +154,15 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     public void setOnJumpDetails(OnJumpDetails onJumpDetails) {
         this.JumpDetails = onJumpDetails;
+    }
+
+    //点赞
+    public interface OnPraise{
+        void praise(int index);
+    }
+    public OnPraise onPraise;
+
+    public void setOnPraise(OnPraise onPraise) {
+        this.onPraise = onPraise;
     }
 }

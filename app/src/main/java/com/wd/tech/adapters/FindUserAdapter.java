@@ -13,11 +13,11 @@ import com.wd.tech.beans.FindUserBean;
 import java.util.List;
 
 public class FindUserAdapter extends RecyclerView.Adapter<FindUserAdapter.ViewHolder> {
-//    private List<FindUserBean.ResultBean.CommunityUserVoBean> list;
-//
-//    public FindUserAdapter(List<FindUserBean.ResultBean.CommunityUserVoBean> list) {
-//        this.list = list;
-//    }
+    private List<FindUserBean.ResultBean.CommunityUserVoBean> list;
+
+    public FindUserAdapter(List<FindUserBean.ResultBean.CommunityUserVoBean> list) {
+        this.list = list;
+    }
 
     @NonNull
     @Override
@@ -28,12 +28,12 @@ public class FindUserAdapter extends RecyclerView.Adapter<FindUserAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+      //  holder.finduser_content.setText(list.get(position).);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

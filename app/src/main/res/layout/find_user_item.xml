@@ -16,6 +16,44 @@
         android:layout_marginTop="30dp"
         android:id="@+id/find_user_recycleView"
         />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="230dp">
 
+        <ImageView
+            android:id="@+id/finduser_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/common_icon_collect_n" />
+
+        <TextView
+            android:id="@+id/finduser_comment_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="3"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/finduser_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/common_icon_share_n" />
+
+        <TextView
+            android:id="@+id/finduser_praise_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="3"
+            android:textSize="13sp" />
+    </LinearLayout>
 
 </RelativeLayout>

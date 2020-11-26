@@ -17,7 +17,7 @@ public class FindUserPresenter extends BasePresenter<FindUserActivity> {
         NetUtils.getNetUtils().getInfo(Urls.FindUser_Url, map, new NetUtils.GetJsonListener() {
             @Override
             public void success(String json) {
-                //iView.FindUserData(json);
+                iView.FindUserData(json);
             }
 
             @Override

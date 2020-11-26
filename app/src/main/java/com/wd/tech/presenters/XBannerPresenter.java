@@ -41,13 +41,13 @@ public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
     咨讯信息列表
      */
 
-    public void InformationData() {
+    public void InformationData(int page,int count) {
         //判断网络
         if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
             HashMap<String, Object> map = new HashMap<>();
 //            map.put("plateId","10");
-            map.put("page", "1");
-            map.put("count", "5");
+            map.put("page", page+"");
+            map.put("count", count+"");
             //请求数据
             NetUtils.getNetUtils().getInfo(Urls.Information_Url, map, new NetUtils.GetJsonListener() {
                 @Override
@@ -67,4 +67,22 @@ public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
         }
     }
 
+    /**
+     * 点赞
+     */
+    public void getPraiseData(int index){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("infoId",index);
+        NetUtils.getNetUtils().postInfo(Urls.AddCollection_Url, map, new NetUtils.GetJsonListener() {
+            @Override
+            public void success(String json) {
+                iView.PraiseData(json);
+            }
+
+            @Override
+            public void error() {
+
+            }
+        });
+    }
 }

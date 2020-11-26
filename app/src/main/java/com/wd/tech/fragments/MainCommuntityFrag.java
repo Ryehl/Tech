@@ -58,15 +58,6 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
             }
         });
 
-//        communityAdapter.setFindUserHead(new CommunityAdapter.FindUserHead() {
-//            @Override
-//            public void finduser(int index) {
-//                Intent intent=new Intent(getActivity(), FindUserActivity.class);
-//                intent.putExtra("userId",index);
-//                startActivity(intent);
-//            }
-//        });
-
     }
 
     public void CommunityData(String json) {
@@ -77,6 +68,20 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
         communityAdapter = new CommunityAdapter(list);
         recyclerView.setAdapter(communityAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
+
+        //点击头像跳转到个人中心页面
+        communityAdapter.setFindUserHead(new CommunityAdapter.FindUserHead() {
+            @Override
+            public void finduser(int index, String head, String signature,String nickName) {
+                Intent intent=new Intent(getActivity(), FindUserActivity.class);
+                intent.putExtra("userId",index);
+                intent.putExtra("head",head);
+                intent.putExtra("signature",signature);
+                intent.putExtra("nickName",nickName);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

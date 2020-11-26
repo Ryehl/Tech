@@ -48,8 +48,6 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         holder.community_img.setImageURI(uri1);
 
 
-
-
     }
 
     @Override
@@ -77,12 +75,12 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
             comment_nickName = itemView.findViewById(R.id.comment_nickName);
             comment_content = itemView.findViewById(R.id.comment_content);
 
-            //点击图片跳转到用户中心页面
+            //点击头像跳转到用户中心页面
             community_head_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(findUserHead!=null){
-                        findUserHead.finduser(list.get(getLayoutPosition()).getUserId());
+                        findUserHead.finduser(list.get(getLayoutPosition()).getUserId(),list.get(getLayoutPosition()).getHeadPic(),list.get(getLayoutPosition()).getSignature(),list.get(getLayoutPosition()).getNickName());
                     }
                 }
             });
@@ -93,9 +91,9 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
     //接口回调
     public interface FindUserHead{
-        void finduser(int index);
+        void finduser(int index,String head,String signature,String nickName);
     }
-    private FindUserHead findUserHead;
+    public FindUserHead findUserHead;
 
     public void setFindUserHead(FindUserHead findUserHead) {
         this.findUserHead = findUserHead;
