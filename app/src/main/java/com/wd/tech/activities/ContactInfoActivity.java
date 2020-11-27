@@ -36,6 +36,7 @@ public class ContactInfoActivity extends BaseActivity<ActContactnInfoPresenter> 
 
     //展示好友创建的分组
     private RecyclerView recy_show;
+    private TextView tv_groupTitle;
     private int friendUid = -1;
     private String userName = null;
 
@@ -54,6 +55,7 @@ public class ContactInfoActivity extends BaseActivity<ActContactnInfoPresenter> 
         img_vip = findViewById(R.id.contactInfo_img_vip);
 
         recy_show = findViewById(R.id.contactInfo_recy_show);
+        tv_groupTitle = findViewById(R.id.contactInfo_tv_grouptitle);
     }
 
     @Override
@@ -93,6 +95,8 @@ public class ContactInfoActivity extends BaseActivity<ActContactnInfoPresenter> 
             btn.setOnClickListener(v -> {
                 //跳转到发送消息的页面
                 Intent in = new Intent(this, ChatFriendActivity.class);
+                if (userName == null || friendUid == -1)
+                    return;
                 in.putExtra("userName", userName);
                 in.putExtra("friendUid", friendUid);
                 startActivity(in);
@@ -135,11 +139,13 @@ public class ContactInfoActivity extends BaseActivity<ActContactnInfoPresenter> 
         tv_sex8bir.setText(sex + "(" + result.getBirthday() + ")");
         tv_phone.setText(result.getPhone());
         tv_email.setText(result.getEmail());
+        userName = result.getUserName();
 
         //判断这个人有没有创建群
         List<JsonFriendInfoBean.ResultBean.MyGroupListBean> myGroupList = result.getMyGroupList();
         if (myGroupList == null || myGroupList.size() == 0) {
             recy_show.setVisibility(View.GONE);
+            tv_groupTitle.setVisibility(View.GONE);
         } else {
             //设置横向布局
             recy_show.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));

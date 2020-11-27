@@ -11,8 +11,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import cn.jpush.im.android.api.ContactManager;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.callback.GetUserInfoCallback;
+import cn.jpush.im.android.api.callback.GetUserInfoListCallback;
 import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.model.UserInfo;
@@ -292,5 +294,14 @@ public class JIMUtils {
     public void sendMessage(Message msg, BasicCallback callback) {
         msg.setOnSendCompleteCallback(callback);
         JMessageClient.sendMessage(msg);
+    }
+
+    /**
+     * 获取极光好友列表
+     *
+     * @param callback
+     */
+    public void getFriendList(GetUserInfoListCallback callback) {
+        ContactManager.getFriendList(callback);
     }
 }

@@ -89,11 +89,20 @@
         android:layout_below="@id/contactInfo_tv_phone"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/contactInfo_tv_grouptitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactInfo_tv_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="ta创建的群聊" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactInfo_recy_show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/contactInfo_tv_email"
+        android:layout_below="@id/contactInfo_tv_grouptitle"
         android:layout_centerHorizontal="true" />
 
     <Button

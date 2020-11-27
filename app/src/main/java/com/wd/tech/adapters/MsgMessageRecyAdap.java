@@ -51,6 +51,8 @@ public class MsgMessageRecyAdap extends RecyclerView.Adapter<MsgMessageRecyAdap.
         holder.tv_name.setText(conversation.getTitle());
         //最后一条消息的时间
         holder.tv_date.setText(TypeConversionUtils.long2StringAgo(conversation.getLastMsgDate()));
+        if (conversation.getLatestMessage() == null)
+            return;
         //最后一条消息内容
         holder.tv_lastMsg.setText(conversation.getLatestMessage().getContent().toJson());
         //未读消息数量

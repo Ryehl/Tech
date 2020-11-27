@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.wd.mylibrary.base.BaseActivity;
+import com.wd.mylibrary.utils.ViewUtils;
 import com.wd.tech.R;
 
 public class WelcomeActivity extends BaseActivity {
@@ -40,6 +41,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     public void initData() {
+        ViewUtils.setViewTransparent(this);
         //requestPermissions
         reqPre();
 

@@ -5,10 +5,32 @@
     android:layout_height="match_parent"
     tools:context=".activities.ChatFriendActivity">
 
+    <RelativeLayout
+        android:id="@+id/chat_friend_ral_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/chat_friend_tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_friend_recy_chat"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/chat_friend_include_bottom"
+        android:layout_below="@id/chat_friend_ral_top" />
+
+    <include
+        android:id="@+id/chat_friend_include_bottom"
+        layout="@layout/include_chat_bottom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

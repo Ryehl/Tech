@@ -48,7 +48,7 @@ public class ViewUtils {
      * @param activity
      * @param setDark
      */
-    public void changStatusIconCollor(Activity activity, boolean setDark) {
+    public static void changStatusIconCollor(Activity activity, boolean setDark) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decorView = activity.getWindow().getDecorView();
             if (decorView != null) {

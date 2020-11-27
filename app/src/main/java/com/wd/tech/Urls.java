@@ -103,6 +103,9 @@ public class Urls {
     //添加收藏(帖子)
     public static final String AddCollection_Url="user/verify/v1/addCollection";
 
+    //查询好友聊天记录
+    public static final String QueryChatHis = "chat/verify/v1/findDialogueRecordPageList";
+
     //社区评论列表
     public static final String CommunityCommentList_Url="community/v1/findCommunityUserCommentList";
 

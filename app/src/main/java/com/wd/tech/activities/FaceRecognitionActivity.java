@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import com.arcsoft.face.FaceEngine;
 import com.arcsoft.face.FaceFeature;
 import com.arcsoft.face.FaceInfo;
-import com.arcsoft.face.FaceSimilar;
 import com.arcsoft.face.enums.DetectFaceOrientPriority;
 import com.arcsoft.face.enums.DetectMode;
 import com.wd.mylibrary.base.BaseActivity;
@@ -27,9 +26,6 @@ import com.wd.tech.beans.RealmFaceInfoBean;
 import com.wd.tech.diyview.MySurface;
 import com.wd.tech.presenters.ActFaceRecognitionPresenter;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

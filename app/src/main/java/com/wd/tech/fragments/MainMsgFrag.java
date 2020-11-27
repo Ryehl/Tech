@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.gson.Gson;
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.R;
 import com.wd.tech.diyview.DiyPwCommontity;
@@ -22,11 +23,13 @@ import java.util.Locale;
 
 import cn.jmessage.biz.httptask.task.GetEventNotificationTaskMng;
 import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.callback.GetUserInfoListCallback;
 import cn.jpush.im.android.api.event.ConversationRefreshEvent;
 import cn.jpush.im.android.api.event.MessageEvent;
 import cn.jpush.im.android.api.event.OfflineMessageEvent;
 import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
+import cn.jpush.im.android.api.model.UserInfo;
 
 /**
  * <p>项目名称:维度科技</p>

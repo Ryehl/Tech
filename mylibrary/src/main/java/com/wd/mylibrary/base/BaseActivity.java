@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wd.mylibrary.interfaces.IView;
+import com.wd.mylibrary.utils.ViewUtils;
 
 /**
  * <p>项目名称:维度商城</p>
@@ -23,6 +24,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
+        ViewUtils.changStatusIconCollor(this, true);
         initView();
         pre = initPresenter();
         if (pre != null)

@@ -9,6 +9,7 @@ import com.arcsoft.face.FaceEngine;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.mmkv.MMKV;
+import com.wd.tech.utils.GlobalEventListener;
 
 import cn.jpush.im.android.api.JMessageClient;
 import io.realm.Realm;
@@ -16,6 +17,7 @@ import io.realm.Realm;
 public class MyApp extends Application {
     private final String TAG = "MyApp";
     public static Context context;
+    //人脸识别
     private final String APP_ID = "6EuS9gPy1PntD3DsryuhpR9srnZZcnCFWYpabiJCC6cy";
     private final String SDK_KEY = "AhEz1d9XhcSyUqe7SHjpJqsaEPzRjUcn3BEkSGCyyLhN";
 
@@ -28,10 +30,12 @@ public class MyApp extends Application {
 
         // You can enable debug mode in developing state. You should close debug mode when release.
         JMessageClient.setDebugMode(true);
-        JMessageClient.init(this);
+        //TODO 开启消息漫游
+        JMessageClient.init(this, true);
         ViewTarget.setTagId(R.id.glide_tag);
         //set flag
         JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND);
+        JMessageClient.registerEventReceiver(new GlobalEventListener(this));
 
         //Realm
         Realm.init(this);

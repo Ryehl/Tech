@@ -3,6 +3,7 @@ package com.wd.tech.activities;
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.tech.R;
 import com.wd.tech.presenters.ActChatGroupPresenter;
+import com.wd.tech.utils.JIMUtils;
 
 public class ChatGroupActivity extends BaseActivity<ActChatGroupPresenter> {
 
@@ -29,5 +30,12 @@ public class ChatGroupActivity extends BaseActivity<ActChatGroupPresenter> {
     @Override
     public ActChatGroupPresenter initPresenter() {
         return new ActChatGroupPresenter();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //退出聊天
+        JIMUtils.getJimUtils().exitChat();
     }
 }
