@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_chat_their_img_hd"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="15dp" />
+
+    <TextView
+        android:id="@+id/item_chat_their_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/item_chat_their_img_hd"
+        android:layout_toEndOf="@id/item_chat_their_img_hd"
+        android:text="啊实打实的发"
+        android:textSize="20sp" />
+
+    <!--    显示消息-->
+    <RelativeLayout
+        android:id="@+id/item_chat_their_rel_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_chat_their_tv_name"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/item_chat_their_img_hd"
+        android:padding="20dp" />
+
+</RelativeLayout>

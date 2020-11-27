@@ -46,17 +46,21 @@ public class MsgMessageRecyAdap extends RecyclerView.Adapter<MsgMessageRecyAdap.
                 .build();
         holder.sdv_hd.setHierarchy(hierarchy);
         Conversation conversation = list.get(position);
-        //holder.sdv_hd.setImageURI();
+        //holder.img_hd.setImageURI();
         //联系人姓名/群聊名
         holder.tv_name.setText(conversation.getTitle());
         //最后一条消息的时间
         holder.tv_date.setText(TypeConversionUtils.long2StringAgo(conversation.getLastMsgDate()));
+        //TODO 未读消息数量
+        int unReadMsgCnt = conversation.getUnReadMsgCnt();
+        if (unReadMsgCnt > 0) {
+            holder.tv_noReadCount.setText(String.valueOf(unReadMsgCnt));
+            holder.tv_noReadCount.setVisibility(View.VISIBLE);
+        }
         if (conversation.getLatestMessage() == null)
             return;
         //最后一条消息内容
         holder.tv_lastMsg.setText(conversation.getLatestMessage().getContent().toJson());
-        //未读消息数量
-        holder.tv_noReadCount.setText(String.valueOf(conversation.getUnReadMsgCnt()));
     }
 
     @Override

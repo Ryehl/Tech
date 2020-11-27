@@ -24,7 +24,7 @@ public class TypeConversionUtils {
         //long to date
         Date date = new Date(l);
         //use simpleDataFormat class
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //string info of date
         String stringOfDate = sdf.format(date);
         return stringOfDate;
@@ -40,7 +40,7 @@ public class TypeConversionUtils {
         //long to date
         Date date = new Date(l);
         //use simpleDataFormat class
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //string info of date
         String stringOfDate = sdf.format(date);
         return stringOfDate;

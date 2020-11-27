@@ -6,17 +6,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.tencent.mmkv.MMKV;
 import com.wd.mylibrary.base.BaseActivity;
+import com.wd.mylibrary.bean.ConstantMMkv;
 import com.wd.tech.R;
+import com.wd.tech.adapters.ChatViewRecyAdap;
 import com.wd.tech.beans.JsonChatHisBean;
 import com.wd.tech.beans.JsonFriendInfoBean;
 import com.wd.tech.presenters.ActChatFriendPresenter;
 import com.wd.tech.utils.JIMUtils;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,12 +33,13 @@ import cn.jpush.im.android.api.event.MessageEvent;
 import cn.jpush.im.android.api.event.OfflineMessageEvent;
 import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
+import cn.jpush.im.api.BasicCallback;
 
 public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
 
-    private int friendUid;
-    private String userName;
-    private String TAG = this.getClass().getName();
+    private int friendUid;//服务器好友ID
+    private String userName;//极光用户名
+    private String TAG = getClass().getName();
 
     private TextView tv_friendName;
     private RecyclerView recy_showChat;
@@ -43,6 +50,11 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
     private ImageView img_camera;
     private ImageView img_position;
     private JsonFriendInfoBean friendInfoBean;
+    private JIMUtils jimUtils;
+    private Conversation chatInfo;
+    private MMKV kv;
+    private ChatViewRecyAdap adapter;
+    private List<Message> allMessage;
 
     @Override
     public void initView() {
@@ -59,17 +71,39 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
 
     @Override
     public void initData() {
-        JMessageClient.registerEventReceiver(this);
+        kv = MMKV.defaultMMKV();
+        //获取重要信息
         Intent intent = getIntent();
         friendUid = intent.getIntExtra("friendUid", -1);
         userName = intent.getStringExtra("userName");
-        if (userName == null || friendUid == -1)
-            return;
+        if (userName == null || friendUid == -1) {
+            //userName 和 friendUid缺一不可
+            Toast.makeText(this, "获取信息失败", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
-        pre.getFriendInfo(friendUid, userName);
-        pre.getFriendChatHis(friendUid, userName);
+        pre.getFriendInfo(friendUid);
         //进入极光聊天
-        JIMUtils.getJimUtils().gotoSingleChat(userName);
+        JMessageClient.registerEventReceiver(this);
+        jimUtils = JIMUtils.getJimUtils();
+        jimUtils.gotoSingleChat(userName);
+
+        //发送消息的监听
+        btn_send.setOnClickListener(v -> {
+            String input = et_input.getText().toString().trim();
+            if (input.length() == 0)
+                return;
+            et_input.setText("");
+            Message msg = jimUtils.createTextMsg(userName, input);
+            jimUtils.sendMessage(msg, new BasicCallback() {
+                @Override
+                public void gotResult(int i, String s) {
+                    if (i == 0)
+                        recyScroll(msg);
+                    //TODO 消息发送失败
+                }
+            });
+        });
     }
 
     @Override
@@ -92,15 +126,29 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
         if (friendInfoBean == null)
             return;
         tv_friendName.setText(friendInfoBean.getResult().getNickName());
+        //先获取完信息之后再展示
+        showChatHis();
     }
 
     /**
-     * 获取聊天历史记录
-     *
-     * @param json history
+     * 展示聊天记录
      */
-    public void setChatHis(String json) {
-        JsonChatHisBean chatHisBean = new Gson().fromJson(json, JsonChatHisBean.class);
+    public void showChatHis() {
+        //头像列表
+        HashMap<String, String> map = new HashMap<>();
+        map.put(userName, friendInfoBean.getResult().getHeadPic());
+        map.put(kv.decodeString(ConstantMMkv.Key_UserName), kv.decodeString(ConstantMMkv.Key_HeadPic));
+        if (jimUtils == null)
+            jimUtils = JIMUtils.getJimUtils();
+        //获取会话对象
+        chatInfo = jimUtils.getChatInfo(userName);
+        //获取所有聊天
+        allMessage = chatInfo.getAllMessage();
+        //展示到适配器
+        recy_showChat.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ChatViewRecyAdap(allMessage, map);
+        recy_showChat.setAdapter(adapter);
+        recy_showChat.scrollToPosition(allMessage.size() - 1);
     }
 
     @Override
@@ -108,66 +156,21 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
         super.onDestroy();
         //退出聊天
         JIMUtils.getJimUtils().exitChat();
-        JMessageClient.unRegisterEventReceiver(this);
     }
 
-
-    public void onEvent(GetEventNotificationTaskMng.EventEntity event) {
-        //do your own business
-        String json = new Gson().toJson(event);
-        Log.d(TAG, "onEventMainThread: " + json);
-        Log.d(TAG, "onEvent: " + event.toString());
-        Log.d(TAG, "onEvent: " + event.getConEventResponse());
-        Log.d(TAG, "onEvent: " + event.getConvId());
-        Log.d(TAG, "onEvent: " + event.getCallback());
+    /**
+     * 接收在线消息
+     **/
+    public void onEvent(MessageEvent event) {
+        //获取事件发生的会话对象
+        //Conversation conversation = event.getConversation();
+        Message msg = event.getMessage();//获取此次离线期间会话收到的新消息列表
+        recyScroll(msg);
     }
 
-    public void onEventMainThread(GetEventNotificationTaskMng.EventEntity event) {
-        //do your own business
-        String json = new Gson().toJson(event);
-        Log.d(TAG, "onEventMainThread: " + json);
-        Log.d(TAG, "onEventMainThread: " + event.toString());
+    private void recyScroll(Message msg) {
+        allMessage.add(msg);
+        adapter.notifyDataSetChanged();
+        recy_showChat.scrollToPosition(allMessage.size() - 1);
     }
-
-        /**
-         * 接收在线消息
-         **/
-        public void onEvent (MessageEvent event){
-            //获取事件发生的会话对象
-            String json = new Gson().toJson(event);
-            Log.d(TAG, "onEventMainThread: " + json);
-            //Conversation conversation = event.getConversation();
-            Message newMessage = event.getMessage();//获取此次离线期间会话收到的新消息列表
-            System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到一条来自%s的在线消息", newMessage));
-        }
-
-        /**
-         * 接收离线消息。
-         * 类似MessageEvent事件的接收，上层在需要的地方增加OfflineMessageEvent事件的接收
-         * 即可实现离线消息的接收。
-         **/
-        public void onEvent(OfflineMessageEvent event){
-            //获取事件发生的会话对象
-            String json = new Gson().toJson(event);
-            Log.d(TAG, "onEventMainThread: " + json);
-            Conversation conversation = event.getConversation();
-            List<Message> newMessageList = event.getOfflineMessageList();//获取此次离线期间会话收到的新消息列表
-            System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到%d条来自%s的离线消息。\n", newMessageList.size(), conversation.getTargetId()));
-        }
-
-        /**
-         * 接收消息漫游事件
-         * 如果在JMessageClient.init时启用了消息漫游功能，则每当一个会话的漫游消息同步完成时
-         * sdk会发送此事件通知上层。
-         **/
-        public void onEvent (ConversationRefreshEvent event){
-            //获取事件发生的会话对象
-            String json = new Gson().toJson(event);
-            Log.d(TAG, "onEventMainThread: " + json);
-            Conversation conversation = event.getConversation();
-            //获取事件发生的原因，对于漫游完成触发的事件，此处的reason应该是 MSG_ROAMING_COMPLETE
-            ConversationRefreshEvent.Reason reason = event.getReason();
-            System.out.println(String.format(Locale.SIMPLIFIED_CHINESE, "收到ConversationRefreshEvent事件,待刷新的会话是%s.\n", conversation.getTargetId()));
-            System.out.println("事件发生的原因 : " + reason);
-        }
-    }
+}

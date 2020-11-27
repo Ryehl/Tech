@@ -2,6 +2,16 @@ package com.wd.tech.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.wd.mylibrary.utils.NetUtils;
+import com.wd.tech.Urls;
+import com.wd.tech.activities.ChatFriendActivity;
+import com.wd.tech.activities.ChatGroupActivity;
+import com.wd.tech.activities.JsonFriendInfoByJusernameBean;
+
+import java.util.HashMap;
 
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.enums.ConversationType;
@@ -12,7 +22,7 @@ import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.model.UserInfo;
 
 /**
- * 在demo中对于通知栏点击事件和在线消息接收事件，我们都直接在全局监听
+ * 通知栏点击监听
  */
 public class GlobalEventListener {
     private Context appContext;
@@ -23,29 +33,36 @@ public class GlobalEventListener {
     }
 
     public void onEvent(NotificationClickEvent event) {
-        jumpToActivity(event.getMessage());
+        //点击进行跳转到聊天页面
+        Message msg = event.getMessage();
+        UserInfo fromUser = msg.getFromUser();
+        if (msg.getTargetType() == ConversationType.group) {
+            GroupInfo groupInfo = (GroupInfo) msg.getTargetInfo();
+            Intent intent = new Intent(appContext, ChatGroupActivity.class);
+            intent.putExtra("groupId", groupInfo.getGroupID());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            appContext.startActivity(intent);
+        } else {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("userNames", fromUser.getUserName());
+            NetUtils.getNetUtils().getInfo(Urls.FriendInfo_JUserName, map, new NetUtils.GetJsonListener() {
+                @Override
+                public void success(String json) {
+                    Intent intent = new Intent(appContext, ChatFriendActivity.class);
+                    intent.putExtra("userName", fromUser.getUserName());
+                    JsonFriendInfoByJusernameBean friends = new Gson().fromJson(json, JsonFriendInfoByJusernameBean.class);
+                    intent.putExtra("friendUid", friends.getResult().get(0).getUserId());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    appContext.startActivity(intent);
+                }
+
+                @Override
+                public void error() {
+                }
+            });
+        }
     }
 
     public void onEvent(MessageEvent event) {
-        jumpToActivity(event.getMessage());
-    }
-
-    private void jumpToActivity(Message msg) {
-        UserInfo fromUser = msg.getFromUser();
-        final Intent notificationIntent = new Intent(appContext, ShowMessageActivity.class);
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (msg.getTargetType() == ConversationType.group) {
-            GroupInfo groupInfo = (GroupInfo) msg.getTargetInfo();
-            notificationIntent.putExtra(ShowMessageActivity.EXTRA_IS_GROUP, true);
-            notificationIntent.putExtra(ShowMessageActivity.EXTRA_GROUPID, groupInfo.getGroupID());
-        } else {
-            notificationIntent.putExtra(ShowMessageActivity.EXTRA_IS_GROUP, false);
-        }
-
-        notificationIntent.putExtra(ShowMessageActivity.EXTRA_FROM_USERNAME, fromUser.getUserName());
-        notificationIntent.putExtra(ShowMessageActivity.EXTRA_FROM_APPKEY, fromUser.getAppKey());
-        notificationIntent.putExtra(ShowMessageActivity.EXTRA_MSG_TYPE, msg.getContentType().toString());
-        notificationIntent.putExtra(ShowMessageActivity.EXTRA_MSGID, msg.getId());
-        appContext.startActivity(notificationIntent);
     }
 }

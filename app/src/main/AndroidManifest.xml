@@ -140,7 +140,7 @@
             android:exported="true">
             <intent-filter >
                 <action android:name="cn.jpush.android.intent.DaemonService" />
-                <category android:name="您自己的包名"/>
+                <category android:name="com.wd.tech"/>
             </intent-filter>
         </service>
 

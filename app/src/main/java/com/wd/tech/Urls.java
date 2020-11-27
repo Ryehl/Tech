@@ -112,4 +112,7 @@ public class Urls {
     //在社区发发表评论
     public static final String AddCommunityComment_Url="community/verify/v1/addCommunityComment";
 
+    //根据极光用户名（可批量查询用户信息）
+    public static final String FriendInfo_JUserName = "user/verify/v1/findConversationList";
+
 }
