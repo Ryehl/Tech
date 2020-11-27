@@ -54,19 +54,21 @@
         android:layout_marginTop="70dp"
         android:layout_marginRight="10dp" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/community_img"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/communityimg_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp"
         fresco:roundedCornerRadius="10dp" />
 
     <LinearLayout
+        android:id="@+id/comment_layout"
+        android:layout_below="@id/communityimg_recycle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="230dp">
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:id="@+id/information_collect"
@@ -101,6 +103,23 @@
             android:text="3"
             android:textSize="13sp" />
     </LinearLayout>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/comment_layout"
+        android:id="@+id/comment_recycle"
+        />
+    <TextView
+        android:layout_below="@id/comment_recycle"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="17sp"
+        android:id="@+id/comment_but"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="没有更多评论了～"
+        />
 
 </RelativeLayout>

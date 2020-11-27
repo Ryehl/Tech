@@ -36,7 +36,7 @@ import java.util.List;
  */
 public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     private XBanner xBanner;
-    private int page=1,count=5;
+    private int page = 1, count = 5;
     private List<String> list_img = new ArrayList<>();//图片数据源
     private List<String> list_title = new ArrayList<>();//标题数据源
     private XRecyclerView information_recyclerView;
@@ -83,12 +83,9 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
     轮播图
      */
     public void XBannerData(String json) {
-
         //解析数据
         XBannerBean xBannerBean = new Gson().fromJson(json, XBannerBean.class);
         final List<XBannerBean.ResultBean> list = xBannerBean.getResult();
-
-
         list_img.clear();
         list_title.clear();
         //加强for循环将  图片跟对应的标题全部设置上
@@ -104,10 +101,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         xBanner.setPageTransformer(Transformer.Default);
         //时间
         xBanner.setPageChangeDuration(2000);
-
-
     }
-
     /*
      咨讯列表展示
      */
@@ -115,7 +109,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         //解析
         InformationBean informationBean = new Gson().fromJson(json, InformationBean.class);
         Log.i("TAG", informationBean.toString());
-        list_information.addAll(informationBean.getResult());
+        list_information = informationBean.getResult();
         //适配器
         informationAdapter = new InformationAdapter(list_information);
         //设置适配器
@@ -132,6 +126,8 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         information_recyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override//刷新
             public void onRefresh() {
+                page = 1;
+                informationAdapter.notifyDataSetChanged();
                 pre.InformationData(page, count);
                 information_recyclerView.refreshComplete();
             }
@@ -139,14 +135,13 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
             @Override//加载
             public void onLoadMore() {
                 page++;
-                pre.InformationData(page, count);
+                pre.InformationData2(page, count);
                 information_recyclerView.loadMoreComplete();
             }
         });
 
         //头部
         //  information_recyclerView.addHeaderView(xBanner);
-
 
         //接口回调  点击事件跳转到详情页
         informationAdapter.setOnJumpDetails(new InformationAdapter.OnJumpDetails() {
@@ -158,28 +153,33 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
             }
         });
 
-        //点赞
+        //收藏
         informationAdapter.setOnPraise(new InformationAdapter.OnPraise() {
             @Override
             public void praise(int index) {
                 pre.getPraiseData(index);
-                list_information.get(index).getCollection();
-
+                //list_information.get(index).getCollection();
             }
         });
     }
 
+    public void InformationData2(String json) {
+        InformationBean informationBean = new Gson().fromJson(json, InformationBean.class);
+  //      Log.i("TAG", informationBean.toString());
+        list_information.addAll(informationBean.getResult());
+        informationAdapter.notifyDataSetChanged();
+    }
     /**
      * 添加到收藏
+     *
      * @param json
      */
-    public void PraiseData(String json){
+    public void PraiseData(String json) {
         //解析
-        AddCollectionBean addCollectionBean=new Gson().fromJson(json,AddCollectionBean.class);
+        AddCollectionBean addCollectionBean = new Gson().fromJson(json, AddCollectionBean.class);
         //吐司  收藏成功  或者  已收藏不能重复收藏
         Toast.makeText(getActivity(), addCollectionBean.getMessage(), Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public void onResume() {

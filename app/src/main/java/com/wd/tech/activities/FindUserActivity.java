@@ -37,11 +37,12 @@ public class FindUserActivity extends BaseActivity<FindUserPresenter> {
     @Override
     public void initData() {
         Intent intent=getIntent();
-        int id=intent.getIntExtra("userId",0);
+        int id=intent.getIntExtra("userId",1);
         String head=intent.getStringExtra("head");
         String signature=intent.getStringExtra("signature");
         String nickName=intent.getStringExtra("nickName");
         pre.getFindUserData(id);
+
 
         Uri uri=Uri.parse(head);
         find_user_head.setImageURI(uri);

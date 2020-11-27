@@ -9,16 +9,19 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_marginLeft="20dp"
             android:id="@+id/comment_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="嘿嘿"
             android:textSize="17sp" />
 
         <TextView
+            android:layout_marginLeft="5dp"
             android:id="@+id/comment_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#19000000"
+            android:text="嘿嘿嘿"
             android:textSize="15sp" />
     </LinearLayout>
 

@@ -67,6 +67,30 @@ public class XBannerPresenter extends BasePresenter<MainInfomationFrag> {
         }
     }
 
+    public void InformationData2(int page,int count) {
+        //判断网络
+        if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("page", page+"");
+            map.put("count", count+"");
+            //请求数据
+            NetUtils.getNetUtils().getInfo(Urls.Information_Url, map, new NetUtils.GetJsonListener() {
+                @Override
+                public void success(String json) {
+                    //将数据返回到Fragment
+                    iView.InformationData2(json);
+                }
+
+                @Override
+                public void error() {
+
+                }
+            });
+        } else {
+            Toast.makeText(MyApp.context, "没网!玩您妈呢？", Toast.LENGTH_SHORT).show();
+
+        }
+    }
     /**
      * 点赞
      */

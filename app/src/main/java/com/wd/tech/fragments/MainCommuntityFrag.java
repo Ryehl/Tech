@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.MyApp;
 import com.wd.tech.R;
+import com.wd.tech.activities.CommunityCommentListActivity;
 import com.wd.tech.activities.FindUserActivity;
 import com.wd.tech.activities.PublishActivity;
 import com.wd.tech.adapters.CommunityAdapter;
@@ -31,13 +33,12 @@ import java.util.List;
  */
 public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
 
-    RecyclerView recyclerView;
+    XRecyclerView recyclerView;
     private List<CommuntiyBean.ResultBean> list = new ArrayList<>();
     private List<CommuntiyBean.ResultBean.CommunityCommentVoListBean> list2=new ArrayList<>();
     private CommunityAdapter communityAdapter;
-    private CommunityCommentAdapter communityCommentAdapter;
-    private ImageView community_publish;
-
+    private SimpleDraweeView community_publish;
+    private int page=1,count=5;
     @Override
     public void initView() {
         View view = getView();
@@ -48,29 +49,52 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
 
     @Override
     public void initData() {
-        pre.CommunityData();
+        pre.CommunityData(page,count);
 
         //点击跳转到发表帖子页面
         community_publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), PublishActivity.class);
-//                startActivity(intent);
-                Toast.makeText(getActivity(), "嘿嘿", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), PublishActivity.class);
+                startActivity(intent);
             }
         });
+
+
 
     }
 
     public void CommunityData(String json) {
         //解析
         CommuntiyBean communtiyBean = new Gson().fromJson(json, CommuntiyBean.class);
-        list.addAll(communtiyBean.getResult());
+        list=communtiyBean.getResult();
 //        list2.addAll(communtiyBean.getResult());
         communityAdapter = new CommunityAdapter(list);
         recyclerView.setAdapter(communityAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
 
+        /**
+         * 上拉加载  下拉刷新
+         */
+        //开启下拉刷新  下拉加载
+        recyclerView.setPullRefreshEnabled(true);
+        recyclerView.setLoadingMoreEnabled(true);
+        recyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                page=1;
+                pre.CommunityData(page,count);
+                communityAdapter.notifyDataSetChanged();
+                recyclerView.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                page++;
+                pre.CommunityData2(page,count);
+                recyclerView.loadMoreComplete();
+            }
+        });
         //点击头像跳转到个人中心页面
         communityAdapter.setFindUserHead(new CommunityAdapter.FindUserHead() {
             @Override
@@ -84,7 +108,23 @@ public class MainCommuntityFrag extends BaseFragment<FragCommuntityPresenter> {
             }
         });
 
-
+        //点击跳转到评论页面
+        communityAdapter.setCommentList(new CommunityAdapter.CommentList() {
+            @Override
+            public void comment(int commentId, String head, String nickName, int comment) {
+                Intent intent=new Intent(getActivity(), CommunityCommentListActivity.class);
+                intent.putExtra("commentId",commentId);
+                intent.putExtra("head",head);
+                intent.putExtra("nickName",nickName);
+                intent.putExtra("comment",comment);
+                startActivity(intent);
+            }
+        });
+    }
+    public void CommunityData2(String json){
+        CommuntiyBean communtiyBean = new Gson().fromJson(json, CommuntiyBean.class);
+        list.addAll(communtiyBean.getResult());
+        communityAdapter.notifyDataSetChanged();
     }
 
     @Override

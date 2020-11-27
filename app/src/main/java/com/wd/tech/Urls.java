@@ -103,4 +103,10 @@ public class Urls {
     //添加收藏(帖子)
     public static final String AddCollection_Url="user/verify/v1/addCollection";
 
+    //社区评论列表
+    public static final String CommunityCommentList_Url="community/v1/findCommunityUserCommentList";
+
+    //在社区发发表评论
+    public static final String AddCommunityComment_Url="community/verify/v1/addCommunityComment";
+
 }

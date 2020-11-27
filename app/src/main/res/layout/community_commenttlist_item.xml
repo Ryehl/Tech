@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="40dp"
+        fresco:roundAsCircle="true"
+        android:id="@+id/commentt_head"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/commentt_nickName"
+        android:layout_marginLeft="70dp"
+        android:text="嘿嘿"
+        android:textSize="17sp"
+        />
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/commentt_time"
+        android:layout_marginLeft="70dp"
+        android:text="一小时前"
+        />
+    <TextView
+        android:text="嘿嘿"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/commentt_content"
+        />
+</RelativeLayout>

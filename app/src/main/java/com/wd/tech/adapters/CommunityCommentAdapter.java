@@ -29,7 +29,7 @@ public class CommunityCommentAdapter extends RecyclerView.Adapter<CommunityComme
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.comment_content.setText(list.get(position).getContent());
-        holder.comment_nickName.setText(list.get(position).getNickName());
+        holder.comment_nickName.setText(list.get(position).getNickName()+":");
     }
 
     @Override
@@ -43,6 +43,24 @@ public class CommunityCommentAdapter extends RecyclerView.Adapter<CommunityComme
             super(itemView);
             comment_nickName=itemView.findViewById(R.id.comment_nickName);
             comment_content=itemView.findViewById(R.id.comment_content);
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(onComment!=null){
+//                        onComment.comment(list.get(getLayoutPosition()).getNickName(),list.get(getLayoutPosition()).getContent());
+//                    }
+//                }
+//            });
         }
+    }
+
+    public interface OnComment{
+        void comment(String nickName,String content);
+    }
+    private OnComment onComment;
+
+    public void setOnComment(OnComment onComment) {
+        this.onComment = onComment;
     }
 }

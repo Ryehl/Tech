@@ -8,24 +8,22 @@
     tools:context=".fragments.MainCommuntityFrag">
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/go_publish"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="70dp"
-            android:background="@drawable/chaiquan" />
-
-        <androidx.recyclerview.widget.RecyclerView
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
             android:id="@+id/community_recycle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/go_publish"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="330dp"
+            android:layout_marginTop="520dp"
+            android:background="@mipmap/community_btn_publish_n"
+            fresco:roundAsCircle="true" />
     </RelativeLayout>
 </FrameLayout>
