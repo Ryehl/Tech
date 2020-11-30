@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".activities.AddfriendActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/addfriend_sdv_hd"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="20dp" />
+
+    <TextView
+        android:id="@+id/addfriend_tv_friendName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/addfriend_sdv_hd"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/addfriend_sdv_hd"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/addfriend_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addfriend_sdv_hd"
+        android:text="请输入验证消息" />
+
+    <EditText
+        android:id="@+id/addfriend_et_remark"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/addfriend_tv"
+        android:layout_marginTop="20dp"
+        android:text="我是。。。"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/addfriend_btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addfriend_et_remark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="添加好友" />
+
+</RelativeLayout>

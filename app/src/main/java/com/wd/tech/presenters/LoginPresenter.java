@@ -1,6 +1,7 @@
 package com.wd.tech.presenters;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.wd.mylibrary.base.BasePresenter;
@@ -20,6 +21,8 @@ import java.util.HashMap;
 
 public class LoginPresenter extends BasePresenter<LoginActivity> {
 
+    private String TAG = getClass().getName();
+
     public void LoginInfo(String phone, String encrypt_pwd) {
         try {
             //入参
@@ -35,6 +38,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                     LoginBean loginBean = new Gson().fromJson(json, LoginBean.class);
                     if (loginBean != null) {
                         if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
+                            Log.d(TAG, "success: " + loginBean.toString());
                             if (loginBean.getStatus().equals("0000")) {
                                 Toast.makeText(MyApp.context, "登陆成功！", Toast.LENGTH_SHORT).show();
                                 //存储

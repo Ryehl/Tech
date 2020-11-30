@@ -15,6 +15,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mmkv.MMKV;
 import com.wd.mylibrary.bean.ConstantMMkv;
 import com.wd.mylibrary.utils.NetUtils;
+import com.wd.mylibrary.utils.encrypt.RsaCoder;
 import com.wd.tech.Urls;
 import com.wd.tech.activities.MainActivity;
 import com.wd.tech.beans.WxBwan;
@@ -22,13 +23,14 @@ import com.wd.tech.beans.WxBwan;
 import java.util.HashMap;
 
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
+
+    private String TAG = getClass().getName();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Constants.wx_api.handleIntent(getIntent(), this);
-
-
     }
 
     //微信请求响应
@@ -36,29 +38,30 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     public void onReq(BaseReq baseReq) {
 
     }
+
     //发送到微信请求的响应的结果
     @Override
     public void onResp(BaseResp resp) {
         switch (resp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
-                Log.i("WXTest","onResp OK");
+                Log.i("WXTest", "onResp OK");
 
-                if(resp instanceof SendAuth.Resp){
+                if (resp instanceof SendAuth.Resp) {
                     SendAuth.Resp newResp = (SendAuth.Resp) resp;
                     //获取微信传回的code
                     String code = newResp.code;
 
-                    HashMap<String,Object> map=new HashMap<>();
-                    map.put("code",code);
+                    HashMap<String, Object> map = new HashMap<>();
+                    map.put("code", code);
                     //微信网络请求
                     NetUtils.getNetUtils().postInfo(Urls.WeChatLogin_Url, map, new NetUtils.GetJsonListener() {
                         @Override
                         public void success(String json) {
                             //解析
-                            WxBwan wxBwan=new Gson().fromJson(json,WxBwan.class);
+                            WxBwan wxBwan = new Gson().fromJson(json, WxBwan.class);
 
                             //将头像  昵称等信息全都存起来 并替换掉
-                            MMKV mmkv=MMKV.defaultMMKV();
+                            MMKV mmkv = MMKV.defaultMMKV();
                             mmkv.putBoolean(ConstantMMkv.Key_IsLogin, true);
                             mmkv.putString("status", wxBwan.getStatus());//状态
                             mmkv.putString("nickName", wxBwan.getResult().getNickName());//昵称
@@ -66,9 +69,18 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                             mmkv.putInt("whetherFaceId", wxBwan.getResult().getWhetherFaceId());//FaceId
                             mmkv.putString("headPic", wxBwan.getResult().getHeadPic());//头像
 
-                            Intent intent=new Intent(WXEntryActivity.this, MainActivity.class);
+                            mmkv.putString(ConstantMMkv.Key_UserName, wxBwan.getResult().getUserName());
+                            try {
+                                mmkv.putString(ConstantMMkv.Key_Jpwd, RsaCoder.decryptByPublicKey(wxBwan.getResult().getPwd()));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                //mmkv.putString(ConstantMMkv.Key_Jpwd, pwd);
+                            }
+
+                            Intent intent = new Intent(WXEntryActivity.this, MainActivity.class);
                             startActivity(intent);
 
+                            Log.d(TAG, "success: " + wxBwan);
                         }
 
                         @Override
@@ -76,22 +88,20 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
                         }
                     });
-
-                    Log.i("WXTest","onResp code = "+code);
-
+                    //Log.i("WXTest","onResp code = "+code);
                 }
 
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
-                Log.i("WXTest","onResp ERR_USER_CANCEL ");
+                Log.i("WXTest", "onResp ERR_USER_CANCEL ");
                 //发送取消
                 break;
             case BaseResp.ErrCode.ERR_AUTH_DENIED:
-                Log.i("WXTest","onResp ERR_AUTH_DENIED");
+                Log.i("WXTest", "onResp ERR_AUTH_DENIED");
                 //发送被拒绝
                 break;
             default:
-                Log.i("WXTest","onResp default errCode " + resp.errCode);
+                Log.i("WXTest", "onResp default errCode " + resp.errCode);
                 //发送返回
                 break;
         }

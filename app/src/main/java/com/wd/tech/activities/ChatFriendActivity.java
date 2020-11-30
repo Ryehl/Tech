@@ -137,6 +137,7 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
         //头像列表
         HashMap<String, String> map = new HashMap<>();
         map.put(userName, friendInfoBean.getResult().getHeadPic());
+        //mmkv sp 获取自己的username 和 头像
         map.put(kv.decodeString(ConstantMMkv.Key_UserName), kv.decodeString(ConstantMMkv.Key_HeadPic));
         if (jimUtils == null)
             jimUtils = JIMUtils.getJimUtils();
@@ -168,6 +169,13 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
         recyScroll(msg);
     }
 
+    /**
+     * 把消息放到集合里
+     * 然后刷新适配器
+     * 然后滚动到最后一行
+     *
+     * @param msg
+     */
     private void recyScroll(Message msg) {
         allMessage.add(msg);
         adapter.notifyDataSetChanged();

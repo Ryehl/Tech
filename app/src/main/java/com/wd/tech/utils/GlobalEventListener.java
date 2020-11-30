@@ -15,15 +15,13 @@ import java.util.HashMap;
 
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.enums.ConversationType;
+import cn.jpush.im.android.api.event.ContactNotifyEvent;
 import cn.jpush.im.android.api.event.MessageEvent;
 import cn.jpush.im.android.api.event.NotificationClickEvent;
 import cn.jpush.im.android.api.model.GroupInfo;
 import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.model.UserInfo;
 
-/**
- * 通知栏点击监听
- */
 public class GlobalEventListener {
     private Context appContext;
 
@@ -32,6 +30,11 @@ public class GlobalEventListener {
         JMessageClient.registerEventReceiver(this);
     }
 
+    /**
+     * 通知栏点击
+     *
+     * @param event 事件
+     */
     public void onEvent(NotificationClickEvent event) {
         //点击进行跳转到聊天页面
         Message msg = event.getMessage();
@@ -64,5 +67,35 @@ public class GlobalEventListener {
     }
 
     public void onEvent(MessageEvent event) {
+        //TODO 发送广播
+    }
+
+    /**
+     * 好友相关通知
+     * TODO 发送广播
+     *
+     * @param event 通知
+     */
+    public void onEvent(ContactNotifyEvent event) {
+        String reason = event.getReason();
+        String fromUsername = event.getFromUsername();
+        //String appkey = event.getfromUserAppKey();
+
+        switch (event.getType()) {
+            case invite_received://收到好友邀请
+                //...
+                break;
+            case invite_accepted://对方接收了你的好友邀请
+                //...
+                break;
+            case invite_declined://对方拒绝了你的好友邀请
+                //...
+                break;
+            case contact_deleted://对方将你从好友中删除
+                //...
+                break;
+            default:
+                break;
+        }
     }
 }

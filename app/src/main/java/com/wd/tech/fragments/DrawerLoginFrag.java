@@ -21,14 +21,13 @@ import com.wd.tech.activities.TaskActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class DrawerLoginFrag extends BaseFragment {
-    private LinearLayout listed_collect, listed_attention,listed_signature, listed_card, listed_notice, listed_integral, listed_task, listed_setting;
+    private LinearLayout listed_collect, listed_attention, listed_card, listed_notice, listed_integral, listed_task, listed_setting;
     private SimpleDraweeView listed_head_img;
-    private TextView listed_nickName;
+    private TextView listed_nickName,listed_signature;
     private ImageView sign_in;
 
     @Override
     public void initView() {
-
         View view = getView();
         listed_collect = view.findViewById(R.id.listed_collect);
         listed_attention = view.findViewById(R.id.listed_attention);

@@ -304,4 +304,59 @@ public class JIMUtils {
     public void getFriendList(GetUserInfoListCallback callback) {
         ContactManager.getFriendList(callback);
     }
+
+    /**
+     * 添加好友
+     *
+     * @param userName 好友的用户名
+     * @param reason   验证消息
+     * @param callback 接口回调
+     */
+    public void addFriend(String userName, String reason, BasicCallback callback) {
+        //s1 表示Appkey，为空默认本应用
+        ContactManager.sendInvitationRequest(userName, null, reason, callback);
+    }
+
+    /**
+     * 同意好友请求
+     *
+     * @param userName 好友用户名
+     * @param callback 接口回调
+     */
+    public void agreeAddRequest(String userName, BasicCallback callback) {
+        ContactManager.acceptInvitation(userName, null, callback);
+    }
+
+    /**
+     * 拒绝好友请求
+     *
+     * @param userName username
+     * @param reason   拒绝理由
+     * @param callback 接口回调
+     */
+    public void refuseAddRequest(String userName, String reason, BasicCallback callback) {
+        //s1表示Appkey
+        ContactManager.declineInvitation(userName, null, reason, callback);
+    }
+
+    /**
+     * 删除好友
+     *
+     * @param userInfo user info
+     * @param callback callback
+     */
+    public void deleteFriend(UserInfo userInfo, BasicCallback callback) {
+        userInfo.removeFromFriendList(callback);
+    }
+
+    /**
+     * 更新用户备注
+     *
+     * @param userInfo  用户信息
+     * @param newRemark 新的备注信息
+     * @param callback  回调方法
+     */
+    public void updateFriendRemark(UserInfo userInfo, String newRemark, BasicCallback callback) {
+        userInfo.updateNoteName(newRemark, callback);
+    }
 }

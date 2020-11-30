@@ -45,24 +45,18 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
         Constants.wx_api = WXAPIFactory.createWXAPI(LoginActivity.this, Constants.APP_ID, true);
         Constants.wx_api.registerApp(Constants.APP_ID);
 
-        wechat_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //发起登录请求
-                final SendAuth.Req req = new SendAuth.Req();
-                req.scope = "snsapi_userinfo";
-                req.state = "wechat_sdk_demo_test";
-                Constants.wx_api.sendReq(req);
-                finish();
-            }
+        wechat_login.setOnClickListener(v -> {
+            //发起登录请求
+            final SendAuth.Req req = new SendAuth.Req();
+            req.scope = "snsapi_userinfo";
+            req.state = "wechat_sdk_demo_test";
+            Constants.wx_api.sendReq(req);
+            //finish();
         });
         //点击跳转到注册页面
-        go_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
+        go_register.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
 
         login_but.setOnClickListener(v -> {

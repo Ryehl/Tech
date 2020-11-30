@@ -35,6 +35,7 @@ public class MyApp extends Application {
         ViewTarget.setTagId(R.id.glide_tag);
         //set flag
         JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND);
+        //消息接受
         JMessageClient.registerEventReceiver(new GlobalEventListener(this));
 
         //Realm

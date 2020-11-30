@@ -13,6 +13,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.mylibrary.utils.TypeConversionUtils;
 import com.wd.tech.R;
+import com.wd.tech.utils.JMsgUtils;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class MsgMessageRecyAdap extends RecyclerView.Adapter<MsgMessageRecyAdap.
         holder.tv_name.setText(conversation.getTitle());
         //最后一条消息的时间
         holder.tv_date.setText(TypeConversionUtils.long2StringAgo(conversation.getLastMsgDate()));
-        //TODO 未读消息数量
+        //未读消息数量
         int unReadMsgCnt = conversation.getUnReadMsgCnt();
         if (unReadMsgCnt > 0) {
             holder.tv_noReadCount.setText(String.valueOf(unReadMsgCnt));
@@ -60,7 +61,7 @@ public class MsgMessageRecyAdap extends RecyclerView.Adapter<MsgMessageRecyAdap.
         if (conversation.getLatestMessage() == null)
             return;
         //最后一条消息内容
-        holder.tv_lastMsg.setText(conversation.getLatestMessage().getContent().toJson());
+        holder.tv_lastMsg.setText(JMsgUtils.getjMsgUtils().getMessageContent(conversation.getLatestMessage()));
     }
 
     @Override
