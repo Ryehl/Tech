@@ -81,13 +81,14 @@
             android:layout_height="40dp"
             android:hint="说点什么！见证当下～"
             android:background="@null"
+            android:id="@+id/publish_content"
             />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="发送"
             android:textColor="#fff"
-            android:id="@+id/publish_"
+            android:id="@+id/publish_comment"
             android:background="@drawable/blue"
             />
     </LinearLayout>

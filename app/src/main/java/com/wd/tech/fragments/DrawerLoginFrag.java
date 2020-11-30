@@ -21,7 +21,7 @@ import com.wd.tech.activities.TaskActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class DrawerLoginFrag extends BaseFragment {
-    private LinearLayout listed_collect, listed_attention, listed_card, listed_notice, listed_integral, listed_task, listed_setting;
+    private LinearLayout listed_collect, listed_attention,listed_signature, listed_card, listed_notice, listed_integral, listed_task, listed_setting;
     private SimpleDraweeView listed_head_img;
     private TextView listed_nickName;
     private ImageView sign_in;
@@ -40,6 +40,7 @@ public class DrawerLoginFrag extends BaseFragment {
         listed_nickName = view.findViewById(R.id.listed_nickName);
         listed_head_img = view.findViewById(R.id.listed_head_img);
         sign_in = view.findViewById(R.id.sign_in);
+        listed_signature=view.findViewById(R.id.listed_signature);
     }
 
     @Override
@@ -123,6 +124,7 @@ public class DrawerLoginFrag extends BaseFragment {
         //将昵称拿出来并设置
         MMKV mmkv = MMKV.defaultMMKV();
         String nickName = mmkv.decodeString("nickName");
+
         listed_nickName.setText(nickName);
     }
 

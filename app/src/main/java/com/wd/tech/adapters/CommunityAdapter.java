@@ -83,12 +83,6 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
                     if(commentList!=null){
                         commentList.comment(list.get(position).getId(),list.get(position).getHeadPic(),list.get(position).getNickName(),list.get(position).getComment());
 
-                        communityCommentAdapter.setOnComment(new CommunityCommentAdapter.OnComment() {
-                            @Override
-                            public void comment(String nickName, String content) {
-//                                Intent intent=new Intent()
-                            }
-                        });
                     }
                 }
             });

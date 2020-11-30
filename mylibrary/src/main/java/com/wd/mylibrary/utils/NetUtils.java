@@ -16,9 +16,11 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Interceptor;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -45,6 +47,11 @@ public class NetUtils {
         //okHttp
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
+                .addInterceptor(chain -> chain.proceed(chain.request()
+                        .newBuilder()
+                        .addHeader("ak","0110010010000")
+                        .build())
+                )
                 .connectTimeout(3, TimeUnit.SECONDS)
                 .readTimeout(3, TimeUnit.SECONDS)
                 .build();
@@ -83,6 +90,7 @@ public class NetUtils {
                                 .newBuilder()
                                 .addHeader(ConstantMMkv.Key_SessionId, sessionId)
                                 .addHeader(ConstantMMkv.Key_UserId, userId)
+                                .addHeader("ak","0110010010000")
                                 .build())
                 )
                 .connectTimeout(3, TimeUnit.SECONDS)

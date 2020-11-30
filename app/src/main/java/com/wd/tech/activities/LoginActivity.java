@@ -7,12 +7,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.mylibrary.utils.encrypt.RsaCoder;
 import com.wd.tech.beans.LoginBean;
 import com.wd.tech.R;
 import com.wd.tech.presenters.LoginPresenter;
 import com.tencent.mmkv.MMKV;
+import com.wd.tech.wxapi.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +26,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
     private Button login_but;
     private List<LoginBean> loginBeans = new ArrayList<>();
     private TextView go_register;
-
+    private Button wechat_login;
     @Override
     public void initView() {
 
@@ -32,12 +35,27 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
         login_pwd = findViewById(R.id.login_pwd);
         login_but = findViewById(R.id.login_but);
         go_register = findViewById(R.id.go_register);
-
+        wechat_login=findViewById(R.id.wechat_login);
     }
 
     @Override
     public void initData() {
 
+        //微信登录
+        Constants.wx_api = WXAPIFactory.createWXAPI(LoginActivity.this, Constants.APP_ID, true);
+        Constants.wx_api.registerApp(Constants.APP_ID);
+
+        wechat_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //发起登录请求
+                final SendAuth.Req req = new SendAuth.Req();
+                req.scope = "snsapi_userinfo";
+                req.state = "wechat_sdk_demo_test";
+                Constants.wx_api.sendReq(req);
+                finish();
+            }
+        });
         //点击跳转到注册页面
         go_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,11 +87,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
         });
     }
 
-//    public void setLoginAdapter(String json){
-//        //解析数据
-//        LoginBean loginBean=new Gson().fromJson(json,LoginBean.class);
-//      //  loginBeans.addAll(loginBean)
-//    }
 
     @Override
     public int getLayout() {

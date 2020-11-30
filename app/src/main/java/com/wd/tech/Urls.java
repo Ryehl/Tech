@@ -115,4 +115,8 @@ public class Urls {
     //根据极光用户名（可批量查询用户信息）
     public static final String FriendInfo_JUserName = "user/verify/v1/findConversationList";
 
+    //微信登陆
+    public static final String WeChatLogin_Url="user/v1/weChatLogin";
+
+
 }

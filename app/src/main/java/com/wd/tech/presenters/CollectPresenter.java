@@ -30,7 +30,7 @@ public class CollectPresenter extends BasePresenter<CollectActivity> {
                 }
             });
         } else {
-            Toast.makeText(iView, "没网玩您妈？！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(iView, "无网！", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -50,7 +50,7 @@ public class CollectPresenter extends BasePresenter<CollectActivity> {
                 }
             });
         } else {
-            Toast.makeText(iView, "没网玩您妈？！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(iView, "无网！", Toast.LENGTH_SHORT).show();
         }
     }
 }

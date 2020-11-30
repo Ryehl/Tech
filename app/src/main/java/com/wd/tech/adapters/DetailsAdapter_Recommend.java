@@ -50,6 +50,25 @@ public class DetailsAdapter_Recommend extends RecyclerView.Adapter<DetailsAdapte
             super(itemView);
             details_recommend_img = itemView.findViewById(R.id.details_recommend_img);
             details_recommend_title = itemView.findViewById(R.id.details_recommend_tile);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(recommendDetails!=null){
+                        recommendDetails.recommend(list.get(getLayoutPosition()).getId());
+                    }
+                }
+            });
         }
+    }
+
+    //接口回调传参 然后跳转到详情页
+    public interface RecommendDetails{
+        void recommend(int index);
+    }
+    private RecommendDetails recommendDetails;
+
+    public void setRecommendDetails(RecommendDetails recommendDetails) {
+        this.recommendDetails = recommendDetails;
     }
 }

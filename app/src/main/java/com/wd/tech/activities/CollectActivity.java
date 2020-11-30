@@ -1,5 +1,6 @@
 package com.wd.tech.activities;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -57,7 +58,14 @@ public class CollectActivity extends BaseActivity<CollectPresenter> {
 //            }
 //        });
 
-
+        collectAdapter.setGo_details(new CollectAdapter.Go_Details() {
+            @Override
+            public void details(int index) {
+                Intent intent=new Intent(CollectActivity.this,DetailsActivity.class);
+                intent.putExtra("id",index);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

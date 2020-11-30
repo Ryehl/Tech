@@ -35,15 +35,13 @@ import java.util.List;
 public class DetailsActivity extends BaseActivity<DetailsPresenter> {
 
     private final String TAG = "DetailsActivity";
-    private List<DetailsCommentBean.ResultBean> list=new ArrayList<>();
     private RelativeLayout rel;
     private RecyclerView recy_comment;
     private RecyclerView recy_infomation;
     private TextView tv_title;
     private TextView tv_time;
     private TextView tv_author;
-    private DetailsAdapter_Comment detailsAdapter_comment;
-    private RecyclerView details_recycle_comments;
+    private DetailsAdapter_Recommend detailsAdapter_recommend;
     @Override
     public void initView() {
         rel = findViewById(R.id.details_rel);
@@ -62,6 +60,8 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
         pre.getDetailsData(id);
         //获取资讯评论
         pre.getDetailsCommentData(id);
+
+
     }
 
     public void DetailsData(String json) {
@@ -96,8 +96,20 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
         List<DetailsBean.ResultBean.InformationListBean> informationList = detailsBean.getResult().getInformationList();
         if (informationList == null)
             return;
-        recy_infomation.setAdapter(new DetailsAdapter_Recommend(informationList));
+        detailsAdapter_recommend=new DetailsAdapter_Recommend(informationList);
+        recy_infomation.setAdapter(detailsAdapter_recommend);
         recy_infomation.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+
+        //接口回调跳转到详情页
+        detailsAdapter_recommend.setRecommendDetails(new DetailsAdapter_Recommend.RecommendDetails() {
+            @Override
+            public void recommend(int index) {
+                Intent intent=new Intent(DetailsActivity.this,DetailsActivity.class);
+                intent.putExtra("id",index);
+                startActivity(intent);
+            }
+        });
+
     }
 
     /**

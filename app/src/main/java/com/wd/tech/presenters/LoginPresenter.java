@@ -57,6 +57,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
 
                                 //设置头参
                                 NetUtils.getNetUtils().setHeader(loginBean.getResult().getSessionId(), String.valueOf(loginBean.getResult().getUserId()));
+
                                 //登陆成功后跳转页面
                                 Intent intent = new Intent(iView, MainActivity.class);
                                 iView.startActivity(intent);

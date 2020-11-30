@@ -54,7 +54,6 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((InformationViewHolder) holder).information_content_time.setText(time);
 
 
-
         } else if (holder instanceof InformationAdvertisingViewHolder) {
             String url = list.get(position).getInfoAdvertisingVo().getPic();
             Uri uri = Uri.parse(url);
@@ -81,6 +80,7 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView information_collect_num, information_share_num;
         SimpleDraweeView information_img;
         ImageView information_collect;
+
         public InformationViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -91,7 +91,7 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             information_img = itemView.findViewById(R.id.information_img);//发布的图片
             information_content_title = itemView.findViewById(R.id.information_content_title);//发布
             information_title = itemView.findViewById(R.id.information_title);//发表内容的标题
-            information_collect=itemView.findViewById(R.id.information_collect);//点赞的图片
+            information_collect = itemView.findViewById(R.id.information_collect);//点赞的图片
             //利用接口回调将下标传过去
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -104,20 +104,16 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             //判断当前账号是否已经收藏此文章
 
-                //点赞 接口回调
-                information_collect.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(onPraise!=null){
-                            onPraise.praise(list.get(getLayoutPosition()).getId());
-                            //  int i=list.get(getLayoutPosition()).getCollection();
-
-                        }
+            //点赞 接口回调
+            information_collect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onPraise != null) {
+                        onPraise.praise(list.get(getLayoutPosition()).getId());
+                        //  int i=list.get(getLayoutPosition()).getCollection();
                     }
-
-
-                });
-
+                }
+            });
         }
     }
 
@@ -136,12 +132,10 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 @Override
                 public void onClick(View v) {
                     if (JumpDetails != null) {
-                        JumpDetails.jumpdetails(getLayoutPosition());
+                        JumpDetails.jumpdetails(list.get(getLayoutPosition()).getId());
                     }
                 }
             });
-
-
         }
     }
 
@@ -157,9 +151,10 @@ public class InformationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     //点赞
-    public interface OnPraise{
+    public interface OnPraise {
         void praise(int index);
     }
+
     public OnPraise onPraise;
 
     public void setOnPraise(OnPraise onPraise) {

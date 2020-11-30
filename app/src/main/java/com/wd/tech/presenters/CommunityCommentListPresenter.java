@@ -26,5 +26,41 @@ public class CommunityCommentListPresenter extends BasePresenter<CommunityCommen
             }
         });
     }
+    public void getCommentListData2(int communityId,int page){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("communityId",communityId);
+        map.put("page",page+"");
+        map.put("count","5");
+        NetUtils.getNetUtils().getInfo(Urls.CommunityCommentList_Url, map, new NetUtils.GetJsonListener() {
+            @Override
+            public void success(String json) {
+                iView.CommentListData2(json);
+            }
+
+            @Override
+            public void error() {
+
+            }
+        });
+    }
+
+    //发表评论
+    public void getAddCommunityCommentData(String content,int commentId){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("content",content);
+        map.put("communityId",commentId+"");
+        NetUtils.getNetUtils().postInfo(Urls.AddCommunityComment_Url, map, new NetUtils.GetJsonListener() {
+            @Override
+            public void success(String json) {
+                iView.AddCommunityCommentData(json);
+            }
+
+            @Override
+            public void error() {
+
+            }
+        });
+    }
+
 
 }

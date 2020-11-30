@@ -44,23 +44,7 @@ public class CommunityCommentAdapter extends RecyclerView.Adapter<CommunityComme
             comment_nickName=itemView.findViewById(R.id.comment_nickName);
             comment_content=itemView.findViewById(R.id.comment_content);
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if(onComment!=null){
-//                        onComment.comment(list.get(getLayoutPosition()).getNickName(),list.get(getLayoutPosition()).getContent());
-//                    }
-//                }
-//            });
         }
     }
 
-    public interface OnComment{
-        void comment(String nickName,String content);
-    }
-    private OnComment onComment;
-
-    public void setOnComment(OnComment onComment) {
-        this.onComment = onComment;
-    }
 }

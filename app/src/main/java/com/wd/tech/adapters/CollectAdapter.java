@@ -55,6 +55,25 @@ public class CollectAdapter extends RecyclerView.Adapter<CollectAdapter.ViewHold
             mycollect_img = itemView.findViewById(R.id.mycollect_img);
             mycollect_time = itemView.findViewById(R.id.mycollect_item);
             mycollect_title = itemView.findViewById(R.id.mycollect_title);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(go_details!=null){
+                        go_details.details(list.get(getLayoutPosition()).getInfoId());
+                    }
+                }
+            });
+
         }
+    }
+
+    public interface Go_Details{
+        void details(int index);
+    }
+    private Go_Details go_details;
+
+    public void setGo_details(Go_Details go_details) {
+        this.go_details = go_details;
     }
 }

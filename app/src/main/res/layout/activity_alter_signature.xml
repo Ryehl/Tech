@@ -48,6 +48,7 @@
         <EditText
             android:layout_width="300dp"
             android:layout_height="200dp"
+            android:id="@+id/alter_signature"
             android:background="@null" />
     </LinearLayout>
 
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content"
             android:background="#3AB8F1"
             android:text="提交"
+            android:id="@+id/submit_signature"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>
