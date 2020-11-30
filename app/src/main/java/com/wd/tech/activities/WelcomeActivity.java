@@ -105,6 +105,8 @@ public class WelcomeActivity extends BaseActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case REQUEST_CODE:
+                if (grantResults.length == 0)
+                    return;
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (countdown <= 0)
                         skip();

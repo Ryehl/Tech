@@ -49,10 +49,10 @@ android {
         main {
             jniLibs.srcDirs = ['libs']
         }
-        androidTest{
+        androidTest {
             java.srcDirs = ['src/androidTest/java/']
         }
-        test{
+        test {
             java.srcDirs = ['src/test/java/']
         }
     }

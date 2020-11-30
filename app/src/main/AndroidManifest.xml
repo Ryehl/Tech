@@ -27,6 +27,7 @@
     <application
         android:name=".MyApp"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_http"
@@ -36,15 +37,104 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.JoinGroupActivity" />
-        <activity android:name=".activities.CommunityCommentListActivity" />
-        <activity android:name=".activities.GroupInfoActivity" />
-        <activity android:name=".activities.ChatGroupActivity" />
-        <activity android:name=".activities.ChatFriendActivity" />
-        <activity android:name=".activities.ContactInfoActivity" />
-        <activity android:name=".activities.FaceRecognitionActivity" />
-        <activity android:name=".activities.FindUserActivity" />
-        <activity android:name=".activities.PersonalInformationActivity" />
+        <activity android:name=".activities.SerachFriendGroupActivity"></activity>
+        <activity
+            android:name=".activities.JoinGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CommunityCommentListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GroupInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ChatGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ChatFriendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ContactInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.FaceRecognitionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.FindUserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PersonalInformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AlterSignatureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AlterpwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CreateGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddfriendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PublishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.InterestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IntegralActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.NoticeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AttentionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CollectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.WelcomeActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="JPUSH_CHANNEL"
@@ -52,36 +142,6 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="d4cf77f0d3b85e9edc540dee" />
-
-        <activity android:name=".activities.AlterSignatureActivity" />
-        <activity android:name=".activities.AlterpwdActivity" />
-        <activity android:name=".activities.CreateGroupActivity" />
-        <activity android:name=".activities.AddfriendActivity" />
-        <activity android:name=".activities.PublishActivity" />
-        <activity android:name=".activities.DetailsActivity" />
-        <activity android:name=".activities.SearchActivity" />
-        <activity android:name=".activities.InterestActivity" />
-        <activity android:name=".activities.SignInActivity" />
-        <activity android:name=".activities.SettingActivity" />
-        <activity android:name=".activities.TaskActivity" />
-        <activity android:name=".activities.IntegralActivity" />
-        <activity android:name=".activities.NoticeActivity" />
-        <activity android:name=".activities.CardActivity" />
-        <activity android:name=".activities.AttentionActivity" />
-        <activity android:name=".activities.CollectActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.MainActivity" />
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:exported="true" />
-        <activity android:name=".activities.WelcomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <service
             android:name="cn.jpush.android.service.PushService"
@@ -93,10 +153,7 @@
             <intent-filter>
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
-        </service>
-
-
-        <!-- Required SDK核心功能-->
+        </service> <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true"
@@ -108,7 +165,9 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action
+                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
             </intent-filter>
             <!-- Optional -->
             <intent-filter>
@@ -117,27 +176,18 @@
 
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver>
-
-        <!-- Required SDK核心功能-->
+        </receiver> <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.im.android.helpers.IMReceiver"
             android:enabled="true"
-            android:exported="false" />
-
-        <!-- Required SDK核心功能-->
+            android:exported="false" /> <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.AlarmReceiver"
-            android:exported="false" />
-
-
-        <!-- Required since JCore 1.1.7. SDK 核心功能-->
+            android:exported="false" /> <!-- Required since JCore 1.1.7. SDK 核心功能 -->
         <provider
             android:name="cn.jpush.android.service.DataProvider"
             android:authorities="com.wd.tech.DataProvider"
-            android:exported="false" />
-
-        <!-- since JCore 1.8.0 option 可选项可选项。用于同一设备中不同应用的 JMessage服务相互拉起的功能。 -->
+            android:exported="false" /> <!-- since JCore 1.8.0 option 可选项可选项。用于同一设备中不同应用的 JMessage服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，或把 enabled 设置成 false ；拉起服务被关闭，App 不会通过拉起服务拉起其他的 App，也不会被其他 App 拉起。 -->
         <service
             android:name="cn.jpush.android.service.DaemonService"
@@ -145,11 +195,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
+
                 <category android:name="com.wd.tech" />
             </intent-filter>
-        </service>
-
-        <!-- Required since JMessage 2.7.0 SDK 核心功能-->
+        </service> <!-- Required since JMessage 2.7.0 SDK 核心功能 -->
         <provider
             android:name="cn.jpush.im.android.helpers.ipc.IMProvider"
             android:authorities="com.wd.tech.IMProvider"

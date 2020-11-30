@@ -4,6 +4,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.Display;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.wd.mylibrary.base.BaseActivity;
@@ -52,6 +54,7 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
         tab = findViewById(R.id.tab);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void initData() {
         final FragmentManager fm = getSupportFragmentManager();
@@ -99,6 +102,24 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
             //重新选择
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+                FragmentTransaction temp = fm.beginTransaction();
+                switch (tab.getPosition()) {
+                    case 0:
+                        temp.replace(R.id.main_frame_show, new MainInfomationFrag());
+                        tab.setIcon(R.mipmap.common_tab_informatiion_s);
+                        // ViewUtils.setViewTransparent(MainActivity.this);  沉浸式
+                        break;
+                    case 1:
+                        temp.replace(R.id.main_frame_show, new MainMsgFrag());
+                        tab.setIcon(R.mipmap.common_tab_message_s);
+                        break;
+                    case 2:
+                        temp.replace(R.id.main_frame_show, new MainCommuntityFrag());
+                        tab.setIcon(R.mipmap.common_tab_community_s);
+                        break;
+                }
+                //提交
+                temp.commit();
             }
         });
 

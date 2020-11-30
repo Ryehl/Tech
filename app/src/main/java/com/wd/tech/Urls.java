@@ -119,4 +119,6 @@ public class Urls {
     public static final String WeChatLogin_Url="user/v1/weChatLogin";
 
 
+    //删除好友 delete friendUid
+    public static final String DeleteFriend = "chat/verify/v1/deleteFriendRelation";
 }
