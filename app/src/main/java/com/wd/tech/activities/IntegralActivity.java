@@ -5,6 +5,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tencent.mmkv.MMKV;
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.tech.R;
 import com.wd.tech.adapters.IntegralRecordAdapter;
@@ -39,6 +40,9 @@ public class IntegralActivity extends BaseActivity<IntegralPresenter> {
         //解析数据
         IntegralBean integralBean = new Gson().fromJson(json, IntegralBean.class);
         integral_num.setText(integralBean.getResult().getAmount() + "");
+
+        MMKV mmkv=MMKV.defaultMMKV();
+        mmkv.putInt("integral_num",integralBean.getResult().getAmount());
     }
 
     public void IntegralRecordData(String json) {

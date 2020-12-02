@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.tencent.mmkv.MMKV;
 import com.wd.mylibrary.base.BaseActivity;
 import com.wd.tech.R;
 import com.wd.tech.beans.AlterSignatureBean;
@@ -18,6 +19,7 @@ public class AlterSignatureActivity extends BaseActivity<AlterSignaturePresenter
 
     private EditText alter_signature;
     private Button submit_signature;
+    private String signature;
     @Override
     public void initView() {
         alter_signature=findViewById(R.id.alter_signature);
@@ -31,7 +33,7 @@ public class AlterSignatureActivity extends BaseActivity<AlterSignaturePresenter
             public void onClick(View v) {
 
                 //拿到修改后的签名
-                String signature=alter_signature.getText().toString();
+                 signature=alter_signature.getText().toString();
                 pre.getAlterSignatureData(signature);
 
             }
@@ -42,6 +44,10 @@ public class AlterSignatureActivity extends BaseActivity<AlterSignaturePresenter
         //解析
         AlterSignatureBean alterSignatureBean=new Gson().fromJson(json,AlterSignatureBean.class);
         Toast.makeText(this, alterSignatureBean.getMessage(), Toast.LENGTH_SHORT).show();
+        if(alterSignatureBean.getMessage().equals("修改成功")){
+            MMKV mmkv=MMKV.defaultMMKV();
+            mmkv.putString("signature",signature);
+        }
     }
     @Override
     public int getLayout() {
