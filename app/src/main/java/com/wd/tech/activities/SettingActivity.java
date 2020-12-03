@@ -16,6 +16,7 @@ import com.wd.tech.diyview.BottomSelectImage;
 import com.wd.tech.presenters.SettingPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tencent.mmkv.MMKV;
+import com.wd.tech.wxapi.WXEntryActivity;
 
 public class SettingActivity extends BaseActivity<SettingPresenter> {
     RelativeLayout setting_sex;
@@ -42,6 +43,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         setting_sex1 = findViewById(R.id.setting_sex1);
         setting_rel_faceId = findViewById(R.id.setting_rel_faceId);
         setting_back = findViewById(R.id.setting_back);
+        setting_wechat=findViewById(R.id.setting_wechat);
     }
 
     @Override
@@ -52,6 +54,11 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         String phone = mmkv.decodeString("phone");
 //        String head=mmkv.decodeString("headPic");
         int whetherVip = mmkv.decodeInt("whetherVip");
+        int integral_num=mmkv.decodeInt("integral_num");
+
+        //积分
+        setting_integral.setText(integral_num+"");
+
         if (whetherVip == 1) {
             setting_VIP.setText("是");
         } else {
@@ -104,7 +111,6 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
         Intent intent = getIntent();
         String man = intent.getStringExtra("sex");
         setting_sex1.setText(man);
-
         //返回上一个页面
         setting_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +118,15 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
                 finish();
             }
         });
+
+        //微信绑定
+//        setting_wechat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent1=new Intent(SettingActivity.this, WXEntryActivity.class);
+//                startActivity(intent1);
+//            }
+//        });
     }
 
     /**

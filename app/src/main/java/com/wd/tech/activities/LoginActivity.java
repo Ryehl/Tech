@@ -51,8 +51,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
             req.scope = "snsapi_userinfo";
             req.state = "wechat_sdk_demo_test";
             Constants.wx_api.sendReq(req);
-            //finish();
+
         });
+
         //点击跳转到注册页面
         go_register.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);

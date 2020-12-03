@@ -52,14 +52,14 @@
                 android:id="@+id/sign_in"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="110dp"
                 android:background="@mipmap/my_icon_sign_n" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="98dp"
+                android:layout_marginLeft="68dp"
                 android:layout_marginTop="2dp"
                 android:text="签到"
                 android:textColor="#fff" />

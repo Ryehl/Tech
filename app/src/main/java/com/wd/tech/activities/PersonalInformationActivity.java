@@ -38,14 +38,26 @@ public class PersonalInformationActivity extends BaseActivity<PersonalInformatio
         MMKV mmkv = MMKV.defaultMMKV();
         String nickName = mmkv.decodeString("nickName");
         personal_nickName.setText(nickName);
+
+        //返回
+        personal_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        //完成
+
+
         //签名
-//        personal_signature.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(PersonalInformationActivity.this,AlterSignatureActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        personal_signature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PersonalInformationActivity.this,AlterSignatureActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

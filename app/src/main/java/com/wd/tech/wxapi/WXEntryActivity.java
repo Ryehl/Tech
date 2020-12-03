@@ -53,6 +53,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
                     HashMap<String, Object> map = new HashMap<>();
                     map.put("code", code);
+
                     //微信网络请求
                     NetUtils.getNetUtils().postInfo(Urls.WeChatLogin_Url, map, new NetUtils.GetJsonListener() {
                         @Override
@@ -88,6 +89,21 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
                         }
                     });
+
+                    //微信绑定
+//                    NetUtils.getNetUtils().postInfo(Urls.WeChatBinDing_Url, map, new NetUtils.GetJsonListener() {
+//                        @Override
+//                        public void success(String json) {
+//                            Log.i("binding",json);
+//                        }
+//
+//                        @Override
+//                        public void error() {
+//
+//                        }
+//                    });
+
+
                     //Log.i("WXTest","onResp code = "+code);
                 }
 

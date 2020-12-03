@@ -123,7 +123,8 @@ public class DrawerLoginFrag extends BaseFragment {
         //将昵称拿出来并设置
         MMKV mmkv = MMKV.defaultMMKV();
         String nickName = mmkv.decodeString("nickName");
-
+        String signature=mmkv.decodeString("signature");
+        listed_signature.setText(signature);
         listed_nickName.setText(nickName);
     }
 

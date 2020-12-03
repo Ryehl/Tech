@@ -12,7 +12,7 @@ public class AlterSignaturePresenter extends BasePresenter<AlterSignatureActivit
     public void getAlterSignatureData(String signature){
         HashMap<String,Object> map=new HashMap<>();
         map.put("signature",signature);
-        NetUtils.getNetUtils().postInfo(Urls.AlterSignature_Url, map, new NetUtils.GetJsonListener() {
+        NetUtils.getNetUtils().putInfo(Urls.AlterSignature_Url, map, new NetUtils.GetJsonListener() {
             @Override
             public void success(String json) {
                 iView.AlterSignatureData(json);

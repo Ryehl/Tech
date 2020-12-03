@@ -118,6 +118,8 @@ public class Urls {
     //微信登陆
     public static final String WeChatLogin_Url="user/v1/weChatLogin";
 
+    //微信绑定
+    public static final String WeChatBinDing_Url="user/verify/v1/bindWeChat";
 
     //删除好友 delete friendUid
     public static final String DeleteFriend = "chat/verify/v1/deleteFriendRelation";
