@@ -1,0 +1,2 @@
+include ':duotu', ':wechatlogin', ':shangla', ':zhuanpan', ':wechatpay', ':synthesize', ':dt', ':kaoshi', ':kaoshiduotu'
+rootProject.name='TestAar'
