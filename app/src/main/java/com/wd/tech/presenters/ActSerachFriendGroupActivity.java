@@ -1,7 +1,7 @@
 package com.wd.tech.presenters;
 
 import com.wd.mylibrary.base.BasePresenter;
-import com.wd.tech.activities.SerachFriendGroupActivity;
+import com.wd.tech.activities.SearchFriendGroupActivity;
 
 /**
  * <p>Project's name:Tech</p>
@@ -10,5 +10,5 @@ import com.wd.tech.activities.SerachFriendGroupActivity;
  * @author Xaoyv
  * date 11/30/2020 3:22 PM
  */
-public class ActSerachFriendGroupActivity extends BasePresenter<SerachFriendGroupActivity> {
+public class ActSerachFriendGroupActivity extends BasePresenter<SearchFriendGroupActivity> {
 }

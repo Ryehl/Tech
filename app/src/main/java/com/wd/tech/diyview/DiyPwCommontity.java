@@ -9,6 +9,7 @@ import android.widget.PopupWindow;
 import com.wd.tech.R;
 import com.wd.tech.activities.AddfriendActivity;
 import com.wd.tech.activities.CreateGroupActivity;
+import com.wd.tech.activities.SearchFriendGroupActivity;
 
 /**
  * <p>Project's name:Tech</p>
@@ -34,11 +35,13 @@ public class DiyPwCommontity extends PopupWindow {
         addGroup = view.findViewById(R.id.diy_msg_top_add_group);
         //set onclick listener
         addFriend.setOnClickListener(v -> {
-            Intent intent = new Intent(view.getContext(), AddfriendActivity.class);
+            Intent intent = new Intent(view.getContext(), SearchFriendGroupActivity.class);
+            intent.putExtra("TYPE", SearchFriendGroupActivity.FIREND);
             view.getContext().startActivity(intent);
         });
         addGroup.setOnClickListener(v -> {
-            Intent intent = new Intent(view.getContext(), CreateGroupActivity.class);
+            Intent intent = new Intent(view.getContext(), SearchFriendGroupActivity.class);
+            intent.putExtra("TYPE", SearchFriendGroupActivity.FIREND);
             view.getContext().startActivity(intent);
         });
     }

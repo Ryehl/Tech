@@ -38,7 +38,7 @@ public class JIMUtils {
     }
 
     public static JIMUtils getJimUtils() {
-        return jimUtils = jimUtils == null ? new JIMUtils() : jimUtils;
+        return jimUtils == null ? jimUtils = new JIMUtils() : jimUtils;
     }
 
     /**

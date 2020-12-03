@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -250,6 +252,59 @@ public class Utils {
             mSimControllerListener.succss();
         }
     };
+
+    /**
+     * TODO
+     *
+     * @param web
+     * @param url
+     * @param sessionId
+     * @param userId
+     */
+    public static void setCjClient(WebView web, String url, String sessionId, String userId){
+        web.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;// 返回false
+            }
+        });
+//        web_prize.addJavascriptInterface(new WebClick(),null);
+        WebSettings webSettings = web.getSettings();
+        // 让WebView能够执行javaScript
+        webSettings.setJavaScriptEnabled(true);
+        // 让JavaScript可以自动打开windows
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        // 设置缓存
+        webSettings.setAppCacheEnabled(true);
+        // 设置缓存模式,一共有四种模式
+        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        // 设置缓存路径
+//        webSettings.setAppCachePath("");
+        // 支持缩放(适配到当前屏幕)
+        webSettings.setSupportZoom(true);
+        // 将图片调整到合适的大小
+        webSettings.setUseWideViewPort(true);
+        // 支持内容重新布局,一共有四种方式
+        // 默认的是NARROW_COLUMNS
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        // 设置可以被显示的屏幕控制
+        webSettings.setDisplayZoomControls(true);
+        // 设置默认字体大小
+        webSettings.setDefaultFontSize(12);
+        web.loadUrl(url);
+
+        //set user info
+        String userInfo = sessionId + ";" + userId;
+        String userAgentString = webSettings.getUserAgentString();
+        String ua = userAgentString + "/" + userInfo;
+        Log.i("抽奖", ua);
+        String[] split = ua.split("/");
+        String[] split1 = split[split.length - 1].split(";");
+        Log.i("抽奖", split1[1]);
+        Log.i("抽奖", split1[0]);
+        Log.e("aaa",userAgentString);
+        webSettings.setUserAgentString(userAgentString + "/" + userInfo);
+    }
 
 
 }

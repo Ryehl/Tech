@@ -37,7 +37,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.SerachFriendGroupActivity"></activity>
+        <activity
+            android:name=".activities.SearchFriendGroupActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.JoinGroupActivity"
             android:screenOrientation="portrait" />

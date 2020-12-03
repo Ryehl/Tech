@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".activities.SearchFriendGroupActivity">
+
+    <EditText
+        android:id="@+id/searchfg_et_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入手机号进行查找"
+        android:textColor="#000"
+        android:textColorHint="#CCC" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/searchfg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchfg_et_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchfg_recy_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchfg_tab" />
+
+</RelativeLayout>
