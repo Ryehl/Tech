@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,57 +14,39 @@ import com.wd.mylibrary.base.BaseActivity;
 import com.wd.tech.R;
 import com.wd.tech.presenters.ActSerachFriendGroupActivity;
 
+import java.util.regex.Pattern;
+
 public class SearchFriendGroupActivity extends BaseActivity<ActSerachFriendGroupActivity> {
 
     private EditText et_search;
-    private TabLayout tab;
+    private TextView tv_toSearch;
     private RecyclerView recy_show;
-    public static final int FIREND = 753;
-    public static final int GROUP = 106;
 
     @Override
     public void initView() {
         et_search = findViewById(R.id.searchfg_et_search);
-        tab = findViewById(R.id.searchfg_tab);
+        tv_toSearch = findViewById(R.id.searchfg_tv);
         recy_show = findViewById(R.id.searchfg_recy_show);
-        //bindService()
     }
 
     @Override
     public void initData() {
-        initTab();
-        et_search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //输入的字符串
-                String input = s.toString();
-                //获取数据
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
+        tv_toSearch.setOnClickListener(v -> {
+            String input = et_search.getText().toString().trim();
+            if (checkPhone(input)) {
+                pre.searchFirend(input);
+            } else {
+                Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    /**
-     * 初始化Tab
-     */
-    private void initTab() {
-        Intent intent = getIntent();
-        tab.addTab(tab.newTab().setText("好友"));
-        tab.addTab(tab.newTab().setText("群聊"));
-        int type = intent.getIntExtra("TYPE", -1);
-        if (type == -1)
-            return;
-        if (type == GROUP)
-            tab.getTabAt(1).select();
-         else
-            tab.getTabAt(0).select();
+    private boolean checkPhone(String input) {
+        if (input == null)
+            return false;
+        if (input.length() != 11)
+            return false;
+        return Pattern.matches("^1[356789]\\d{9}$", input);
     }
 
     @Override

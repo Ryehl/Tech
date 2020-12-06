@@ -74,7 +74,7 @@ public class Urls {
     public static final String UnCollect_Url = "user/verify/v1/cancelCollection";
 
     //查询好友发布的帖子
-    public static final String FindUser_Url="community/verify/v1/findUserPostById";
+    public static final String FindUser_Url = "community/verify/v1/findUserPostById";
 
     //根据手机号进行查询 get phone
     public static final String QueryFriendByPhone = "user/verify/v1/findUserByPhone";
@@ -101,26 +101,29 @@ public class Urls {
     public static final String JoinGroup = "group/verify/v1/applyAddGroup";
 
     //添加收藏(帖子)
-    public static final String AddCollection_Url="user/verify/v1/addCollection";
+    public static final String AddCollection_Url = "user/verify/v1/addCollection";
 
     //查询好友聊天记录
     public static final String QueryChatHis = "chat/verify/v1/findDialogueRecordPageList";
 
     //社区评论列表
-    public static final String CommunityCommentList_Url="community/v1/findCommunityUserCommentList";
+    public static final String CommunityCommentList_Url = "community/v1/findCommunityUserCommentList";
 
     //在社区发发表评论
-    public static final String AddCommunityComment_Url="community/verify/v1/addCommunityComment";
+    public static final String AddCommunityComment_Url = "community/verify/v1/addCommunityComment";
 
     //根据极光用户名（可批量查询用户信息）
     public static final String FriendInfo_JUserName = "user/verify/v1/findConversationList";
 
     //微信登陆
-    public static final String WeChatLogin_Url="user/v1/weChatLogin";
+    public static final String WeChatLogin_Url = "user/v1/weChatLogin";
 
     //微信绑定
-    public static final String WeChatBinDing_Url="user/verify/v1/bindWeChat";
+    public static final String WeChatBinDing_Url = "user/verify/v1/bindWeChat";
 
     //删除好友 delete friendUid
     public static final String DeleteFriend = "chat/verify/v1/deleteFriendRelation";
+
+    //根据手机号查询用户信息
+    public static final String FindUserByPhone = "user/verify/v1/findUserByPhone";
 }

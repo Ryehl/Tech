@@ -2,7 +2,10 @@ package com.wd.tech.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.gson.Gson;
 import com.wd.mylibrary.utils.NetUtils;
@@ -10,6 +13,7 @@ import com.wd.tech.Urls;
 import com.wd.tech.activities.ChatFriendActivity;
 import com.wd.tech.activities.ChatGroupActivity;
 import com.wd.tech.activities.JsonFriendInfoByJusernameBean;
+import com.wd.tech.broadcast.MyMessageReceiver;
 
 import java.util.HashMap;
 
@@ -28,6 +32,8 @@ public class GlobalEventListener {
     public GlobalEventListener(Context context) {
         appContext = context;
         JMessageClient.registerEventReceiver(this);
+//        IntentFilter intentFilter = IntentFilter.create("", "");
+//        LocalBroadcastManager.getInstance(context).registerReceiver(new MyMessageReceiver(), intentFilter);
     }
 
     /**

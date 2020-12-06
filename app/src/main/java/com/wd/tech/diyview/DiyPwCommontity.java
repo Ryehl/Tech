@@ -36,12 +36,12 @@ public class DiyPwCommontity extends PopupWindow {
         //set onclick listener
         addFriend.setOnClickListener(v -> {
             Intent intent = new Intent(view.getContext(), SearchFriendGroupActivity.class);
-            intent.putExtra("TYPE", SearchFriendGroupActivity.FIREND);
+            //intent.putExtra("TYPE", SearchFriendGroupActivity.FIREND);
             view.getContext().startActivity(intent);
         });
         addGroup.setOnClickListener(v -> {
             Intent intent = new Intent(view.getContext(), SearchFriendGroupActivity.class);
-            intent.putExtra("TYPE", SearchFriendGroupActivity.FIREND);
+            //intent.putExtra("TYPE", SearchFriendGroupActivity.FIREND);
             view.getContext().startActivity(intent);
         });
     }

@@ -10,20 +10,24 @@
         android:id="@+id/searchfg_et_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/searchfg_tv"
         android:hint="输入手机号进行查找"
         android:textColor="#000"
         android:textColorHint="#CCC" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/searchfg_tab"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/searchfg_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/searchfg_et_search" />
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"
+        android:text="搜索"
+        android:textSize="20sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchfg_recy_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/searchfg_tab" />
+        android:layout_below="@id/searchfg_et_search" />
 
 </RelativeLayout>
