@@ -104,5 +104,10 @@ public class AddfriendActivity extends BaseActivity<ActAddfriendPresenter> {
             return;
         tv_friendName.setText(friendInfoBean.getResult().getNickName());
         userName = friendInfoBean.getResult().getUserName();
+        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
+                .setRoundingParams(RoundingParams.asCircle())
+                .build();
+        sdv_hd.setHierarchy(hierarchy);
+        sdv_hd.setImageURI(friendInfoBean.getResult().getHeadPic());
     }
 }

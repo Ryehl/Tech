@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".activities.SearchFriendGroupActivity">
+    tools:context=".activities.SearchFriendActivity">
 
     <EditText
         android:id="@+id/searchfg_et_search"
@@ -24,10 +24,28 @@
         android:text="搜索"
         android:textSize="20sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/searchfg_recy_show"
+    <RelativeLayout
+        android:id="@+id/searchfg_rel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/searchfg_et_search" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchfg_et_search"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_friendphone_sdv_hd"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/item_firendphone_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_friendphone_sdv_hd"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@id/item_friendphone_sdv_hd"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

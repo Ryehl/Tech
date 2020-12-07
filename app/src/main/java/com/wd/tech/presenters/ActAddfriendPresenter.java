@@ -43,7 +43,7 @@ public class ActAddfriendPresenter extends BasePresenter<AddfriendActivity> {
         if (InternetUtil.getNetworkState(iView) == InternetUtil.NETWORN_NONE)
             return;
         HashMap<String, Object> map = new HashMap<>();
-        map.put("friendUid", friendUid);
+        map.put("friend", friendUid);
         NetUtils.getNetUtils().getInfo(Urls.QueryFriendById, map, new NetUtils.GetJsonListener() {
             @Override
             public void success(String json) {
