@@ -50,6 +50,9 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                                 mmkv.putInt("whetherVip", loginBean.getResult().getWhetherVip());//是否是Vip
                                 mmkv.putInt("whetherFaceId", loginBean.getResult().getWhetherFaceId());//FaceId
                                 mmkv.putString("headPic", loginBean.getResult().getHeadPic());//头像
+                                //存入UserId和SessionId用来抽奖
+                                mmkv.putString("sessionId", loginBean.getResult().getSessionId());
+                                mmkv.putString("userId", String.valueOf(loginBean.getResult().getUserId()));
 
                                 mmkv.putString(ConstantMMkv.Key_UserName, loginBean.getResult().getUserName());
                                 try {
@@ -62,9 +65,9 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                                 //设置头参
                                 NetUtils.getNetUtils().setHeader(loginBean.getResult().getSessionId(), String.valueOf(loginBean.getResult().getUserId()));
 
-                                MMKV mmkv1=MMKV.defaultMMKV();
-                                mmkv1.putString("sessionId",loginBean.getResult().getSessionId());
-                                mmkv1.putString("userId",String.valueOf(loginBean.getResult().getUserId()));
+                                MMKV mmkv1 = MMKV.defaultMMKV();
+                                mmkv1.putString("sessionId", loginBean.getResult().getSessionId());
+                                mmkv1.putString("userId", String.valueOf(loginBean.getResult().getUserId()));
 
                                 //登陆成功后跳转页面
                                 Intent intent = new Intent(iView, MainActivity.class);
