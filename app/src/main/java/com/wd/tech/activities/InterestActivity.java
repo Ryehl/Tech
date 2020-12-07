@@ -36,6 +36,8 @@ public class InterestActivity extends BaseActivity<InterestPresenter> {
         interestAdapter = new InterestAdapter(list);
         recyclerView.setAdapter(interestAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(InterestActivity.this, 2));
+
+
     }
 
     @Override

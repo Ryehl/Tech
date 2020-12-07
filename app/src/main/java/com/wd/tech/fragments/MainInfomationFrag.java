@@ -18,6 +18,7 @@ import com.wd.tech.R;
 import com.wd.tech.activities.DetailsActivity;
 import com.wd.tech.activities.InterestActivity;
 import com.wd.tech.activities.SearchActivity;
+import com.wd.tech.activities.WebViewActivity;
 import com.wd.tech.adapters.InformationAdapter;
 import com.wd.tech.beans.AddCollectionBean;
 import com.wd.tech.beans.InformationBean;
@@ -93,6 +94,27 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
             list_img.add(bean.getImageUrl());
             list_title.add(bean.getTitle());
         }
+
+
+//        xBanner.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //if(xBannerBean.getResult().get(0).getRank()==5){
+//                    Intent intent=new Intent(getActivity(),DetailsActivity.class);
+//                    startActivity(intent);
+//                //}
+//            }
+//        });
+        xBanner.setOnItemClickListener(new XBanner.OnItemClickListener() {
+            @Override
+            public void onItemClick(XBanner banner, Object model, View view, int position) {
+                if(xBannerBean.getResult().get(position).getRank()==5){
+                    Intent intent=new Intent(getActivity(), WebViewActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
         //设置数据
         xBanner.setData(list_img, list_title);
         //用Glide设置图片
@@ -117,7 +139,7 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         information_recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.context));
 
         /**
-         *         设置上拉刷新下拉加载
+         *设置上拉刷新下拉加载
          */
         //开启上拉加载下拉刷新
         information_recyclerView.setPullRefreshEnabled(true);

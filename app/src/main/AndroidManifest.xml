@@ -37,6 +37,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.WebViewActivity"></activity>
+        <activity android:name=".activities.SerachFriendGroupActivity" />
         <receiver
             android:name=".broadcast.MyMessageReceiver"
             android:enabled="true"

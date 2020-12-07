@@ -50,6 +50,11 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.ViewHo
             super(itemView);
             interest_img = itemView.findViewById(R.id.interest_img);
             interest_title = itemView.findViewById(R.id.interest_title);
+
+
         }
     }
+
+//    //接口回调
+//    public interface Info
 }
