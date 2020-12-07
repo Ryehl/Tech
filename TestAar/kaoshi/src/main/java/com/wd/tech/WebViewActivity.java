@@ -15,7 +15,7 @@ public class WebViewActivity extends AppCompatActivity {
 
         web_view=findViewById(R.id.webview);
 
-        String sessionId="16068913746941721";
+        String sessionId="16073046906651721";
         String userId="1721";
 
         String userInfo = sessionId + ";" + userId+"";

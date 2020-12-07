@@ -19,13 +19,14 @@ public class WebViewActivity extends AppCompatActivity {
 
         web_view=findViewById(R.id.webview);
 
-        String sessionId="16073020191871721";
+        String sessionId="16073049552101721";
         String userId="1721";
+
 //        MMKV mmkv=MMKV.defaultMMKV();
 //        String sessionId=mmkv.decodeString("sessionId");
 //        String userId=mmkv.decodeString("userId");
 
-
+//        NetUtils.getNetUtils().setHeader("16073046906651721","1721");
 //        NetUtils.getNetUtils().setHeader("");
         String userInfo = sessionId + ";" + userId+"";
         WebSettings webSettings = web_view.getSettings();
