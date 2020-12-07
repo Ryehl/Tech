@@ -2,18 +2,14 @@ package com.wd.tech.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.util.Log;
-
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.wd.mylibrary.utils.NetUtils;
 import com.wd.tech.Urls;
 import com.wd.tech.activities.ChatFriendActivity;
 import com.wd.tech.activities.ChatGroupActivity;
-import com.wd.tech.activities.JsonFriendInfoByJusernameBean;
-import com.wd.tech.broadcast.MyMessageReceiver;
+import com.wd.tech.beans.JsonFriendInfoByJusernameBean;
 
 import java.util.HashMap;
 
@@ -90,6 +86,7 @@ public class GlobalEventListener {
         switch (event.getType()) {
             case invite_received://收到好友邀请
                 //...
+                Toast.makeText(appContext, "收到好友邀请", Toast.LENGTH_SHORT).show();
                 break;
             case invite_accepted://对方接收了你的好友邀请
                 //...

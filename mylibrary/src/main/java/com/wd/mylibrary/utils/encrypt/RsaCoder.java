@@ -120,7 +120,7 @@ public class RsaCoder {
     public static void main(String[] args) throws Exception {
 
         //公钥加密数据
-        String str2 = encryptByPublicKey("123456");
+        String str2 = decryptByPublicKey("gMNH4he474mahpege9CqRtP%2FEscoG0o4qiUfmc54iPD%2BuGlrrdOzz441PCioQPzNEZhs1KqMrP%2FIHgWktsWpUQJEoXxGuIBOelV%2Btt2vtWke7VDn6F2Zsud8xazgYPd0hTpP9j%2FR7SojxuXofYblIP6s3YqFKxQzujHdnXeE3lY%3D ");
         System.out.println(str2);
     }
 }

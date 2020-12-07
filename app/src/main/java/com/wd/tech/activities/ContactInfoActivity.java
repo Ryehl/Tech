@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.wd.mylibrary.base.BaseActivity;
+import com.wd.mylibrary.utils.TypeConversionUtils;
 import com.wd.tech.R;
 import com.wd.tech.adapters.ContactMyGroupAdap;
 import com.wd.tech.beans.JsonFriendInfoBean;
@@ -136,7 +137,11 @@ public class ContactInfoActivity extends BaseActivity<ActContactnInfoPresenter> 
         tv_jf.setText("(" + result.getIntegral() + "积分)");
         tv_signature.setText(result.getSignature());
         String sex = result.getSex() == 1 ? "男" : "女";
-        tv_sex8bir.setText(sex + "(" + result.getBirthday() + ")");
+        long birthday = result.getBirthday();
+        if (birthday != 0)
+            tv_sex8bir.setText(sex + "(" + TypeConversionUtils.long2String(birthday) + ")");
+        else
+            tv_sex8bir.setText(sex);
         tv_phone.setText(result.getPhone());
         tv_email.setText(result.getEmail());
         userName = result.getUserName();
