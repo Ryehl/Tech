@@ -1,5 +1,8 @@
 package com.wd.tech.adapters;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wd.mylibrary.utils.TypeConversionUtils;
+import com.wd.tech.MyApp;
 import com.wd.tech.R;
 import com.wd.tech.beans.CollectBean;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuBridge;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuItemClickListener;
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.List;
 
-public class CollectAdapter extends RecyclerView.Adapter<CollectAdapter.ViewHolder> {
+public class CollectAdapter extends SwipeMenuRecyclerView.Adapter<CollectAdapter.ViewHolder> {
     private List<CollectBean.ResultBean> list;
+
+    private AlertDialog alertDialog;
 
     public CollectAdapter(List<CollectBean.ResultBean> list) {
         this.list = list;
@@ -70,6 +82,7 @@ public class CollectAdapter extends RecyclerView.Adapter<CollectAdapter.ViewHold
 
     public interface Go_Details{
         void details(int index);
+        void delete(int index_id);
     }
     private Go_Details go_details;
 

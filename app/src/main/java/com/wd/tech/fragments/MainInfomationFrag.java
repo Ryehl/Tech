@@ -95,23 +95,20 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
             list_title.add(bean.getTitle());
         }
 
-
-//        xBanner.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //if(xBannerBean.getResult().get(0).getRank()==5){
-//                    Intent intent=new Intent(getActivity(),DetailsActivity.class);
-//                    startActivity(intent);
-//                //}
-//            }
-//        });
         xBanner.setOnItemClickListener(new XBanner.OnItemClickListener() {
             @Override
             public void onItemClick(XBanner banner, Object model, View view, int position) {
-                if(xBannerBean.getResult().get(position).getRank()==5){
-                    Intent intent=new Intent(getActivity(), WebViewActivity.class);
-                    startActivity(intent);
+
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("url", xBannerBean.getResult().get(position).getJumpUrl());
+                startActivity(intent);
+
+                if(xBannerBean.getResult().get(position).getRank()==1){
+                    Intent intent1 = new Intent(getActivity(), DetailsActivity.class);
+                    intent.putExtra("id", 64);
+                    startActivity(intent1);
                 }
+
             }
         });
 
@@ -119,11 +116,13 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
         xBanner.setData(list_img, list_title);
         //用Glide设置图片
         xBanner.setmAdapter((banner, model, view, position) -> Glide.with(getContext()).load(list_img.get(position)).into((ImageView) view));
+
         //默认 横向移动
         xBanner.setPageTransformer(Transformer.Default);
         //时间
         xBanner.setPageChangeDuration(2000);
     }
+
     /*
      咨讯列表展示
      */
@@ -187,10 +186,11 @@ public class MainInfomationFrag extends BaseFragment<XBannerPresenter> {
 
     public void InformationData2(String json) {
         InformationBean informationBean = new Gson().fromJson(json, InformationBean.class);
-  //      Log.i("TAG", informationBean.toString());
+        //      Log.i("TAG", informationBean.toString());
         list_information.addAll(informationBean.getResult());
         informationAdapter.notifyDataSetChanged();
     }
+
     /**
      * 添加到收藏
      *

@@ -2,6 +2,7 @@ package com.wd.tech.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -24,6 +25,9 @@ public class WebViewActivity extends AppCompatActivity {
         MMKV mmkv = MMKV.defaultMMKV();
         String sessionId = mmkv.decodeString("sessionId");
         String userId = mmkv.decodeString("userId");
-        Utils.setCjClient(web_view, "http://mobile.bwstudent.com/htm/lottery/index.html", sessionId, userId);
+        Intent intent=getIntent();
+        String url=intent.getStringExtra("url");
+        Utils.setCjClient(web_view, url, sessionId, userId);
+
     }
 }

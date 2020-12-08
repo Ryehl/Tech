@@ -35,10 +35,12 @@ public class CollectPresenter extends BasePresenter<CollectActivity> {
     }
 
     //删除收藏
-    public void getDeleteCollectData(){
+    public void getDeleteCollectData(int infoId){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("infoId",infoId);
         if (InternetUtil.getNetworkState(MyApp.context) != InternetUtil.NETWORN_NONE) {
 
-            NetUtils.getNetUtils().getInfo(Urls.UnCollect_Url, new HashMap<String, Object>(), new NetUtils.GetJsonListener() {
+            NetUtils.getNetUtils().deleteInfo(Urls.UnCollect_Url, map, new NetUtils.GetJsonListener() {
                 @Override
                 public void success(String json) {
                     iView.CollectData(json);

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.MainInfomationFrag">
 
@@ -41,7 +42,17 @@
     <com.stx.xhb.xbanner.XBanner
         android:id="@+id/info_xbanner"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"
+        app:AutoPlayTime="3000"
+        app:pointsVisibility="false"
+        app:pointsPosition="CENTER"
+        app:isShowIndicatorOnlyOne="true"
+        app:pageChangeDuration="1000"
+        app:isClipChildrenMode="true"
+        tools:ignore="MissingConstraints"
+        app:isShowTips="true"
+        app:tipTextSize="20sp"
+        app:isTipsMarquee="true"/>
 
     <!--列表展示-->
     <com.jcodecraeer.xrecyclerview.XRecyclerView

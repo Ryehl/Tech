@@ -54,13 +54,13 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> {
 
     @Override
     public void initData() {
+
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
         //获取资讯详情
         pre.getDetailsData(id);
         //获取资讯评论
         pre.getDetailsCommentData(id);
-
 
     }
 
