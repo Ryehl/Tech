@@ -86,7 +86,8 @@ public class WelcomeActivity extends BaseActivity {
                 Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
                 Manifest.permission.WRITE_SETTINGS,
                 Manifest.permission.ACCESS_WIFI_STATE,
-                "com.bw.tech.permission.JPUSH_MESSAGE"
+                "com.bw.tech.permission.JPUSH_MESSAGE",
+                Manifest.permission.MODIFY_AUDIO_SETTINGS
         }, REQUEST_CODE);
     }
 

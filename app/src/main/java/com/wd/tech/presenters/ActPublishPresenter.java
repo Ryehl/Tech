@@ -43,7 +43,7 @@ public class ActPublishPresenter extends BasePresenter<PublishActivity> {
                 JsonMsgAndStatusBean sendBean = new Gson().fromJson(json, JsonMsgAndStatusBean.class);
                 if (iView != null)
                     iView.uploadImagesMsg(sendBean.getMessage());
-                //TODO 跳转到社区页面，刷新数据
+                iView.finish();
             }
 
             @Override

@@ -1,6 +1,5 @@
 package com.wd.tech.activities;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,12 +33,7 @@ public class NoticeActivity extends BaseActivity<NoticePresenter> {
         pre.getNoticeData();
 
         //返回上一页
-        notice_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        notice_back.setOnClickListener(v -> finish());
     }
 
     public void NoticeData(String json) {

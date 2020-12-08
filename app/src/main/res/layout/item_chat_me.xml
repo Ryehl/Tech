@@ -11,13 +11,19 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp" />
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/yuanxing" />
+
     <TextView
         android:id="@+id/item_chat_me_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/item_chat_me_img_hd"
         android:layout_toStartOf="@id/item_chat_me_img_hd"
-        android:text="asdfadf"
         android:textSize="20sp" />
 
     <RelativeLayout
@@ -26,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/item_chat_me_tv_name"
         android:layout_marginTop="10dp"
-        android:padding="20dp"
-        android:layout_toStartOf="@id/item_chat_me_img_hd" />
+        android:layout_toStartOf="@id/item_chat_me_img_hd"
+        android:padding="20dp" />
 
 </RelativeLayout>

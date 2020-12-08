@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.google.gson.Gson;
 import com.wd.mylibrary.utils.NetUtils;
 import com.wd.tech.Urls;
 import com.wd.tech.activities.ChatFriendActivity;
 import com.wd.tech.activities.ChatGroupActivity;
 import com.wd.tech.beans.JsonFriendInfoByJusernameBean;
+import com.wd.tech.broadcast.MyMessageReceiver;
 
 import java.util.HashMap;
 
@@ -24,12 +27,12 @@ import cn.jpush.im.android.api.model.UserInfo;
 
 public class GlobalEventListener {
     private Context appContext;
+    private final LocalBroadcastManager lbcManager;
 
     public GlobalEventListener(Context context) {
         appContext = context;
         JMessageClient.registerEventReceiver(this);
-//        IntentFilter intentFilter = IntentFilter.create("", "");
-//        LocalBroadcastManager.getInstance(context).registerReceiver(new MyMessageReceiver(), intentFilter);
+        lbcManager = LocalBroadcastManager.getInstance(context);
     }
 
     /**
@@ -68,8 +71,15 @@ public class GlobalEventListener {
         }
     }
 
+    /**
+     * 信息事件
+     *
+     * @param event
+     */
     public void onEvent(MessageEvent event) {
-        //TODO 发送广播
+        Intent intent = new Intent();
+        intent.setAction("msg");
+        lbcManager.sendBroadcast(intent);
     }
 
     /**
@@ -81,18 +91,17 @@ public class GlobalEventListener {
     public void onEvent(ContactNotifyEvent event) {
         String reason = event.getReason();
         String fromUsername = event.getFromUsername();
-        //String appkey = event.getfromUserAppKey();
 
         switch (event.getType()) {
             case invite_received://收到好友邀请
-                //...
-                Toast.makeText(appContext, "收到好友邀请", Toast.LENGTH_SHORT).show();
+                //TODO 更新 下面的角标
                 break;
             case invite_accepted://对方接收了你的好友邀请
                 //...
                 break;
             case invite_declined://对方拒绝了你的好友邀请
                 //...
+                Toast.makeText(appContext, "对方拒绝了你的好友申请", Toast.LENGTH_SHORT).show();
                 break;
             case contact_deleted://对方将你从好友中删除
                 //...

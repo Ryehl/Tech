@@ -2,10 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--背景颜色-->
-    <solid android:color="#fff"/>
+    <solid android:color="#fff" />
     <!--边框圆角-->
-    <corners
-        android:topRightRadius="6dp"
-        android:topLeftRadius="6dp"
-        />
+    <corners android:topLeftRadius="6dp" android:topRightRadius="6dp" />
 </selector>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-<!--    <item android:background="#FFF" android:state_selected="false"/>-->
-<!--    <item android:background="#00F" android:state_selected="true"/>-->
-    <item android:drawable="@drawable/border_blueback" android:state_selected="true"/>
-<!--    <item android:drawable="@color/white" android:state_selected="false"/>-->
+    <!--    <item android:background="#FFF" android:state_selected="false"/>-->
+    <!--    <item android:background="#00F" android:state_selected="true"/>-->
+    <item android:drawable="@drawable/border_blueback" android:state_selected="true" />
+    <!--    <item android:drawable="@color/white" android:state_selected="false"/>-->
     <item android:drawable="@android:color/transparent" />
 
 </selector>

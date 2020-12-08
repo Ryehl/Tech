@@ -17,6 +17,14 @@
             android:padding="10dp"
             android:textAlignment="center"
             android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/chat_friend_img_call"
+            android:layout_width="30dp"
+            android:layout_margin="10dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/call" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

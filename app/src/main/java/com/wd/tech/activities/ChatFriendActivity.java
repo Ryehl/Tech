@@ -33,6 +33,7 @@ import cn.jpush.im.android.api.event.MessageEvent;
 import cn.jpush.im.android.api.event.OfflineMessageEvent;
 import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
+import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.api.BasicCallback;
 
 public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
@@ -45,10 +46,7 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
     private RecyclerView recy_showChat;
     private EditText et_input;
     private Button btn_send;
-    private ImageView img_vol;
-    private ImageView img_img;
-    private ImageView img_camera;
-    private ImageView img_position;
+    private ImageView img_vol, img_img, img_camera, img_position, img_call;
     private JsonFriendInfoBean friendInfoBean;
     private JIMUtils jimUtils;
     private Conversation chatInfo;
@@ -60,6 +58,7 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
     public void initView() {
         tv_friendName = findViewById(R.id.chat_friend_tv_name);
         recy_showChat = findViewById(R.id.chat_friend_recy_chat);
+        img_call = findViewById(R.id.chat_friend_img_call);
 
         et_input = findViewById(R.id.include_chat_et_input);
         btn_send = findViewById(R.id.include_chat_btn_send);
@@ -103,6 +102,12 @@ public class ChatFriendActivity extends BaseActivity<ActChatFriendPresenter> {
                     //TODO 消息发送失败
                 }
             });
+        });
+
+        img_call.setOnClickListener(v -> {
+            Intent in = new Intent(this, CallActivity.class);
+            in.putExtra("JUserName", userName);
+            startActivity(in);
         });
     }
 

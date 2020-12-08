@@ -33,12 +33,7 @@ public class AttentionActivity extends BaseActivity<AttentionPresenter> {
     public void initData() {
         pre.getAttentionData();
         //返回上一个页面
-        attention_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        attention_back.setOnClickListener(v -> finish());
     }
 
     public void AttentionData(String json) {

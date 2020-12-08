@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -48,6 +49,9 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
 
     private TabLayout tab;
     boolean isDrawer;
+    private DrawerLayout drawer;
+    private long exitTime = 0;
+    private int position_tab = 0;
 
     @Override
     public void initView() {
@@ -64,6 +68,7 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 FragmentTransaction temp = fm.beginTransaction();
+                position_tab = tab.getPosition();
                 switch (tab.getPosition()) {
                     case 0:
                         temp.replace(R.id.main_frame_show, new MainInfomationFrag());
@@ -102,6 +107,7 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
             //重新选择
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+                position_tab = tab.getPosition();
                 FragmentTransaction temp = fm.beginTransaction();
                 switch (tab.getPosition()) {
                     case 0:
@@ -130,7 +136,7 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
         //侧滑
         final LinearLayout center = findViewById(R.id.main_center);
         final NavigationView left = findViewById(R.id.main_left);
-        DrawerLayout drawer = findViewById(R.id.main_drawer);
+        drawer = findViewById(R.id.main_drawer);
         center.setOnTouchListener((view, motionEvent) -> {
             if (isDrawer) {
                 return left.dispatchTouchEvent(motionEvent);
@@ -192,12 +198,20 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
         return new ActMainPresenter();
     }
 
-    private long exitTime = 0;
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //劫持返回键 -- 返回键需要按两次
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (isDrawer) {
+                drawer.closeDrawer(Gravity.LEFT);
+                return false;
+            }
+
+            if (position_tab != 0) {
+                tab.getTabAt(0).select();
+                return false;
+            }
+
             if ((System.currentTimeMillis() - exitTime) > 2000) {
                 Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();

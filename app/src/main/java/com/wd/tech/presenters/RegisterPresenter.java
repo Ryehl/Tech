@@ -42,6 +42,7 @@ public class RegisterPresenter extends BasePresenter<RegisterActivity> {
                         if (registerBean != null) {
                             if (registerBean.getMessage().equals("0000")) {
                                 Toast.makeText(MyApp.context, "注册成功！", Toast.LENGTH_SHORT).show();
+                                iView.finish();
                             } else {
                                 Toast.makeText(MyApp.context, registerBean.getMessage(), Toast.LENGTH_SHORT).show();
                             }

@@ -10,6 +10,7 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.mmkv.MMKV;
 import com.wd.tech.utils.GlobalEventListener;
+import com.wd.tech.utils.JMRtcUrl;
 
 import cn.jpush.im.android.api.JMessageClient;
 import io.realm.Realm;
@@ -48,5 +49,8 @@ public class MyApp extends Application {
         } else {
             Log.e(TAG, "onCreate: " + code);
         }
+
+        //音视频通话
+        JMRtcUrl.getJmRtcUrl().init();
     }
 }

@@ -28,3 +28,11 @@
 -keep class com.tencent.mm.sdk.** {
     *;
 }
+
+#========================JMRTC================================
+-dontwarn cn.jiguang.jmrtc.**
+-keep class cn.jiguang.jmrtc.api.** {*;}
+
+#========================Agora================================
+-dontwarn io.agora.rtc.**
+-keep class io.agora.rtc.** {*;}

@@ -109,4 +109,5 @@ dependencies {
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     //左滑删除
     implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
+    implementation 'cn.jiguang.sdk:jmrtc:1.0.2'  // 此处以jmrtc 1.0.2 版本为例
 }

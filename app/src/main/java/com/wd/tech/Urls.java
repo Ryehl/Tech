@@ -126,4 +126,10 @@ public class Urls {
 
     //根据手机号查询用户信息
     public static final String FindUserByPhone = "user/verify/v1/findUserByPhone";
+
+    //查询好友申请通知
+    public static final String Query_FriendNotice = "chat/verify/v1/findFriendNoticePageList";
+
+    //审核好友申请
+    public static final String Agree_Friendreq = "chat/verify/v1/reviewFriendApply";
 }

@@ -1,11 +1,13 @@
 package com.wd.tech.fragments;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import com.wd.mylibrary.base.BaseFragment;
 import com.wd.tech.R;
+import com.wd.tech.activities.FriendRequestNoticeActivity;
 import com.wd.tech.adapters.ContactExpandableListAdap;
 import com.wd.tech.beans.JsonFriendListBean;
 import com.wd.tech.presenters.FragMsgContantPresenter;
@@ -50,6 +52,12 @@ public class MsgContantFrag extends BaseFragment<FragMsgContantPresenter> {
         sdv_group.setImageResource(R.mipmap.nav_btn_setting_n);
         sdv_system.setHierarchy(hierarchy);
         sdv_system.setImageResource(R.drawable.system_msg);
+
+        //点击跳转
+        sdv_system.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), FriendRequestNoticeActivity.class);
+            startActivity(intent);
+        });
 
         //get data
         pre.initFriendList();
