@@ -177,7 +177,7 @@ public class MainActivity extends BaseActivity<ActMainPresenter> {
         if (mmkv.decodeBool(ConstantMMkv.Key_IsLogin)) {
             //已经登录显示的页面
             ft.replace(R.id.main_left, new DrawerLoginFrag());
-            //进行登录
+            //进行自动登录
             pre.LoginInfo(mmkv.decodeString(ConstantMMkv.Key_Phone), mmkv.decodeString(ConstantMMkv.Key_Pwd));
         } else {
             //未登录显示的页面

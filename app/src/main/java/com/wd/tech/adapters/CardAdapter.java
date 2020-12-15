@@ -50,17 +50,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView mycard_content, mycard_time, mycard_delete, mycard_comment_num, mycard_praise_num;
         SimpleDraweeView mycard_img;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             mycard_comment_num = itemView.findViewById(R.id.mycard_comment_num);
             mycard_content = itemView.findViewById(R.id.mycard_content);
             mycard_delete = itemView.findViewById(R.id.mycard_delete);
             mycard_time = itemView.findViewById(R.id.mycard_time);
             mycard_praise_num = itemView.findViewById(R.id.mycard_praise_num);
             mycard_img = itemView.findViewById(R.id.mycard_img);
-
         }
     }
 }

@@ -145,7 +145,7 @@ public class PublishActivity extends BaseActivity<ActPublishPresenter> {
      */
     public void openGallery(int maxSize) {
         PictureSelector.create(this)
-                .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
+                .openGallery(PictureMimeType.ofAll())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
                 .maxSelectNum(maxSize)// 最大图片选择数量 int
                 .minSelectNum(1)// 最小选择数量 int
                 .imageSpanCount(3)// 每行显示个数 int

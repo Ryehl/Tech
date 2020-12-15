@@ -1,18 +1,15 @@
 package com.wd.tech.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.wd.mylibrary.base.BaseActivity;
-import com.wd.tech.MyApp;
 import com.wd.tech.R;
 import com.wd.tech.presenters.ActCallPresenter;
 import com.wd.tech.utils.JIMUtils;
-import com.wd.tech.utils.JMRtcUrl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +27,16 @@ public class CallActivity extends BaseActivity<ActCallPresenter> {
 
     private String TAG = "CallActivity";
     private static JMRtcSession session;//通话数据元信息对象
+    private LinearLayout ll_receive;
 
     @Override
     public void initView() {
+        ll_receive = findViewById(R.id.ll_receive);
     }
 
     @Override
     public void initData() {
+        ll_receive.setVisibility(View.GONE);
         JMRtcClient.getInstance().initEngine(new JMRtcListener() {
             @Override
             public void onEngineInitComplete(final int errCode, final String errDesc) {
