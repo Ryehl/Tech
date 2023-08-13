@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.wd.tech">
+    package="com.wd.tech"
+    tools:ignore="LockedOrientationActivity">
 
     <uses-permission android:name="com.wd.tech.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -18,7 +19,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -37,9 +39,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.CallActivity"></activity>
-        <activity android:name=".activities.FriendRequestNoticeActivity" />
+        tools:ignore="DataExtractionRules,GoogleAppIndexingWarning">
+        <activity android:name=".activities.CallActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.FriendRequestNoticeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.WebViewActivity"
             android:launchMode="singleTask"
@@ -166,6 +170,7 @@
         <activity
             android:name=".activities.WelcomeActivity"
             android:launchMode="singleTask"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -180,6 +185,7 @@
             tools:node="replace" />
         <service
             android:name=".service.XService"
+            android:exported="true"
             android:process=":pushcore"
             tools:ignore="ExportedService">
             <intent-filter>

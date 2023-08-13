@@ -6,21 +6,21 @@ import com.wd.mylibrary.bean.Constant;
 import com.wd.mylibrary.bean.ConstantMMkv;
 import com.wd.mylibrary.interfaces.IApi;
 
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.Interceptor;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -52,6 +52,7 @@ public class NetUtils {
                         .addHeader("ak", "0110010010000")
                         .build())
                 )
+                .hostnameVerifier((hostname, session) -> true)
                 .connectTimeout(3, TimeUnit.SECONDS)
                 .readTimeout(3, TimeUnit.SECONDS)
                 .build();

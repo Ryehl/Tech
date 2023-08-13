@@ -3,23 +3,14 @@ apply plugin: 'realm-android'
 
 android {
 
-    signingConfigs { //在android代码块下写
-        debug {//这个地方可以写成 release
-            storeFile file('tech.keystore')
-            keyAlias "tech"
-            storePassword "123456"
-            keyPassword "123456"
-        }
-    }
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "com.wd.tech"
         minSdkVersion 25
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         //极光IM
         ndk {
@@ -33,6 +24,21 @@ android {
                 JPUSH_APPKEY : "d4cf77f0d3b85e9edc540dee", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('tech.keystore')
+            keyAlias "tech"
+            storePassword "123456"
+            keyPassword "123456"
+        }
+        release {
+            storeFile file('tech.keystore')
+            keyAlias "tech"
+            storePassword "123456"
+            keyPassword "123456"
+        }
     }
     buildTypes {
         release {
@@ -64,9 +70,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Gson依赖
     implementation 'com.google.code.gson:gson:2.4'
@@ -88,7 +91,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'com.android.support:design:30.0.0'
+    implementation 'com.android.support:design:33.0.0'
     //my library
     implementation project(path: ':mylibrary')
     //MMKV
